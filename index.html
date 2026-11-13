@@ -12,14 +12,14 @@ header h1{font-size:28px} header h1 span{color:#FF8A00}
 header p{font-size:13px;opacity:.9;margin-top:4px}
 .search{padding:12px;background:#fff;position:sticky;top:88px;z-index:9}
 .search input{width:100%;padding:13px 15px;border:2px solid #0A7A42;border-radius:25px;font-size:15px;outline:none}
-.cats{display:flex;gap:8px;overflow-x:auto;padding:12px;background:#fff;white-space:nowrap;scrollbar-width:none}
+.cats{display:flex;gap:8px;overflow-x:auto;padding:12px;background:#fff;white-space:nowrap}
 .cats button{border:1px solid #0A7A42;background:#fff;color:#0A7A42;padding:9px 16px;border-radius:20px;font-size:14px;cursor:pointer;flex-shrink:0}
 .cats button.active{background:#0A7A42;color:#fff}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:12px;max-width:1200px;margin:0 auto}
-@media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr);gap:16px;padding:16px}}
+@media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr)}}
 @media(min-width:1000px){.grid{grid-template-columns:repeat(4,1fr)}}
 .card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08)}
-.card .img{height:90px;display:flex;align-items:center;justify-content:center;font-size:42px;background:#e8f5ee}
+.card img{width:100%;height:140px;object-fit:cover;display:block;background:#eee}
 .card .body{padding:12px}
 .card h3{font-size:15px;margin-bottom:4px}
 .card .cat{font-size:11px;background:#FFF0D9;color:#B25A00;padding:3px 8px;border-radius:10px;display:inline-block;margin-bottom:6px}
@@ -29,13 +29,12 @@ header p{font-size:13px;opacity:.9;margin-top:4px}
 .down{color:#0A7A42}.up{color:#E53935}
 .card button{width:100%;margin-top:10px;background:#FF8A00;border:none;color:#fff;padding:10px;border-radius:10px;font-weight:700;cursor:pointer}
 footer{text-align:center;padding:20px;color:#888;font-size:12px}
-.hide{display:none}
 </style>
 </head>
 <body>
 <header><h1>Price<span>Oja</span> 🛒</h1><p>Know Price Before You Go Market • Lagos</p></header>
 <div class="search"><input id="search" placeholder="Search Rice, Sneakers, Fan, Handbag..." oninput="filter()"></div>
-<div class="cats" id="cats">
+<div class="cats">
 <button class="active" onclick="setCat('All',this)">All</button>
 <button onclick="setCat('Food',this)">🍚 Food</button>
 <button onclick="setCat('Clothes',this)">👕 Clothes</button>
@@ -44,42 +43,39 @@ footer{text-align:center;padding:20px;color:#888;font-size:12px}
 <button onclick="setCat('Home Appliance',this)">🏠 Home Appliance</button>
 </div>
 <div class="grid" id="grid"></div>
-<footer>PriceOja • Prices na sample, update daily • Made in Lagos 🇳🇬</footer>
+<footer>PriceOja • Real Photos • Made in Lagos 🇳🇬</footer>
 <script>
 let cur='All';
+const U="https://images.unsplash.com/photo-";
+const Q="?w=400&q=80&auto=format&fit=crop";
 const items=[
- // FOOD
- {n:"Rice (50kg)",c:"Food",e:"🍚",p:"₦85,000",m:"Mile 12 • Cheapest",t:"↓ ₦2,000",cl:"down"},
- {n:"Beans (50kg)",c:"Food",e:"🫘",p:"₦7,500",m:"Oyingbo • Cheapest",t:"↓ ₦500",cl:"down"},
- {n:"Garri (50kg)",c:"Food",e:"🥣",p:"₦48,000",m:"Mile 12 • Cheapest",t:"— Same",cl:"down"},
- {n:"Tomatoes (Basket)",c:"Food",e:"🍅",p:"₦35,000",m:"Mile 12 • Cheapest",t:"↑ ₦2,000",cl:"up"},
- {n:"Yam (10 Tubers)",c:"Food",e:"🍠",p:"₦22,000",m:"Ile Epo • Cheapest",t:"↓ ₦1,000",cl:"down"},
- {n:"Palm Oil (25L)",c:"Food",e:"🫙",p:"₦52,000",m:"Mushin • Cheapest",t:"↑ ₦1,500",cl:"up"},
- // CLOTHES
- {n:"Ankara (6 Yards)",c:"Clothes",e:"👗",p:"₦18,000",m:"Balogun • Cheapest",t:"— Same",cl:"down"},
- {n:"T-Shirt (Quality)",c:"Clothes",e:"👕",p:"₦8,500",m:"Yaba • Cheapest",t:"↓ ₦500",cl:"down"},
- {n:"Jeans Trouser",c:"Clothes",e:"👖",p:"₦15,000",m:"Balogun • Cheapest",t:"↑ ₦1,000",cl:"up"},
- {n:"Gown (Ladies)",c:"Clothes",e:"👗",p:"₦22,000",m:"Yaba • Cheapest",t:"↓ ₦2,000",cl:"down"},
- {n:"Native Wear (Senator)",c:"Clothes",e:"🧥",p:"₦28,000",m:"Balogun • Cheapest",t:"— Same",cl:"down"},
- {n:"Hoodie",c:"Clothes",e:"🧶",p:"₦16,500",m:"Yaba • Cheapest",t:"↓ ₦1,000",cl:"down"},
- // BAGS
- {n:"Handbag (Ladies)",c:"Bags",e:"👜",p:"₦15,000",m:"Yaba • Cheapest",t:"↓ ₦1,500",cl:"down"},
- {n:"School Bag",c:"Bags",e:"🎒",p:"₦12,000",m:"Balogun • Cheapest",t:"— Same",cl:"down"},
- {n:"Traveling Bag (Big)",c:"Bags",e:"🧳",p:"₦32,000",m:"Balogun • Cheapest",t:"↑ ₦2,000",cl:"up"},
- {n:"Backpack (Laptop)",c:"Bags",e:"🎒",p:"₦18,500",m:"Yaba • Cheapest",t:"↓ ₦1,000",cl:"down"},
- // SHOES
- {n:"Sneakers (Unisex)",c:"Shoes",e:"👟",p:"₦25,000",m:"Balogun • Cheapest",t:"↓ ₦2,000",cl:"down"},
- {n:"Slippers (Ladies)",c:"Shoes",e:"🩴",p:"₦7,000",m:"Yaba • Cheapest",t:"— Same",cl:"down"},
- {n:"Heels (Ladies)",c:"Shoes",e:"👠",p:"₦18,000",m:"Balogun • Cheapest",t:"↑ ₦1,000",cl:"up"},
- {n:"Sandals (Men)",c:"Shoes",e:"👞",p:"₦14,000",m:"Yaba • Cheapest",t:"↓ ₦500",cl:"down"},
- {n:"Crocs",c:"Shoes",e:"🩴",p:"₦11,500",m:"Balogun • Cheapest",t:"↓ ₦1,000",cl:"down"},
- // HOME APPLIANCE
- {n:"Standing Fan",c:"Home Appliance",e:"🌀",p:"₦45,000",m:"Alaba • Cheapest",t:"↓ ₦3,000",cl:"down"},
- {n:"Blender",c:"Home Appliance",e:"🥤",p:"₦28,000",m:"Alaba • Cheapest",t:"— Same",cl:"down"},
- {n:"Rice Cooker",c:"Home Appliance",e:"🍚",p:"₦35,000",m:"Alaba • Cheapest",t:"↑ ₦2,000",cl:"up"},
- {n:"Electric Kettle",c:"Home Appliance",e:"🍵",p:"₦18,000",m:"Alaba • Cheapest",t:"↓ ₦1,000",cl:"down"},
- {n:"32\" TV",c:"Home Appliance",e:"📺",p:"₦125,000",m:"Alaba • Cheapest",t:"↓ ₦5,000",cl:"down"},
- {n:"Gas Cooker (2 Burner)",c:"Home Appliance",e:"🔥",p:"₦68,000",m:"Alaba • Cheapest",t:"— Same",cl:"down"},
+ {n:"Rice (50kg)",c:"Food",img:U+"1586201375761-83865001e31c"+Q,p:"₦85,000",m:"Mile 12 • Cheapest",t:"↓ ₦2,000",cl:"down"},
+ {n:"Beans (50kg)",c:"Food",img:U+"1610725664285-7c57e6eeac3f"+Q,p:"₦7,500",m:"Oyingbo • Cheapest",t:"↓ ₦500",cl:"down"},
+ {n:"Garri (50kg)",c:"Food",img:U+"1626074353765-517a681e40be"+Q,p:"₦48,000",m:"Mile 12 • Cheapest",t:"— Same",cl:"down"},
+ {n:"Tomatoes (Basket)",c:"Food",img:U+"1592924357228-91a4daadcfea"+Q,p:"₦35,000",m:"Mile 12 • Cheapest",t:"↑ ₦2,000",cl:"up"},
+ {n:"Yam (10 Tubers)",c:"Food",img:U+"1615485290382-441e4d049cb5"+Q,p:"₦22,000",m:"Ile Epo • Cheapest",t:"↓ ₦1,000",cl:"down"},
+ {n:"Palm Oil (25L)",c:"Food",img:U+"1474979266404-7eaacbcd87c5"+Q,p:"₦52,000",m:"Mushin • Cheapest",t:"↑ ₦1,500",cl:"up"},
+ {n:"Ankara (6 Yards)",c:"Clothes",img:U+"1594938298603-c8148c4dae35"+Q,p:"₦18,000",m:"Balogun • Cheapest",t:"— Same",cl:"down"},
+ {n:"T-Shirt (Quality)",c:"Clothes",img:U+"1521572163474-6864f9cf17ab"+Q,p:"₦8,500",m:"Yaba • Cheapest",t:"↓ ₦500",cl:"down"},
+ {n:"Jeans Trouser",c:"Clothes",img:U+"1542272604-787c3835535d"+Q,p:"₦15,000",m:"Balogun • Cheapest",t:"↑ ₦1,000",cl:"up"},
+ {n:"Gown (Ladies)",c:"Clothes",img:U+"1595777457583-95e059d581b8"+Q,p:"₦22,000",m:"Yaba • Cheapest",t:"↓ ₦2,000",cl:"down"},
+ {n:"Native Wear (Senator)",c:"Clothes",img:U+"1507679799987-c73779587ccf"+Q,p:"₦28,000",m:"Balogun • Cheapest",t:"— Same",cl:"down"},
+ {n:"Hoodie",c:"Clothes",img:U+"1556821840-3a63f95609a7"+Q,p:"₦16,500",m:"Yaba • Cheapest",t:"↓ ₦1,000",cl:"down"},
+ {n:"Handbag (Ladies)",c:"Bags",img:U+"1584917865442-de89df76afd3"+Q,p:"₦15,000",m:"Yaba • Cheapest",t:"↓ ₦1,500",cl:"down"},
+ {n:"School Bag",c:"Bags",img:U+"1553062407-98eeb64c6a62"+Q,p:"₦12,000",m:"Balogun • Cheapest",t:"— Same",cl:"down"},
+ {n:"Traveling Bag (Big)",c:"Bags",img:U+"1565026057447-bc90a3dceb87"+Q,p:"₦32,000",m:"Balogun • Cheapest",t:"↑ ₦2,000",cl:"up"},
+ {n:"Backpack (Laptop)",c:"Bags",img:U+"1546938576-6e4a1f317cc1"+Q,p:"₦18,500",m:"Yaba • Cheapest",t:"↓ ₦1,000",cl:"down"},
+ {n:"Sneakers (Unisex)",c:"Shoes",img:U+"1542291026-7eec264c27ff"+Q,p:"₦25,000",m:"Balogun • Cheapest",t:"↓ ₦2,000",cl:"down"},
+ {n:"Slippers (Ladies)",c:"Shoes",img:U+"1603487742131-4160ec999306"+Q,p:"₦7,000",m:"Yaba • Cheapest",t:"— Same",cl:"down"},
+ {n:"Heels (Ladies)",c:"Shoes",img:U+"1543163521-1bf539c55dd2"+Q,p:"₦18,000",m:"Balogun • Cheapest",t:"↑ ₦1,000",cl:"up"},
+ {n:"Sandals (Men)",c:"Shoes",img:U+"1603487742131-4160ec999306"+Q,p:"₦14,000",m:"Yaba • Cheapest",t:"↓ ₦500",cl:"down"},
+ {n:"Crocs",c:"Shoes",img:U+"1603487742131-4160ec999306"+Q,p:"₦11,500",m:"Balogun • Cheapest",t:"↓ ₦1,000",cl:"down"},
+ {n:"Standing Fan",c:"Home Appliance",img:U+"1565151443833-29bfb2d0c6f4"+Q,p:"₦45,000",m:"Alaba • Cheapest",t:"↓ ₦3,000",cl:"down"},
+ {n:"Blender",c:"Home Appliance",img:U+"1570222094114-d054a817e56b"+Q,p:"₦28,000",m:"Alaba • Cheapest",t:"— Same",cl:"down"},
+ {n:"Rice Cooker",c:"Home Appliance",img:U+"1586201375761-83865001e31c"+Q,p:"₦35,000",m:"Alaba • Cheapest",t:"↑ ₦2,000",cl:"up"},
+ {n:"Electric Kettle",c:"Home Appliance",img:U+"1544213424759-4d0a9e1a1c9a"+Q,p:"₦18,000",m:"Alaba • Cheapest",t:"↓ ₦1,000",cl:"down"},
+ {n:"32\" TV",c:"Home Appliance",img:U+"1593359677879-a4bb92f829d1"+Q,p:"₦125,000",m:"Alaba • Cheapest",t:"↓ ₦5,000",cl:"down"},
+ {n:"Gas Cooker (2 Burner)",c:"Home Appliance",img:U+"1556910103-1c02745aae4d"+Q,p:"₦68,000",m:"Alaba • Cheapest",t:"— Same",cl:"down"},
 ];
 function render(){
  let q=document.getElementById('search').value.toLowerCase();
@@ -87,7 +83,7 @@ function render(){
  items.forEach(it=>{
   if(cur!=='All' && it.c!==cur) return;
   if(q && !it.n.toLowerCase().includes(q)) return;
-  html+=`<div class="card"><div class="img">${it.e}</div><div class="body"><span class="cat">${it.c}</span><h3>${it.n}</h3><div class="price">${it.p}</div><div class="market">📍 ${it.m}</div><div class="trend ${it.cl}">${it.t}</div><button onclick="alert('Cheapest: ${it.m} - ${it.p}')">Where Cheapest?</button></div></div>`;
+  html+=`<div class="card"><img src="${it.img}" onerror="this.style.display='none'"><div class="body"><span class="cat">${it.c}</span><h3>${it.n}</h3><div class="price">${it.p}</div><div class="market">📍 ${it.m}</div><div class="trend ${it.cl}">${it.t}</div><button onclick="alert('Cheapest: ${it.m} - ${it.p}')">Where Cheapest?</button></div></div>`;
  });
  document.getElementById('grid').innerHTML=html||'<p style="padding:20px">No item found</p>';
 }
