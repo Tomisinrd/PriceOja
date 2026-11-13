@@ -1,59 +1,124 @@
-<script>
-let C='All';
-const U="https://images.unsplash.com/photo-";
-const Q="?w=400&q=80&auto=format&fit=crop";
-const O="Oak Clothing • Lagos";
-const I=[
-{n:"Polo Ralph White",c:"Clothes",i:"1626497764746-6dc7f2b789fa",p:"N18,000",o:1},
-{n:"Polo Ralph Black",c:"Clothes",i:"1626497764746-6dc7f2b789fa",p:"N18,000",o:1},
-{n:"Polo Ralph Navy",c:"Clothes",i:"1626497764746-6dc7f2b789fa",p:"N18,500",o:1},
-{n:"Jeans Straight Black",c:"Clothes",i:"1542272604-787c3835535d",p:"N15,000",o:1},
-{n:"Jeans Blue Slim",c:"Clothes",i:"1542272604-787c3835535d",p:"N16,000",o:1},
-{n:"Jeans Ripped",c:"Clothes",i:"1542272604-787c3835535d",p:"N18,000",o:1},
-{n:"T-Shirt White",c:"Clothes",i:"1521572163474-6864f9cf17ab",p:"N8,500",o:1},
-{n:"T-Shirt Black",c:"Clothes",i:"1521572163474-6864f9cf17ab",p:"N8,500",o:1},
-{n:"T-Shirt Graphic",c:"Clothes",i:"1521572163474-6864f9cf17ab",p:"N10,000",o:1},
-{n:"Gold Necklace",c:"Jewelry",i:"1573408301185-9146fe634ad0",p:"N45,000",o:0},
-{n:"Silver Chain",c:"Jewelry",i:"1515562141207-7a88fb7ce338",p:"N28,000",o:0},
-{n:"Gold Earrings",c:"Jewelry",i:"1573408301185-9146fe634ad0",p:"N22,000",o:0},
-{n:"Rolex Style Watch",c:"Wristwatches",i:"1523275335684-37898b6baf30",p:"N85,000",o:0},
-{n:"Casio Watch",c:"Wristwatches",i:"1524805444758-089113d48a6d",p:"N25,000",o:0},
-{n:"Smart Watch",c:"Wristwatches",i:"1546868871-7041f2a55e12",p:"N35,000",o:0},
-{n:"Wall Art Frame",c:"Interior Decoration",i:"1513519245088-0e12902e5a38",p:"N18,000",o:0},
-{n:"LED Wall Light",c:"Interior Decoration",i:"1565538810643-b5bdb714032a",p:"N25,000",o:0},
-{n:"Flower Vase Set",c:"Interior Decoration",i:"1485955900006-10f4d324d411",p:"N15,000",o:0},
-{n:"Rice 50kg",c:"Food",i:"1586201375761-83865001e31c",p:"N85,000",o:0}
-];
-function orderOak(name){
-let msg="Hello Oak, I want "+name+" from PriceOja";
-window.open("https://wa.me/2348104966033?text="+encodeURIComponent(msg));
-}
-function show(){
-let q=document.getElementById('q').value.toLowerCase();
-let h="";
-for(let k=0;k<I.length;k++){
-let x=I[k];
-if(C!=='All'&&x.c!==C)continue;
-if(q&&x.n.toLowerCase().indexOf(q)==-1)continue;
-let btn="";
-if(x.o==1){
-btn='<button class="o" onclick="orderOak(\''+x.n+'\')">Order Oak on WhatsApp</button>';
-}else{
-btn='<button class="n">Where Cheapest?</button>';
-}
-let mk=x.o?O:'Lagos Market • Verified';
-h+='<div class="card"><img src="'+U+x.i+Q+'"><div class="b"><h3>'+x.n+'</h3><div class="pr">'+x.p+'</div><div class="mk">'+mk+'</div>'+btn+'</div></div>';
-}
-document.getElementById('g').innerHTML=h;
-}
-function cat(c,e){
-C=c;
-let btns=document.querySelectorAll('.c button');
-for(let i=0;i<btns.length;i++){btns[i].classList.remove('on');}
-e.classList.add('on');
-show();
-}
-show();
-</script>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PriceOja</title>
+<style>
+body{background:#f4f6f4;font-family:Arial;margin:0}
+header{background:#0A7A42;color:#fff;padding:16px;text-align:center}
+header span{color:#FF8A00}
+.v{background:#fff;margin:10px;border:2px solid #FF8A00;border-radius:12px;padding:12px}
+.v a{display:inline-block;padding:10px 14px;border-radius:8px;color:#fff;text-decoration:none;margin:4px 4px 0 0;font-weight:700}
+.call{background:#0A7A42}
+.wa{background:#25D366}
+.code{background:#FFF0D9;border:1px dashed #FF8A00;padding:8px;text-align:center;margin-top:8px}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}
+.card{background:#fff;border-radius:12px;overflow:hidden}
+.card img{width:100%;height:130px;object-fit:cover}
+.b{padding:10px}
+.b h3{font-size:13px;margin:0}
+.pr{font-weight:900;color:#0A7A42;font-size:17px;margin-top:4px}
+.mk{font-size:11px;color:#666;margin:4px 0}
+.btn{display:block;text-align:center;padding:9px;border-radius:8px;color:#fff;text-decoration:none;margin-top:6px;font-weight:700;font-size:13px}
+.oakbtn{background:#25D366}
+.otherbtn{background:#FF8A00;border:0;width:100%;padding:9px;border-radius:8px;color:#fff;font-weight:700}
+h2{margin:0}
+footer{text-align:center;padding:16px;color:#888;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+<h1>Price<span>Oja</span> 🛒</h1>
+<p>Know Price Before You Go Market • Lagos</p>
+</header>
+
+<div class="v">
+<h2>Oak Clothing ✓ Verified</h2>
+<p>Lagos • Polo Ralph, T-Shirt, Jeans • ⭐ 4.8</p>
+<a class="call" href="tel:+2348104966033">Call Oak</a>
+<a class="wa" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20saw%20you%20on%20PriceOja">WhatsApp Oak</a>
+<div class="code">Mention <b>PRICEOJA</b> to Oak for discount</div>
+</div>
+
+<div class="g">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1626497764746-6dc7f2b789fa?w=400">
+<div class="b"><h3>Polo Ralph White</h3><div class="pr">N18,000</div><div class="mk">Oak Clothing • Lagos</div><a class="btn oakbtn" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20Polo%20Ralph%20White%20from%20PriceOja">Order Oak on WhatsApp</a></div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1626497764746-6dc7f2b789fa?w=400">
+<div class="b"><h3>Polo Ralph Black</h3><div class="pr">N18,000</div><div class="mk">Oak Clothing • Lagos</div><a class="btn oakbtn" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20Polo%20Ralph%20Black%20from%20PriceOja">Order Oak on WhatsApp</a></div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1626497764746-6dc7f2b789fa?w=400">
+<div class="b"><h3>Polo Ralph Navy</h3><div class="pr">N18,500</div><div class="mk">Oak Clothing • Lagos</div><a class="btn oakbtn" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20Polo%20Ralph%20Navy%20from%20PriceOja">Order Oak on WhatsApp</a></div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400">
+<div class="b"><h3>Jeans Straight Black</h3><div class="pr">N15,000</div><div class="mk">Oak Clothing • Lagos</div><a class="btn oakbtn" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20Jeans%20from%20PriceOja">Order Oak on WhatsApp</a></div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400">
+<div class="b"><h3>Jeans Blue Slim</h3><div class="pr">N16,000</div><div class="mk">Oak Clothing • Lagos</div><a class="btn oakbtn" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20Jeans%20from%20PriceOja">Order Oak on WhatsApp</a></div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400">
+<div class="b"><h3>Jeans Ripped</h3><div class="pr">N18,000</div><div class="mk">Oak Clothing • Lagos</div><a class="btn oakbtn" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20Jeans%20from%20PriceOja">Order Oak on WhatsApp</a></div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400">
+<div class="b"><h3>T-Shirt White</h3><div class="pr">N8,500</div><div class="mk">Oak Clothing • Lagos</div><a class="btn oakbtn" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20T-Shirt%20from%20PriceOja">Order Oak on WhatsApp</a></div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400">
+<div class="b"><h3>T-Shirt Black</h3><div class="pr">N8,500</div><div class="mk">Oak Clothing • Lagos</div><a class="btn oakbtn" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20T-Shirt%20from%20PriceOja">Order Oak on WhatsApp</a></div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400">
+<div class="b"><h3>T-Shirt Graphic</h3><div class="pr">N10,000</div><div class="mk">Oak Clothing • Lagos</div><a class="btn oakbtn" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20T-Shirt%20from%20PriceOja">Order Oak on WhatsApp</a></div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=400">
+<div class="b"><h3>Gold Necklace</h3><div class="pr">N45,000</div><div class="mk">Lagos Jewelry Market</div><button class="otherbtn">Where Cheapest?</button></div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400">
+<div class="b"><h3>Silver Chain</h3><div class="pr">N28,000</div><div class="mk">Lagos Jewelry Market</div><button class="otherbtn">Where Cheapest?</button></div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=400">
+<div class="b"><h3>Gold Earrings</h3><div class="pr">N22,000</div><div class="mk">Lagos Jewelry Market</div><button class="otherbtn">Where Cheapest?</button></div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400">
+<div class="b"><h3>Rolex Style Watch</h3><div class="pr">N85,000</div><div class="mk">Lagos Watch Market</div><button class="otherbtn">Where Cheapest?</button></div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=400">
+<div class="b"><h3>Casio Watch</h3><div class="pr">N25,000</div><div class="mk">Lagos Watch Market</div><button class="otherbtn">Where Cheapest?</button></div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400">
+<div class="b"><h3>Smart Watch</h3><div class="pr">N35,000</div><div class="mk">Lagos Watch Market</div><button class="otherbtn">Where Cheapest?</button></div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=400">
+<div class="b"><h3>Wall Art Frame</h3><div class="pr">N18,000</div><div class="mk">Lagos Decor Market</div><button class="otherbtn">Where Cheapest?</button></div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=400">
+<div class="b"><h3>LED Wall Light</h3><div class="pr">N25,000</div><div class="mk">Lagos Decor Market</div><button class="otherbtn">Where Cheapest?</button></div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=400">
+<div class="b"><h3>Flower Vase Set</h3><div class="pr">N15,000</div><div class="mk">Lagos Decor Market</div><button class="otherbtn">Where Cheapest?</button></div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400">
+<div class="b"><h3>Rice 50kg</h3><div class="pr">N85,000</div><div class="mk">Mile 12 Market</div><button class="otherbtn">Where Cheapest?</button></div>
+</div>
+</div>
+<footer>PriceOja • Verified Vendors Only • Made in Lagos</footer>
 </body>
 </html>
