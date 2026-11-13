@@ -6,177 +6,120 @@
 <title>PriceOja — Nigeria's Real Market Price Platform</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#f6f6f6;color:#111}
-header{background:#0a7a42;color:#fff;padding:14px 16px;position:sticky;top:0;z-index:99}
-header h1{font-size:26px} header h1 span{color:#ffcc00}
-header p{font-size:12px;opacity:.9}
+body{background:#f1f1f1}
+header{background:#0a7a42;color:#fff;padding:12px 14px;position:sticky;top:0;z-index:99}
+.top{display:flex;justify-content:space-between;align-items:center}
+.top h1{font-size:26px} .top h1 span{color:#ffcc00}
+.top a{color:#fff;text-decoration:none;font-size:13px;border:1px solid #fff;padding:6px 10px;border-radius:20px}
 .search{margin:12px 0;display:flex;gap:8px}
-.search input{flex:1;padding:12px;border-radius:10px;border:none}
-.search button{background:#ffcc00;border:none;padding:12px 16px;border-radius:10px;font-weight:bold}
-.hero{background:#fff;padding:22px 16px;text-align:center}
-.hero h2{font-size:28px;line-height:1.2}
-.hero h2 span{color:#0a7a42}
-.hero p{margin:10px 0;color:#555}
-.btn{display:inline-block;background:#0a7a42;color:#fff;padding:13px 20px;border-radius:30px;text-decoration:none;font-weight:bold;margin:6px}
-.btn-yellow{background:#ffcc00;color:#111}
-.section{background:#fff;margin:12px;padding:18px;border-radius:14px}
-.section h3{font-size:20px;margin-bottom:10px;color:#0a7a42}
-.section p,.section li{font-size:14px;line-height:1.6;color:#333}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-.chip{background:#eef7f0;padding:8px 12px;border-radius:20px;font-size:13px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
-.card{background:#fff;border:1px solid #eee;border-radius:14px;overflow:hidden}
-.card img{width:100%;height:140px;object-fit:cover;background:#ddd}
-.card-body{padding:10px}
-.card-body b{font-size:14px}
-.price{color:#0a7a42;font-weight:bold;font-size:16px;margin:4px 0}
-.small{font-size:12px;color:#777}
-.card-body a{display:block;text-align:center;background:#25D366;color:#fff;padding:9px;border-radius:10px;text-decoration:none;font-weight:bold;margin-top:8px}
-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:10px}
-td,th{border:1px solid #ddd;padding:8px;text-align:left}
-th{background:#0a7a42;color:#fff}
-.badge{background:#ffcc00;padding:3px 8px;border-radius:20px;font-size:11px;font-weight:bold}
-footer{background:#111;color:#fff;padding:22px 16px;text-align:center}
-footer a{color:#ffcc00;text-decoration:none;font-weight:bold}
-.whatsapp{position:fixed;bottom:16px;right:16px;background:#25D366;color:#fff;padding:14px 18px;border-radius:30px;text-decoration:none;font-weight:bold;box-shadow:0 4px 12px rgba(0,0,0,.3)}
+.search input{flex:1;padding:12px;border-radius:8px;border:none}
+.search button{background:#ffcc00;border:none;padding:12px 16px;border-radius:8px;font-weight:bold}
+.banner{background:#fff;margin:12px;border-radius:12px;padding:16px;display:flex;gap:12px;align-items:center}
+.banner h2{font-size:20px;line-height:1.2} .banner h2 span{color:#0a7a42}
+.banner p{font-size:13px;color:#555;margin-top:6px}
+.banner img{width:90px;height:90px;object-fit:cover;border-radius:10px}
+.filters{background:#fff;margin:0 12px 12px;padding:12px;border-radius:12px}
+.filters b{font-size:13px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:8px 0;white-space:nowrap}
+.chip{border:1px solid #ddd;padding:8px 14px;border-radius:20px;font-size:13px;background:#fff;cursor:pointer}
+.chip.active{background:#0a7a42;color:#fff;border-color:#0a7a42}
+.sec{margin:12px}
+.sec h3{font-size:18px;margin-bottom:8px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.card{background:#fff;border-radius:12px;overflow:hidden;padding-bottom:10px}
+.card img{width:100%;height:150px;object-fit:cover}
+.card-body{padding:8px 10px}
+.card-body b{font-size:13px;line-height:1.3;display:block;min-height:34px}
+.price{color:#0a7a42;font-weight:bold;font-size:16px}
+.old{color:#999;text-decoration:line-through;font-size:12px}
+.meta{font-size:11px;color:#777;margin:4px 0}
+.badge{display:inline-block;font-size:10px;padding:3px 7px;border-radius:20px;font-weight:bold}
+.green{background:#d4edda;color:#0a7a42} .yellow{background:#ffcc00}
+.btn{display:block;text-align:center;margin:8px 10px 0;padding:10px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:13px}
+.wa{background:#25D366;color:#fff} .call{background:#f1f1f1;color:#111}
+.vendor{background:#fff;margin:12px;border-radius:12px;padding:14px;display:flex;gap:12px;align-items:center}
+.vendor img{width:55px;height:55px;border-radius:50%;object-fit:cover}
+.vendor b{font-size:14px} .vendor p{font-size:12px;color:#777}
+.vendor a{margin-left:auto;background:#0a7a42;color:#fff;padding:8px 12px;border-radius:20px;text-decoration:none;font-size:12px}
+footer{background:#111;color:#fff;padding:20px;text-align:center;margin-top:16px}
+footer a{color:#ffcc00;text-decoration:none}
 </style>
 </head>
 <body>
 
 <header>
-<h1>Price<span>Oja</span></h1>
-<p>Nigeria's Real Market Price Platform • Lagos</p>
-<div class="search"><input id="search" placeholder="Search iPhone, Rice, Polo, TV..." onkeyup="filter()"><button onclick="filter()">Search</button></div>
+<div class="top"><h1>Price<span>Oja</span></h1><a href="https://wa.me/2349063586563?text=Hello%20PriceOja%20I%20want%20to%20become%20a%20vendor">Become Vendor</a></div>
+<div class="search"><input id="q" placeholder="Search iPhone, Rice, Polo, TV..." onkeyup="filterAll()"><button onclick="filterAll()">Search</button></div>
 </header>
 
-<div class="hero">
-<h2>Real Markets. <span>Real Prices.</span><br>Real Vendors.</h2>
-<p>Know The Price Before You Go To Market.<br><b>Only vendors with reasonable prices are on PriceOja.</b><br>If you see it on PriceOja, that is the best affordable price you can get nationwide.</p>
-<a class="btn" href="#products">See Products ↓</a>
-<a class="btn btn-yellow" href="https://wa.me/2349063586563?text=Hello%20PriceOja%20I%20want%20to%20join%20as%20vendor">Become A Vendor</a>
+<div class="banner">
+<div><h2>Real Markets. <span>Real Prices.</span> Real Vendors.</h2><p>Know price before you go market. Only vendors with reasonable price dey here.</p></div>
+<img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=400">
 </div>
 
-<div class="section" id="problem">
-<h3>1. The Problem We Are Solving</h3>
-<ul>
-<li><b>Price Confusion:</b> Same Polo is N18,000 in Balogun, N28,000 in Lekki, N35,000 elsewhere. Who is telling truth?</li>
-<li><b>Expensive Online Stores:</b> Many add high commission, warehouse & logistics fees — buyer pays 30%-70% more.</li>
-<li><b>Market Stress:</b> Travel, bargain, waste transport, risk fake products.</li>
-<li><b>Good Vendors Are Hidden:</b> 95% of market vendors have no online presence.</li>
-<li><b>No Trust:</b> Buyers fear scam & fake. Vendors fear unserious buyers.</li>
-</ul>
-<p><b>Result:</b> Nigerians are buying blind. PriceOja is bringing light to the market.</p>
+<div class="filters">
+<b>Shop By Market</b>
+<div class="chips" id="marketChips">
+<button class="chip active" onclick="setMarket('All',this)">All Markets</button>
+<button class="chip" onclick="setMarket('Balogun',this)">Balogun</button>
+<button class="chip" onclick="setMarket('Mile 12',this)">Mile 12</button>
+<button class="chip" onclick="setMarket('Computer Village',this)">Computer Village</button>
+<button class="chip" onclick="setMarket('Yaba',this)">Yaba</button>
+<button class="chip" onclick="setMarket('Alaba',this)">Alaba</button>
+<button class="chip" onclick="setMarket('Oshodi',this)">Oshodi</button>
+<button class="chip" onclick="setMarket('Ladipo',this)">Ladipo</button>
+</div>
+<b>Shop By Category</b>
+<div class="chips" id="catChips">
+<button class="chip active" onclick="setCat('All',this)">All</button>
+<button class="chip" onclick="setCat('Phones',this)">Phones</button>
+<button class="chip" onclick="setCat('Fashion',this)">Fashion</button>
+<button class="chip" onclick="setCat('Groceries',this)">Groceries</button>
+<button class="chip" onclick="setCat('Electronics',this)">Electronics</button>
+<button class="chip" onclick="setCat('Computing',this)">Computing</button>
+</div>
 </div>
 
-<div class="section">
-<h3>2. The Solution — How PriceOja Works</h3>
-<p><b>For Buyers — 3 Steps:</b><br>1. Search for product &nbsp; 2. Compare real prices &nbsp; 3. Tap "Where Cheapest?" to WhatsApp vendor directly. No hidden charges.</p>
-<p style="margin-top:8px"><b>For Vendors — 3 Steps:</b><br>1. List products with real price &nbsp; 2. Get Verified &nbsp; 3. Get customers from all over Lagos.</p>
-<p style="margin-top:8px"><b>No Middleman. No Extra Charge On Buyer. Direct Vendor-to-Buyer.</b></p>
-</div>
+<div class="sec"><h3>🔥 Cheapest Today — Verified</h3><div class="grid" id="grid"></div></div>
 
-<div class="section">
-<h3>Shop By Market — 20 Markets</h3>
-<div class="chips">
-<span class="chip">Balogun</span><span class="chip">Mile 12</span><span class="chip">Idumota</span><span class="chip">Trade Fair</span><span class="chip">Computer Village</span><span class="chip">Yaba</span><span class="chip">Oshodi</span><span class="chip">Mushin</span><span class="chip">Oyingbo</span><span class="chip">Eko</span><span class="chip">Alaba</span><span class="chip">Ladipo</span><span class="chip">Ikeja</span><span class="chip">Lekki</span><span class="chip">Surulere</span><span class="chip">Agege</span><span class="chip">Ketu</span><span class="chip">Ikorodu</span><span class="chip">Ajah</span><span class="chip">Onitsha</span>
-</div>
-<h3 style="margin-top:16px">Shop By Category</h3>
-<div class="chips"><span class="chip">Phones</span><span class="chip">Computing</span><span class="chip">Electronics</span><span class="chip">Fashion</span><span class="chip">Shoes & Bags</span><span class="chip">Beauty</span><span class="chip">Home & Kitchen</span><span class="chip">Groceries</span><span class="chip">Baby</span><span class="chip">Sports</span><span class="chip">Car Parts</span><span class="chip">Wholesale</span></div>
-</div>
-
-<div class="section" id="products">
-<h3>Featured Products — Real Market Prices</h3>
-<div class="grid" id="productGrid">
-
-<div class="card product"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600"><div class="card-body"><b>White Polo Shirt</b><div class="price">₦12,000</div><div class="small">Balogun Market • Oak Clothing <span class="badge">✓✓ CHEAPEST</span></div><a href="https://wa.me/2349063586563?text=Hello%20PriceOja%20I%20want%20White%20Polo%20N12,000%20Code:%20PRICEOJA">Where Cheapest? → WhatsApp</a></div></div>
-
-<div class="card product"><img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=600"><div class="card-body"><b>iPhone 13 128GB</b><div class="price">₦620,000</div><div class="small">Computer Village • Verified ✓</div><a href="https://wa.me/2349063586563?text=Hello%20PriceOja%20I%20want%20iPhone%2013%20Code:%20PRICEOJA">Where Cheapest? → WhatsApp</a></div></div>
-
-<div class="card product"><img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=600"><div class="card-body"><b>Rice 50kg - Mama Gold</b><div class="price">₦98,000</div><div class="small">Mile 12 Market • Verified ✓</div><a href="https://wa.me/2349063586563?text=Hello%20PriceOja%20I%20want%20Rice%2050kg%20Code:%20PRICEOJA">Where Cheapest? → WhatsApp</a></div></div>
-
-<div class="card product"><img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=600"><div class="card-body"><b>Men Jeans Trouser</b><div class="price">₦15,000</div><div class="small">Yaba Market • Oak Clothing <span class="badge">✓✓ CHEAPEST</span></div><a href="https://wa.me/2349063586563?text=Hello%20PriceOja%20I%20want%20Jeans%20Code:%20PRICEOJA">Where Cheapest? → WhatsApp</a></div></div>
-
-<div class="card product"><img src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?w=600"><div class="card-body"><b>HP Laptop 15"</b><div class="price">₦485,000</div><div class="small">Computer Village • Verified ✓</div><a href="https://wa.me/2349063586563?text=Hello%20PriceOja%20I%20want%20HP%20Laptop%20Code:%20PRICEOJA">Where Cheapest? → WhatsApp</a></div></div>
-
-<div class="card product"><img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=600"><div class="card-body"><b>LG 43" Smart TV</b><div class="price">₦285,000</div><div class="small">Alaba Market • Verified ✓</div><a href="https://wa.me/2349063586563?text=Hello%20PriceOja%20I%20want%20LG%20TV%20Code:%20PRICEOJA">Where Cheapest? → WhatsApp</a></div></div>
-
-</div>
-<p style="margin-top:10px;font-size:12px;color:#777">Mention Code: <b>PRICEOJA</b> to get PriceOja price. If vendor increases price unfairly, they lose their Cheapest badge.</p>
-</div>
-
-<div class="section">
-<h3>Vendor Verification System</h3>
-<p><b>Level 1: Listed Vendor</b> — Price listed, under review.<br><b>Level 2: Verified Vendor ✓</b> — Price checked, shop real, feedback good.<br><b>Level 3: PriceOja Cheapest ✓✓</b> — Lowest fair price nationwide. Gets top placement.</p>
-<p style="margin-top:8px">Example: <b>Oak Clothing</b> is our first Verified Cheapest Vendor for Polo, Jeans & T-Shirts in Balogun / Yaba / Oshodi.</p>
-</div>
-
-<div class="section">
-<h3>Why PriceOja Is Different</h3>
-<table><tr><th>Feature</th><th>Expensive Stores</th><th>PriceOja</th></tr>
-<tr><td>Price Source</td><td>Warehouse + Commission</td><td>Direct Market Vendor</td></tr>
-<tr><td>Delivery Fee</td><td>₦2,000 - ₦5,000</td><td>Buyer picks up / Negotiates</td></tr>
-<tr><td>Commission on Buyer</td><td>High</td><td>0%</td></tr>
-<tr><td>Price</td><td>High</td><td><b>Best Affordable Nationwide</b></td></tr>
-<tr><td>Speed</td><td>2-5 Days</td><td>Same Day WhatsApp / Call</td></tr></table>
-</div>
-
-<div class="section">
-<h3>Market Opportunity</h3>
-<ul><li>Nigeria Population: <b>220M+</b></li><li>Internet Users: <b>150M+</b></li><li>Lagos Markets: <b>200+ Major Markets, 10M+ Daily Traders</b></li><li>E-commerce Market: <b>$7 Billion+, growing 20% yearly</b></li><li>Offline Vendors: <b>95% have no online store</b> — PriceOja targets them.</li></ul>
-<p><b>Phase 1:</b> Lagos — 20 Markets, 150+ Items<br><b>Phase 2:</b> Abuja, PH, Kano, Onitsha, Ibadan<br><b>Phase 3:</b> Nationwide — All 36 States + FCT</p>
-</div>
-
-<div class="section">
-<h3>Business Model — How We Make Money (Without Charging Buyers Extra)</h3>
-<ul><li><b>Vendor Subscription:</b> Basic Free 3 months • Verified ₦5,000/mo • Cheapest ₦15,000/mo</li><li><b>Featured Placement:</b> ₦10,000 - ₦50,000 / week</li><li><b>Wholesale Partnership:</b> Bulk buyers, schools, churches, companies</li><li><b>Advertising:</b> Brands, logistics, fintechs</li><li><b>Future App:</b> Optional escrow fee for secure payment</li></ul>
-<p><b>We will NEVER charge buyers extra.</b></p>
-</div>
-
-<div class="section">
-<h3>From Website To App — Our Roadmap</h3>
-<p><b>Stage 1: Website (Now — 0 to 6 Months)</b><br>Goal: 20 Markets, 1,000 Products, 100 Verified Vendors, 50,000 Monthly Users</p>
-<p style="margin-top:8px"><b>Stage 2: PriceOja App v1 (6 to 12 Months)</b><br>Price History, Price Alert, Location-Based "Near Me", Vendor Dashboard, Reviews, Favourites</p>
-<p style="margin-top:8px"><b>Stage 3: PriceOja App v2 (12 to 24 Months)</b><br>In-App Chat, Secure Payment (Escrow), Same-Day Delivery, PriceOja Pay, AI Price Prediction</p>
-<p style="margin-top:8px"><b>Stage 4: Pan-African</b><br>Ghana, Kenya, Cameroon — same model: Real Market Prices, Verified Vendors.</p>
-</div>
-
-<div class="section">
-<h3>Partnership Opportunities</h3>
-<p><b>For Vendors:</b> Get shop online FREE for first month. Get customers without leaving your shop. Get Verified Cheapest badge.<br><b>What We Need:</b> Honest prices, real photos, fast WhatsApp response.</p>
-<p style="margin-top:8px"><b>For Market Associations:</b> Dedicated page e.g. priceoja.com/balogun + Monthly report of most-searched products.</p>
-<p style="margin-top:8px"><b>For Logistics:</b> Partner for same-day delivery from market to buyer.</p>
-<p style="margin-top:8px"><b>For Investors:</b> Early-stage opportunity. Open to equity, revenue-share, strategic partnership. Investment for App, Onboarding Team & Marketing.</p>
-<p style="margin-top:8px"><b>For Brands:</b> List official products at official market price. Stop fakes from dominating search.</p>
-</div>
-
-<div class="section">
-<h3>Why Partner With Us Now?</h3>
-<ul><li><b>First Mover:</b> No one is doing Real Market Price Platform with verified market prices. We are first.</li><li><b>Vendor-First:</b> We protect vendors, not exploit them.</li><li><b>Buyer-First:</b> We protect buyers with verified prices.</li><li><b>Scalable:</b> If it works in Balogun, it works in Onitsha, Kano, Accra.</li></ul>
-</div>
-
-<div class="section" style="text-align:center">
-<h3>Join PriceOja Today</h3>
-<p><b>To Vendors:</b> Send shop name, market, products & prices on WhatsApp. We list you FREE for first month.</p>
-<p><b>To Partners:</b> Let's book 15-min call to discuss partnership / investment.</p>
-<a class="btn" href="https://wa.me/2349063586563?text=Hello%20PriceOja%20I%20want%20to%20partner">Chat On WhatsApp</a>
-<a class="btn btn-yellow" href="mailto:tomisinrd@gmail.com">Email Us</a>
-</div>
+<div class="sec"><h3>🏪 Verified Vendors On PriceOja</h3></div>
+<div class="vendor"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=200"><div><b>Oak Clothing ✓✓</b><p>Balogun / Yaba / Oshodi • Fashion • Cheapest for Polo & Jeans</p></div><a href="https://wa.me/2348101234567">Visit Shop</a></div>
+<div class="vendor"><img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=200"><div><b>TechZone Ikeja ✓</b><p>Computer Village • Phones & Laptops</p></div><a href="https://wa.me/2348034567890">Visit Shop</a></div>
+<div class="vendor"><img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=200"><div><b>Mama Gold Foods ✓</b><p>Mile 12 • Rice & Groceries</p></div><a href="https://wa.me/2348059876543">Visit Shop</a></div>
+<div class="vendor"><img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=200"><div><b>Alaba Electronics ✓</b><p>Alaba • TV & Home Appliances</p></div><a href="https://wa.me/2348091122334">Visit Shop</a></div>
 
 <footer>
-<h3>PriceOja — Real Markets. Real Prices. Real Vendors.</h3>
-<p style="margin-top:10px">Founder: <b>Fesojaiye A. Tomisin</b><br>WhatsApp: <a href="https://wa.me/2349063586563">09063586563</a><br>Email: <a href="mailto:tomisinrd@gmail.com">tomisinrd@gmail.com</a><br>Website: priceoja.com</p>
-<p style="margin-top:12px;font-size:12px;opacity:.7">© 2026 PriceOja Initiative. Made in Lagos, Nigeria.</p>
+<h3>PriceOja — Best Affordable Price Nationwide</h3>
+<p style="margin-top:8px;font-size:13px">Founder: Fesojaiye A. Tomisin<br>For Vendor Enquiries Only: <a href="https://wa.me/2349063586563">09063586563</a> • <a href="mailto:tomisinrd@gmail.com">tomisinrd@gmail.com</a></p>
+<p style="font-size:11px;opacity:.6;margin-top:10px">Mention Code PRICEOJA to get PriceOja price from vendor.</p>
 </footer>
 
-<a class="whatsapp" href="https://wa.me/2349063586563">💬 WhatsApp Us</a>
-
 <script>
-function filter(){
-let q=document.getElementById('search').value.toLowerCase();
-document.querySelectorAll('.product').forEach(c=>{
-c.style.display=c.innerText.toLowerCase().includes(q)?'block':'none';
+let market='All', cat='All';
+const products=[
+{id:1,name:"White Polo Shirt - Premium",price:12000,old:18000,market:"Balogun",cat:"Fashion",vendor:"Oak Clothing",badge:"CHEAPEST",img:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600",wa:"2348101234567",phone:"08101234567"},
+{id:2,name:"Men Jeans Trouser - Blue",price:15000,old:21000,market:"Yaba",cat:"Fashion",vendor:"Oak Clothing",badge:"CHEAPEST",img:"https://images.unsplash.com/photo-1542272604-787c3835535d?w=600",wa:"2348101234567",phone:"08101234567"},
+{id:3,name:"iPhone 13 128GB UK Used",price:620000,old:720000,market:"Computer Village",cat:"Phones",vendor:"TechZone Ikeja",badge:"VERIFIED",img:"https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=600",wa:"2348034567890",phone:"08034567890"},
+{id:4,name:"Samsung Galaxy A55 5G",price:485000,old:550000,market:"Computer Village",cat:"Phones",vendor:"TechZone Ikeja",badge:"VERIFIED",img:"https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=600",wa:"2348034567890",phone:"08034567890"},
+{id:5,name:"Rice 50kg - Mama Gold",price:98000,old:115000,market:"Mile 12",cat:"Groceries",vendor:"Mama Gold Foods",badge:"CHEAPEST",img:"https://images.unsplash.com/photo-1586201375761-83865001e31c?w=600",wa:"2348059876543",phone:"08059876543"},
+{id:6,name:"LG 43\" Smart TV",price:285000,old:340000,market:"Alaba",cat:"Electronics",vendor:"Alaba Electronics",badge:"VERIFIED",img:"https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=600",wa:"2348091122334",phone:"08091122334"},
+{id:7,name:"HP Laptop 15\" Core i5",price:485000,old:560000,market:"Computer Village",cat:"Computing",vendor:"TechZone Ikeja",badge:"VERIFIED",img:"https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?w=600",wa:"2348034567890",phone:"08034567890"},
+{id:8,name:"Black T-Shirt - Pack of 3",price:13500,old:18000,market:"Oshodi",cat:"Fashion",vendor:"Oak Clothing",badge:"CHEAPEST",img:"https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600",wa:"2348101234567",phone:"08101234567"},
+{id:9,name:"Standing Fan - Ox 18\"",price:52000,old:65000,market:"Alaba",cat:"Electronics",vendor:"Alaba Electronics",badge:"VERIFIED",img:"https://images.unsplash.com/photo-1565151443833-29bfb3e3e3b5?w=600",wa:"2348091122334",phone:"08091122334"},
+{id:10,name:"Groundnut Oil 5L",price:28000,old:34000,market:"Mile 12",cat:"Groceries",vendor:"Mama Gold Foods",badge:"VERIFIED",img:"https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=600",wa:"2348059876543",phone:"08059876543"},
+];
+function render(){
+let q=document.getElementById('q').value.toLowerCase();
+let html='';
+products.filter(p=>(market==='All'||p.market===market)&&(cat==='All'||p.cat===cat)&&p.name.toLowerCase().includes(q)).forEach(p=>{
+html+=`<div class="card"><img src="${p.img}"><div class="card-body"><b>${p.name}</b><div><span class="price">₦${p.price.toLocaleString()}</span> <span class="old">₦${p.old.toLocaleString()}</span></div><div class="meta">${p.vendor} • ${p.market}</div><span class="badge ${p.badge==='CHEAPEST'?'yellow':'green'}">${p.badge==='CHEAPEST'?'✓✓ CHEAPEST':'✓ VERIFIED'}</span><a class="btn wa" href="https://wa.me/${p.wa}?text=Hello%20${encodeURIComponent(p.vendor)}%20I%20saw%20${encodeURIComponent(p.name)}%20on%20PriceOja%20for%20N${p.price}%20Code:%20PRICEOJA">Chat Vendor on WhatsApp</a><a class="btn call" href="tel:${p.phone}">📞 Call Vendor</a></div></div>`;
 });
+document.getElementById('grid').innerHTML=html||'<p style="padding:10px">No product found for this market/category.</p>';
 }
+function setMarket(m,el){market=m;document.querySelectorAll('#marketChips .chip').forEach(c=>c.classList.remove('active'));el.classList.add('active');render();}
+function setCat(c,el){cat=c;document.querySelectorAll('#catChips .chip').forEach(ch=>ch.classList.remove('active'));el.classList.add('active');render();}
+function filterAll(){render();}
+render();
 </script>
 </body>
 </html>
