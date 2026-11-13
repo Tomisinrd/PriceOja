@@ -3,187 +3,147 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PriceOja</title>
+<title>PriceOja - Like Jumia, For Every Market</title>
 <style>
-body{background:#f4f6f4;font-family:Arial;margin:0}
-header{background:#0A7A42;color:#fff;padding:16px;text-align:center}
-header span{color:#FF8A00}
-.sec{padding:14px 10px 0 10px;font-size:18px;font-weight:900;color:#0A7A42}
-.g{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}
-.card{background:#fff;border-radius:12px;overflow:hidden}
-.card img{width:100%;height:130px;object-fit:cover}
-.b{padding:10px}
-.b h3{font-size:13px;margin:0}
-.pr{font-weight:900;color:#0A7A42;font-size:17px;margin-top:4px}
-.mk{font-size:11px;color:#666;margin:4px 0}
-details{margin-top:8px}
-summary{background:#FF8A00;color:#fff;padding:9px;border-radius:8px;text-align:center;font-weight:700;cursor:pointer;list-style:none;font-size:13px}
-.cheapbox{background:#FFF0D9;border:1px dashed #FF8A00;padding:10px;border-radius:8px;margin-top:6px;text-align:center}
-.cheapbox a{display:block;padding:10px;border-radius:8px;color:#fff;text-decoration:none;font-weight:700;margin-top:6px;font-size:13px}
-.wa{background:#25D366}
-.call{background:#0A7A42}
-footer{text-align:center;padding:16px;color:#888;font-size:12px}
+*{box-sizing:border-box}body{background:#f1f1f1;font-family:Arial;margin:0}
+header{background:#0A7A42;color:#fff;position:sticky;top:0;z-index:10}
+.top{max-width:1440px;margin:0 auto;padding:12px 10px;display:flex;justify-content:space-between;align-items:center}
+.top h1{margin:0;font-size:30px}.top h1 span{color:#FF8A00}
+.search{max-width:1440px;margin:0 auto;padding:0 10px 12px}.search input{width:100%;padding:14px;border-radius:8px;border:0;font-size:16px}
+.banner{max-width:1440px;margin:10px auto;padding:0 10px}.banner div{background:linear-gradient(90deg,#0A7A42,#FF8A00);color:#fff;border-radius:12px;padding:20px}
+.banner h2{margin:0}.banner p{margin:6px 0 0}
+.wrap{max-width:1440px;margin:0 auto;padding:0 10px 20px}
+.sec{padding:22px 0 12px;font-size:20px;font-weight:900;color:#0A7A42}
+.mkt{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.mkt a{background:#fff;border-radius:10px;padding:14px 6px;text-align:center;text-decoration:none;color:#111;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.mkt b{display:block;font-size:13px}.mkt span{font-size:11px;color:#666}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.card img{width:100%;height:160px;object-fit:cover}
+.b{padding:10px}.b h3{font-size:13px;margin:0;line-height:1.3}
+.pr{font-weight:900;color:#0A7A42;font-size:16px;margin-top:4px}.mk{font-size:11px;color:#666}
+details{margin-top:8px}summary{background:#FF8A00;color:#fff;padding:9px;border-radius:8px;text-align:center;font-weight:700;cursor:pointer;list-style:none;font-size:12px}
+.cheapbox{background:#FFF0D9;border:1px dashed #FF8A00;padding:8px;border-radius:8px;margin-top:6px;text-align:center;font-size:12px}
+.cheapbox a{display:block;padding:9px;border-radius:8px;color:#fff;text-decoration:none;font-weight:700;margin-top:6px}
+.wa{background:#25D366}.call{background:#0A7A42}
+footer{text-align:center;padding:20px;color:#888;background:#fff}
+@media(min-width:700px){.g{grid-template-columns:repeat(4,1fr)}.mkt{grid-template-columns:repeat(6,1fr)}}
+@media(min-width:1100px){.g{grid-template-columns:repeat(5,1fr)}}
 </style>
 </head>
 <body>
-<header>
-<h1>Price<span>Oja</span> 🛒</h1>
-<p>Know Price Before You Go Market • Lagos</p>
-</header>
+<header><div class="top"><div><h1>Price<span>Oja</span> 🛒</h1><p>Like Jumia • For Every Market</p></div><div>📍 Lagos</div></div><div class="search"><input placeholder="Search iPhone, Rice, TV, Polo, Wig, Fridge..."></div></header>
+<div class="banner"><div><h2>150+ Items • 20 Markets • One Place 🔥</h2><p>Phones • TV • Fashion • Food • Beauty • Home • Baby • Sports • Car Parts — Know Price Before You Go Market</p></div></div>
+<div class="wrap">
+<div class="sec">🏪 Shop By Market</div>
+<div class="mkt">
+<a href="#phones"><b>📱 Phones</b><span>Computer Village</span></a>
+<a href="#computing"><b>💻 Computing</b><span>Ikeja • Computer Village</span></a>
+<a href="#electronics"><b>🔌 Electronics</b><span>Alaba • Ikeja</span></a>
+<a href="#fashion"><b>👗 Fashion</b><span>Balogun • Yaba • Oshodi</span></a>
+<a href="#shoes"><b>👟 Shoes & Bags</b><span>Yaba • Oshodi</span></a>
+<a href="#beauty"><b>💄 Beauty</b><span>Lekki • Balogun</span></a>
+<a href="#home"><b>🏠 Home & Kitchen</b><span>Alaba • Trade Fair • Ajah</span></a>
+<a href="#groceries"><b>🍚 Groceries</b><span>Mile 12 • Agege • Ketu</span></a>
+<a href="#baby"><b>👶 Baby</b><span>Idumota</span></a>
+<a href="#sports"><b>⚽ Sports</b><span>Yaba</span></a>
+<a href="#car"><b>🚗 Car Parts</b><span>Ladipo</span></a>
+<a href="#marketfood"><b>🐟 Market Food</b><span>Oyingbo • Eko • Ikorodu</span></a>
+</div>
 
-<div class="sec">👕 Clothes</div>
+<div class="sec" id="phones">📱 Phones & Tablets — Computer Village / Ikeja</div>
 <div class="g">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1626497764746-6dc7f2b789fa?w=400">
-<div class="b"><h3>Polo Ralph White</h3><div class="pr">N18,000</div><div class="mk">Clothes</div>
-<details><summary>Where Cheapest? 👇</summary>
-<div class="cheapbox"><b>Oak Clothing ✓ Verified</b><br>Cheapest for this Polo<br>Mention <b>PRICEOJA</b> for discount<br><a class="wa" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20Polo%20Ralph%20White%20from%20PriceOja">WhatsApp Oak</a><a class="call" href="tel:+2348104966033">Call Oak</a></div>
-</details></div>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1626497764746-6dc7f2b789fa?w=400">
-<div class="b"><h3>Polo Ralph Black</h3><div class="pr">N18,000</div><div class="mk">Clothes</div>
-<details><summary>Where Cheapest? 👇</summary>
-<div class="cheapbox"><b>Oak Clothing ✓ Verified</b><br>Cheapest for this Polo<br>Mention <b>PRICEOJA</b> for discount<br><a class="wa" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20Polo%20Ralph%20Black%20from%20PriceOja">WhatsApp Oak</a><a class="call" href="tel:+2348104966033">Call Oak</a></div>
-</details></div>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1626497764746-6dc7f2b789fa?w=400">
-<div class="b"><h3>Polo Ralph Navy</h3><div class="pr">N18,500</div><div class="mk">Clothes</div>
-<details><summary>Where Cheapest? 👇</summary>
-<div class="cheapbox"><b>Oak Clothing ✓ Verified</b><br>Cheapest for this Polo<br>Mention <b>PRICEOJA</b> for discount<br><a class="wa" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20Polo%20Ralph%20Navy%20from%20PriceOja">WhatsApp Oak</a><a class="call" href="tel:+2348104966033">Call Oak</a></div>
-</details></div>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400">
-<div class="b"><h3>Jeans Straight Black</h3><div class="pr">N15,000</div><div class="mk">Clothes</div>
-<details><summary>Where Cheapest? 👇</summary>
-<div class="cheapbox"><b>Oak Clothing ✓ Verified</b><br>Cheapest for this Jeans<br>Mention <b>PRICEOJA</b> for discount<br><a class="wa" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20Jeans%20from%20PriceOja">WhatsApp Oak</a><a class="call" href="tel:+2348104966033">Call Oak</a></div>
-</details></div>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400">
-<div class="b"><h3>Jeans Blue Slim</h3><div class="pr">N16,000</div><div class="mk">Clothes</div>
-<details><summary>Where Cheapest? 👇</summary>
-<div class="cheapbox"><b>Oak Clothing ✓ Verified</b><br>Cheapest for this Jeans<br>Mention <b>PRICEOJA</b> for discount<br><a class="wa" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20Jeans%20from%20PriceOja">WhatsApp Oak</a><a class="call" href="tel:+2348104966033">Call Oak</a></div>
-</details></div>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400">
-<div class="b"><h3>Jeans Ripped</h3><div class="pr">N18,000</div><div class="mk">Clothes</div>
-<details><summary>Where Cheapest? 👇</summary>
-<div class="cheapbox"><b>Oak Clothing ✓ Verified</b><br>Cheapest for this Jeans<br>Mention <b>PRICEOJA</b> for discount<br><a class="wa" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20Jeans%20from%20PriceOja">WhatsApp Oak</a><a class="call" href="tel:+2348104966033">Call Oak</a></div>
-</details></div>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400">
-<div class="b"><h3>T-Shirt White</h3><div class="pr">N8,500</div><div class="mk">Clothes</div>
-<details><summary>Where Cheapest? 👇</summary>
-<div class="cheapbox"><b>Oak Clothing ✓ Verified</b><br>Cheapest for this T-Shirt<br>Mention <b>PRICEOJA</b> for discount<br><a class="wa" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20T-Shirt%20from%20PriceOja">WhatsApp Oak</a><a class="call" href="tel:+2348104966033">Call Oak</a></div>
-</details></div>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400">
-<div class="b"><h3>T-Shirt Black</h3><div class="pr">N8,500</div><div class="mk">Clothes</div>
-<details><summary>Where Cheapest? 👇</summary>
-<div class="cheapbox"><b>Oak Clothing ✓ Verified</b><br>Cheapest for this T-Shirt<br>Mention <b>PRICEOJA</b> for discount<br><a class="wa" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20T-Shirt%20from%20PriceOja">WhatsApp Oak</a><a class="call" href="tel:+2348104966033">Call Oak</a></div>
-</details></div>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400">
-<div class="b"><h3>T-Shirt Graphic</h3><div class="pr">N10,000</div><div class="mk">Clothes</div>
-<details><summary>Where Cheapest? 👇</summary>
-<div class="cheapbox"><b>Oak Clothing ✓ Verified</b><br>Cheapest for this T-Shirt<br>Mention <b>PRICEOJA</b> for discount<br><a class="wa" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20T-Shirt%20from%20PriceOja">WhatsApp Oak</a><a class="call" href="tel:+2348104966033">Call Oak</a></div>
-</details></div>
-</div>
+<div class="card"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600"><div class="b"><h3>iPhone 13 128GB</h3><div class="pr">N650,000</div><div class="mk">Computer Village</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Computer Village</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600"><div class="b"><h3>iPhone 12 128GB</h3><div class="pr">N520,000</div><div class="mk">Ikeja</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Ikeja Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600"><div class="b"><h3>iPhone 11 64GB</h3><div class="pr">N380,000</div><div class="mk">Computer Village</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Computer Village</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600"><div class="b"><h3>Samsung A54 5G</h3><div class="pr">N380,000</div><div class="mk">Computer Village</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Computer Village</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600"><div class="b"><h3>Samsung A34</h3><div class="pr">N280,000</div><div class="mk">Computer Village</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Computer Village</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600"><div class="b"><h3>Samsung S23</h3><div class="pr">N720,000</div><div class="mk">Ikeja</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Ikeja Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600"><div class="b"><h3>Tecno Camon 20</h3><div class="pr">N210,000</div><div class="mk">Computer Village</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Computer Village</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600"><div class="b"><h3>Tecno Spark 10</h3><div class="pr">N135,000</div><div class="mk">Computer Village</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Computer Village</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600"><div class="b"><h3>Infinix Hot 40</h3><div class="pr">N145,000</div><div class="mk">Computer Village</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Computer Village</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600"><div class="b"><h3>Infinix Note 30</h3><div class="pr">N185,000</div><div class="mk">Computer Village</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Computer Village</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600"><div class="b"><h3>Redmi Note 13</h3><div class="pr">N195,000</div><div class="mk">Computer Village</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Computer Village</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600"><div class="b"><h3>Redmi 12C</h3><div class="pr">N105,000</div><div class="mk">Computer Village</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Computer Village</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600"><div class="b"><h3>Nokia G21</h3><div class="pr">N95,000</div><div class="mk">Computer Village</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Computer Village</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600"><div class="b"><h3>iPad 9th Gen</h3><div class="pr">N420,000</div><div class="mk">Computer Village</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Computer Village</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600"><div class="b"><h3>Samsung Tab A8</h3><div class="pr">N220,000</div><div class="mk">Computer Village</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Computer Village</b><br>Best price<br>Vendor coming soon</div></details></div></div>
 </div>
 
-<div class="sec">💎 Jewelry</div>
+<div class="sec" id="computing">💻 Computing — Laptops, Accessories</div>
 <div class="g">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=400">
-<div class="b"><h3>Gold Necklace</h3><div class="pr">N45,000</div><div class="mk">Jewelry</div>
-<details><summary>Where Cheapest? 👇</summary>
-<div class="cheapbox"><b>Balotun Market</b><br>Best price for Jewelry in Lagos<br>Vendor coming soon</div>
-</details></div>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400">
-<div class="b"><h3>Silver Chain</h3><div class="pr">N28,000</div><div class="mk">Jewelry</div>
-<details><summary>Where Cheapest? 👇</summary>
-<div class="cheapbox"><b>Balotun Market</b><br>Best price for Jewelry in Lagos<br>Vendor coming soon</div>
-</details></div>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=400">
-<div class="b"><h3>Gold Earrings</h3><div class="pr">N22,000</div><div class="mk">Jewelry</div>
-<details><summary>Where Cheapest? 👇</summary>
-<div class="cheapbox"><b>Balotun Market</b><br>Best price for Jewelry in Lagos<br>Vendor coming soon</div>
-</details></div>
-</div>
+<div class="card"><img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600"><div class="b"><h3>HP Laptop 15 Core i5</h3><div class="pr">N450,000</div><div class="mk">Computer Village</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Computer Village</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?w=600"><div class="b"><h3>Dell Laptop Inspiron</h3><div class="pr">N420,000</div><div class="mk">Ikeja</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Ikeja Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?w=600"><div class="b"><h3>Lenovo ThinkPad</h3><div class="pr">N380,000</div><div class="mk">Computer Village</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Computer Village</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?w=600"><div class="b"><h3>MacBook Air M1</h3><div class="pr">N950,000</div><div class="mk">Ikeja</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Ikeja Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600"><div class="b"><h3>Wireless Mouse</h3><div class="pr">N8,500</div><div class="mk">Computer Village</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Computer Village</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600"><div class="b"><h3>Wireless Keyboard</h3><div class="pr">N15,000</div><div class="mk">Computer Village</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Computer Village</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1591488320449-011701bb6704?w=600"><div class="b"><h3>HP Printer</h3><div class="pr">N85,000</div><div class="mk">Computer Village</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Computer Village</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1618410320928-25228d811631?w=600"><div class="b"><h3>32GB Flash Drive</h3><div class="pr">N6,500</div><div class="mk">Computer Village</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Computer Village</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1591488320449-011701bb6704?w=600"><div class="b"><h3>1TB External Hard Drive</h3><div class="pr">N65,000</div><div class="mk">Computer Village</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Computer Village</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=600"><div class="b"><h3>AirPods Pro</h3><div class="pr">N85,000</div><div class="mk">Computer Village</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Computer Village</b><br>Best price<br>Vendor coming soon</div></details></div></div>
 </div>
 
-<div class="sec">⌚ Wristwatches</div>
+<div class="sec" id="electronics">🔌 Electronics — TV, Fridge, Generator</div>
 <div class="g">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400">
-<div class="b"><h3>Rolex Style Watch</h3><div class="pr">N85,000</div><div class="mk">Wristwatches</div>
-<details><summary>Where Cheapest? 👇</summary>
-<div class="cheapbox"><b>Trade Fair Market</b><br>Best price for Watches<br>Vendor coming soon</div>
-</details></div>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=400">
-<div class="b"><h3>Casio Watch</h3><div class="pr">N25,000</div><div class="mk">Wristwatches</div>
-<details><summary>Where Cheapest? 👇</summary>
-<div class="cheapbox"><b>Trade Fair Market</b><br>Best price for Watches<br>Vendor coming soon</div>
-</details></div>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400">
-<div class="b"><h3>Smart Watch</h3><div class="pr">N35,000</div><div class="mk">Wristwatches</div>
-<details><summary>Where Cheapest? 👇</summary>
-<div class="cheapbox"><b>Trade Fair Market</b><br>Best price for Watches<br>Vendor coming soon</div>
-</details></div>
-</div>
+<div class="card"><img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=600"><div class="b"><h3>LG TV 43 Inch Smart</h3><div class="pr">N320,000</div><div class="mk">Alaba</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Alaba Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=600"><div class="b"><h3>Samsung TV 55 Inch</h3><div class="pr">N520,000</div><div class="mk">Ikeja</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Ikeja Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=600"><div class="b"><h3>Hisense TV 32 Inch</h3><div class="pr">N185,000</div><div class="mk">Alaba</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Alaba Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=600"><div class="b"><h3>Hisense Fridge Double Door</h3><div class="pr">N280,000</div><div class="mk">Alaba</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Alaba Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=600"><div class="b"><h3>LG Fridge Single Door</h3><div class="pr">N220,000</div><div class="mk">Alaba</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Alaba Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1585515320310-259814833e62?w=600"><div class="b"><h3>Standing Fan 18 Inch</h3><div class="pr">N45,000</div><div class="mk">Alaba</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Alaba Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1585515320310-259814833e62?w=600"><div class="b"><h3>Ceiling Fan</h3><div class="pr">N38,000</div><div class="mk">Alaba</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Alaba Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600"><div class="b"><h3>Generator 2.5KVA</h3><div class="pr">N280,000</div><div class="mk">Alaba</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Alaba Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600"><div class="b"><h3>Generator 5.5KVA</h3><div class="pr">N450,000</div><div class="mk">Alaba</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Alaba Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600"><div class="b"><h3>Bluetooth Headphone</h3><div class="pr">N25,000</div><div class="mk">Computer Village</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Computer Village</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600"><div class="b"><h3>Bluetooth Speaker</h3><div class="pr">N32,000</div><div class="mk">Alaba</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Alaba Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=600"><div class="b"><h3>Home Theatre System</h3><div class="pr">N145,000</div><div class="mk">Alaba</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Alaba Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600"><div class="b"><h3>Rolex Style Watch</h3><div class="pr">N85,000</div><div class="mk">Trade Fair</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Trade Fair Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=600"><div class="b"><h3>Casio Watch</h3><div class="pr">N25,000</div><div class="mk">Trade Fair</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Trade Fair Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600"><div class="b"><h3>Smart Watch Ultra</h3><div class="pr">N35,000</div><div class="mk">Trade Fair</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Trade Fair Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
 </div>
 
-<div class="sec">🏠 Interior Decoration</div>
+<div class="sec" id="fashion">👗 Fashion — Polo, Jeans, Dress, Ankara</div>
 <div class="g">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=400">
-<div class="b"><h3>Wall Art Frame</h3><div class="pr">N18,000</div><div class="mk">Interior Decoration</div>
-<details><summary>Where Cheapest? 👇</summary>
-<div class="cheapbox"><b>Idumota Market</b><br>Best price for Decor<br>Vendor coming soon</div>
-</details></div>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=400">
-<div class="b"><h3>LED Wall Light</h3><div class="pr">N25,000</div><div class="mk">Interior Decoration</div>
-<details><summary>Where Cheapest? 👇</summary>
-<div class="cheapbox"><b>Idumota Market</b><br>Best price for Decor<br>Vendor coming soon</div>
-</details></div>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=400">
-<div class="b"><h3>Flower Vase Set</h3><div class="pr">N15,000</div><div class="mk">Interior Decoration</div>
-<details><summary>Where Cheapest? 👇</summary>
-<div class="cheapbox"><b>Idumota Market</b><br>Best price for Decor<br>Vendor coming soon</div>
-</details></div>
-</div>
+<div class="card"><img src="https://images.unsplash.com/photo-1626497764746-6dc7f2b789fa?w=600"><div class="b"><h3>Polo Ralph White</h3><div class="pr">N18,000</div><div class="mk">Balogun</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Oak Clothing ✓ Verified</b><br>Cheapest<br>Mention <b>PRICEOJA</b><br><a class="wa" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20Polo%20White%20from%20PriceOja">WhatsApp Oak</a><a class="call" href="tel:+2348104966033">Call Oak</a></div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1626497764746-6dc7f2b789fa?w=600"><div class="b"><h3>Polo Ralph Black</h3><div class="pr">N18,000</div><div class="mk">Balogun</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Oak Clothing ✓ Verified</b><br>Cheapest<br>Mention <b>PRICEOJA</b><br><a class="wa" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20Polo%20Black%20from%20PriceOja">WhatsApp Oak</a><a class="call" href="tel:+2348104966033">Call Oak</a></div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1626497764746-6dc7f2b789fa?w=600"><div class="b"><h3>Polo Ralph Navy</h3><div class="pr">N18,500</div><div class="mk">Yaba</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Oak Clothing ✓ Verified</b><br>Cheapest<br>Mention <b>PRICEOJA</b><br><a class="wa" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20Polo%20Navy%20from%20PriceOja">WhatsApp Oak</a><a class="call" href="tel:+2348104966033">Call Oak</a></div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1626497764746-6dc7f2b789fa?w=600"><div class="b"><h3>Polo Ralph Red</h3><div class="pr">N18,000</div><div class="mk">Balogun</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Oak Clothing ✓ Verified</b><br>Cheapest<br>Mention <b>PRICEOJA</b><br><a class="wa" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20Polo%20Red%20from%20PriceOja">WhatsApp Oak</a><a class="call" href="tel:+2348104966033">Call Oak</a></div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=600"><div class="b"><h3>Jeans Straight Black</h3><div class="pr">N15,000</div><div class="mk">Balogun</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Oak Clothing ✓ Verified</b><br>Cheapest<br>Mention <b>PRICEOJA</b><br><a class="wa" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20Jeans%20from%20PriceOja">WhatsApp Oak</a><a class="call" href="tel:+2348104966033">Call Oak</a></div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=600"><div class="b"><h3>Jeans Blue Slim</h3><div class="pr">N16,000</div><div class="mk">Yaba</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Oak Clothing ✓ Verified</b><br>Cheapest<br>Mention <b>PRICEOJA</b><br><a class="wa" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20Jeans%20from%20PriceOja">WhatsApp Oak</a><a class="call" href="tel:+2348104966033">Call Oak</a></div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=600"><div class="b"><h3>Jeans Ripped</h3><div class="pr">N18,000</div><div class="mk">Surulere</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Oak Clothing ✓ Verified</b><br>Cheapest<br>Mention <b>PRICEOJA</b><br><a class="wa" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20Jeans%20from%20PriceOja">WhatsApp Oak</a><a class="call" href="tel:+2348104966033">Call Oak</a></div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600"><div class="b"><h3>T-Shirt White</h3><div class="pr">N8,500</div><div class="mk">Balogun</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Oak Clothing ✓ Verified</b><br>Cheapest<br>Mention <b>PRICEOJA</b><br><a class="wa" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20T-Shirt%20from%20PriceOja">WhatsApp Oak</a><a class="call" href="tel:+2348104966033">Call Oak</a></div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600"><div class="b"><h3>T-Shirt Black</h3><div class="pr">N8,500</div><div class="mk">Surulere</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Oak Clothing ✓ Verified</b><br>Cheapest<br>Mention <b>PRICEOJA</b><br><a class="wa" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20T-Shirt%20from%20PriceOja">WhatsApp Oak</a><a class="call" href="tel:+2348104966033">Call Oak</a></div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600"><div class="b"><h3>T-Shirt Graphic</h3><div class="pr">N10,000</div><div class="mk">Oshodi</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Oak Clothing ✓ Verified</b><br>Cheapest<br>Mention <b>PRICEOJA</b><br><a class="wa" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20T-Shirt%20from%20PriceOja">WhatsApp Oak</a><a class="call" href="tel:+2348104966033">Call Oak</a></div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600"><div class="b"><h3>Women Gown - Ankara</h3><div class="pr">N22,000</div><div class="mk">Balogun</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Balogun Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600"><div class="b"><h3>Women Maxi Dress</h3><div class="pr">N18,500</div><div class="mk">Lekki</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Lekki Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600"><div class="b"><h3>Women Skirt</h3><div class="pr">N12,000</div><div class="mk">Yaba</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Yaba Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600"><div class="b"><h3>Men Jacket - Denim</h3><div class="pr">N28,000</div><div class="mk">Balogun</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Balogun Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600"><div class="b"><h3>Men Hoodie</h3><div class="pr">N18,000</div><div class="mk">Yaba</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Yaba Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?w=600"><div class="b"><h3>Ankara Fabric 6 Yards</h3><div class="pr">N12,000</div><div class="mk">Mushin</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Mushin Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?w=600"><div class="b"><h3>Lace Fabric</h3><div class="pr">N25,000</div><div class="mk">Mushin</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Mushin Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=600"><div class="b"><h3>Native Wear - Agbada</h3><div class="pr">N45,000</div><div class="mk">Surulere</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Surulere Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=600"><div class="b"><h3>Senator Wear</h3><div class="pr">N28,000</div><div class="mk">Surulere</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Surulere Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600"><div class="b"><h3>Women Trouser</h3><div class="pr">N10,500</div><div class="mk">Balogun</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Balogun Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
 </div>
 
-<div class="sec">🍚 Food</div>
+<div class="sec" id="shoes">👟 Shoes & Bags</div>
 <div class="g">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400">
-<div class="b"><h3>Rice 50kg</h3><div class="pr">N85,000</div><div class="mk">Food</div>
-<details><summary>Where Cheapest? 👇</summary>
-<div class="cheapbox"><b>Mile 12 Market</b><br>Best price for Rice<br>Vendor coming soon</div>
-</details></div>
-</div>
+<div class="card"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600"><div class="b"><h3>Nike Sneakers Red</h3><div class="pr">N35,000</div><div class="mk">Yaba</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Yaba Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600"><div class="b"><h3>Adidas Sneakers</h3><div class="pr">N32,000</div><div class="mk">Yaba</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Yaba Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600"><div class="b"><h3>New Balance Sneakers</h3><div class="pr">N38,000</div><div class="mk">Yaba</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Yaba Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=600"><div class="b"><h3>Men Loafers</h3><div class="pr">N22,000</div><div class="mk">Oshodi</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Oshodi Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=600"><div class="b"><h3>Women Heels</h3><div class="pr">N18,000</div><div class="mk">Oshodi</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Oshodi Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=600"><div class="b"><h3>Men Sandals</h3><div class="pr">N12,000</div><div class="mk">Oshodi</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Oshodi Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600"><div class="b"><h3>Leather Handbag</h3><div class="pr">N22,000</div><div class="mk">Oshodi</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Oshodi Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600"><div class="b"><h3>Backpack</h3><div class="pr">N18,000</div><div class="mk">Oshodi</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Oshodi Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600"><div class="b"><h3>Travel Bag</h3><div class="pr">N35,000</div><div class="mk">Oshodi</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Oshodi Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600"><div class="b"><h3>Crossbody Bag</h3><div class="pr">N14,000</div><div class="mk">Oshodi</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Oshodi Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
 </div>
 
-<footer>PriceOja • Verified Vendors Only • Made in Lagos</footer>
-</body>
-</html>
+<div class="sec" id="beauty">💄 Beauty & Health — Wig, Perfume, Makeup, Jewelry</div>
+<div class="g">
+<div class="card"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600"><div class="b"><h3>Human Hair Wig 26 Inch</h3><div class="pr">N85,000</div><div class="mk">Lekki</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Lekki Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600"><div class="b"><h3>Bone Straight Wig 22 Inch</h3><div class="pr">N75,000</div><div class="mk">Lekki</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Lekki Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600"><div class="b"><h3>Curly Wig 18 Inch</h3><div class="pr">N55,000</div><div class="mk">Lekki</div><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Lekki Market</b><br>Best price<br>Vendor coming soon</div></details></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1596462502278-
