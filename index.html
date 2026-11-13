@@ -1,32 +1,56 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PriceOja</title><style>*{box-sizing:border-box;margin:0;padding:0;font-family:Arial}body{background:#f4f6f4}header{background:#0A7A42;color:#fff;padding:16px;text-align:center}header span{color:#FF8A00}.s{padding:10px;background:#fff}.s input{width:100%;padding:12px;border:2px solid #0A7A42;border-radius:20px}.c{display:flex;gap:6px;overflow:auto;padding:10px;background:#fff}.c button{border:1px solid #0A7A42;background:#fff;color:#0A7A42;padding:8px 14px;border-radius:20px;white-space:nowrap}.c button.on{background:#0A7A42;color:#fff}.v{background:#fff;margin:10px;border:2px solid #FF8A00;border-radius:12px;padding:12px}.v a{display:inline-block;padding:10px 14px;border-radius:8px;color:#fff;text-decoration:none;font-weight:700;margin:4px 4px 0 0}.call{background:#0A7A42}.wa{background:#25D366}.code{background:#FFF0D9;border:1px dashed #FF8A00;padding:8px;text-align:center;margin-top:8px}.g{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}.card{background:#fff;border-radius:12px;overflow:hidden}.card img{width:100%;height:130px;object-fit:cover}.b{padding:10px}.b h3{font-size:13px}.pr{font-weight:900;color:#0A7A42;font-size:17px}.mk{font-size:11px;color:#666}.card button{width:100%;padding:9px;border:0;border-radius:8px;font-weight:700;margin-top:6px;color:#fff}.o{background:#25D366}.n{background:#FF8A00}</style></head><body>
-<header><h1>Price<span>Oja</span> 🛒</h1><p>Know Price Before You Go Market • Lagos</p></header>
-<div class="s"><input id="q" placeholder="Search Polo, Jeans, Jewelry..." oninput="show()"></div>
-<div class="c"><button class="on" onclick="cat('All',this)">All</button><button onclick="cat('Clothes',this)">👕 Clothes</button><button onclick="cat('Jewelry',this)">💎 Jewelry</button><button onclick="cat('Wristwatches',this)">⌚ Watches</button><button onclick="cat('Interior Decoration',this)">🏠 Decor</button><button onclick="cat('Food',this)">🍚 Food</button></div>
-<div class="v"><h2>Oak Clothing ✓ Verified</h2><p>📍 Lagos • Polo Ralph, T-Shirt, Jeans • ⭐ 4.8</p><p>Original Polo, Quality T-Shirts & Jeans.</p><a class="call" href="tel:+2348104966033">📞 Call Oak</a><a class="wa" href="https://wa.me/2348104966033?text=Hello%20Oak%20Clothing,%20I%20saw%20you%20on%20PriceOja">💬 WhatsApp Oak</a><div class="code">Mention <b>PRICEOJA</b> to Oak for special discount</div></div>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PriceOja</title>
+<style>
+body{background:#f4f6f4;font-family:Arial;margin:0}
+header{background:#0A7A42;color:#fff;padding:16px;text-align:center}
+header span{color:#FF8A00}
+.s{padding:10px;background:#fff}
+.s input{width:100%;padding:12px;border:2px solid #0A7A42;border-radius:20px}
+.c{display:flex;gap:6px;overflow:auto;padding:10px;background:#fff}
+.c button{border:1px solid #0A7A42;background:#fff;color:#0A7A42;padding:8px 14px;border-radius:20px}
+.c button.on{background:#0A7A42;color:#fff}
+.v{background:#fff;margin:10px;border:2px solid #FF8A00;border-radius:12px;padding:12px}
+.v a{display:inline-block;padding:10px 14px;border-radius:8px;color:#fff;text-decoration:none;margin:4px 4px 0 0;font-weight:700}
+.call{background:#0A7A42}
+.wa{background:#25D366}
+.code{background:#FFF0D9;border:1px dashed #FF8A00;padding:8px;text-align:center;margin-top:8px}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}
+.card{background:#fff;border-radius:12px;overflow:hidden}
+.card img{width:100%;height:130px;object-fit:cover}
+.b{padding:10px}
+.b h3{font-size:13px}
+.pr{font-weight:900;color:#0A7A42;font-size:17px}
+.mk{font-size:11px;color:#666}
+.card button{width:100%;padding:9px;border:0;border-radius:8px;font-weight:700;margin-top:6px;color:#fff}
+.o{background:#25D366}
+.n{background:#FF8A00}
+</style>
+</head>
+<body>
+<header>
+<h1>Price<span>Oja</span> 🛒</h1>
+<p>Know Price Before You Go Market • Lagos</p>
+</header>
+<div class="s">
+<input id="q" placeholder="Search Polo, Jeans, Jewelry..." oninput="show()">
+</div>
+<div class="c">
+<button class="on" onclick="cat('All',this)">All</button>
+<button onclick="cat('Clothes',this)">Clothes</button>
+<button onclick="cat('Jewelry',this)">Jewelry</button>
+<button onclick="cat('Wristwatches',this)">Watches</button>
+<button onclick="cat('Interior Decoration',this)">Decor</button>
+<button onclick="cat('Food',this)">Food</button>
+</div>
+<div class="v">
+<h2>Oak Clothing ✓ Verified</h2>
+<p>Lagos • Polo Ralph, T-Shirt, Jeans • ⭐ 4.8</p>
+<a class="call" href="tel:+2348104966033">Call Oak</a>
+<a class="wa" href="https://wa.me/2348104966033?text=Hello Oak, I saw you on PriceOja">WhatsApp Oak</a>
+<div class="code">Mention <b>PRICEOJA</b> to Oak for discount</div>
+</div>
 <div class="g" id="g"></div>
-<script>
-let C='All';const U="https://images.unsplash.com/photo-";const Q="?w=400&q=80&auto=format&fit=crop";const O="Oak Clothing • Lagos";
-const I=[
-{n:"Polo Ralph White",c:"Clothes",i:"1626497764746-6dc7f2b789fa",p:"₦18,000",o:1},
-{n:"Polo Ralph Black",c:"Clothes",i:"1626497764746-6dc7f2b789fa",p:"₦18,000",o:1},
-{n:"Polo Ralph Navy",c:"Clothes",i:"1626497764746-6dc7f2b789fa",p:"₦18,500",o:1},
-{n:"Jeans Straight Black",c:"Clothes",i:"1542272604-787c3835535d",p:"₦15,000",o:1},
-{n:"Jeans Blue Slim",c:"Clothes",i:"1542272604-787c3835535d",p:"₦16,000",o:1},
-{n:"Jeans Ripped",c:"Clothes",i:"1542272604-787c3835535d",p:"₦18,000",o:1},
-{n:"T-Shirt White",c:"Clothes",i:"1521572163474-6864f9cf17ab",p:"₦8,500",o:1},
-{n:"T-Shirt Black",c:"Clothes",i:"1521572163474-6864f9cf17ab",p:"₦8,500",o:1},
-{n:"T-Shirt Graphic",c:"Clothes",i:"1521572163474-6864f9cf17ab",p:"₦10,000",o:1},
-{n:"Gold Necklace",c:"Jewelry",i:"1573408301185-9146fe634ad0",p:"₦45,000",o:0},
-{n:"Silver Chain",c:"Jewelry",i:"1515562141207-7a88fb7ce338",p:"₦28,000",o:0},
-{n:"Gold Earrings",c:"Jewelry",i:"1573408301185-9146fe634ad0",p:"₦22,000",o:0},
-{n:"Rolex Style Watch",c:"Wristwatches",i:"1523275335684-37898b6baf30",p:"₦85,000",o:0},
-{n:"Casio Watch",c:"Wristwatches",i:"1524805444758-089113d48a6d",p:"₦25,000",o:0},
-{n:"Smart Watch",c:"Wristwatches",i:"1546868871-7041f2a55e12",p:"₦35,000",o:0},
-{n:"Wall Art Frame",c:"Interior Decoration",i:"1513519245088-0e12902e5a38",p:"₦18,000",o:0},
-{n:"LED Wall Light",c:"Interior Decoration",i:"1565538810643-b5bdb714032a",p:"₦25,000",o:0},
-{n:"Flower Vase Set",c:"Interior Decoration",i:"1485955900006-10f4d324d411",p:"₦15,000",o:0},
-{n:"Rice 50kg",c:"Food",i:"1586201375761-83865001e31c",p:"₦85,000",o:0}
-];
-function show(){let q=document.getElementById('q').value.toLowerCase();let h='';I.forEach(x=>{if(C!=='All'&&x.c!==C)return;if(q&&!x.n.toLowerCase().includes(q))return;let b=x.o?`<button class="o" onclick="window.open('https://wa.me/2348104966033?text=Hello Oak, I want ${encodeURIComponent(x.n)} from PriceOja')">Order Oak on WhatsApp</button>`:`<button class="n">Where Cheapest?</button>`;h+=`<div class="card"><img src="${U+x.i+Q}"><div class="b"><h3>${x.n}</h3><div class="pr">${x.p}</div><div class="mk">${x.o?O:'Lagos Market • Verified'}</div>${b}</div></div>`});document.getElementById('g').innerHTML=h}
-function cat(c,e){C=c;document.querySelectorAll('.c button').forEach(b=>b.classList.remove('on'));e.classList.add('on');show()}show();
-</script></body></html>
