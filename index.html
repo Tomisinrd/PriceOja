@@ -1,125 +1,215 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>PriceOja — Nigeria's Real Market Price Platform</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#f1f1f1}
-header{background:#0a7a42;color:#fff;padding:12px 14px;position:sticky;top:0;z-index:99}
-.top{display:flex;justify-content:space-between;align-items:center}
-.top h1{font-size:26px} .top h1 span{color:#ffcc00}
-.top a{color:#fff;text-decoration:none;font-size:13px;border:1px solid #fff;padding:6px 10px;border-radius:20px}
-.search{margin:12px 0;display:flex;gap:8px}
-.search input{flex:1;padding:12px;border-radius:8px;border:none}
-.search button{background:#ffcc00;border:none;padding:12px 16px;border-radius:8px;font-weight:bold}
-.banner{background:#fff;margin:12px;border-radius:12px;padding:16px;display:flex;gap:12px;align-items:center}
-.banner h2{font-size:20px;line-height:1.2} .banner h2 span{color:#0a7a42}
-.banner p{font-size:13px;color:#555;margin-top:6px}
-.banner img{width:90px;height:90px;object-fit:cover;border-radius:10px}
-.filters{background:#fff;margin:0 12px 12px;padding:12px;border-radius:12px}
-.filters b{font-size:13px}
-.chips{display:flex;gap:8px;overflow-x:auto;padding:8px 0;white-space:nowrap}
-.chip{border:1px solid #ddd;padding:8px 14px;border-radius:20px;font-size:13px;background:#fff;cursor:pointer}
-.chip.active{background:#0a7a42;color:#fff;border-color:#0a7a42}
-.sec{margin:12px}
-.sec h3{font-size:18px;margin-bottom:8px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.card{background:#fff;border-radius:12px;overflow:hidden;padding-bottom:10px}
-.card img{width:100%;height:150px;object-fit:cover}
-.card-body{padding:8px 10px}
-.card-body b{font-size:13px;line-height:1.3;display:block;min-height:34px}
-.price{color:#0a7a42;font-weight:bold;font-size:16px}
-.old{color:#999;text-decoration:line-through;font-size:12px}
-.meta{font-size:11px;color:#777;margin:4px 0}
-.badge{display:inline-block;font-size:10px;padding:3px 7px;border-radius:20px;font-weight:bold}
-.green{background:#d4edda;color:#0a7a42} .yellow{background:#ffcc00}
-.btn{display:block;text-align:center;margin:8px 10px 0;padding:10px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:13px}
-.wa{background:#25D366;color:#fff} .call{background:#f1f1f1;color:#111}
-.vendor{background:#fff;margin:12px;border-radius:12px;padding:14px;display:flex;gap:12px;align-items:center}
-.vendor img{width:55px;height:55px;border-radius:50%;object-fit:cover}
-.vendor b{font-size:14px} .vendor p{font-size:12px;color:#777}
-.vendor a{margin-left:auto;background:#0a7a42;color:#fff;padding:8px 12px;border-radius:20px;text-decoration:none;font-size:12px}
-footer{background:#111;color:#fff;padding:20px;text-align:center;margin-top:16px}
-footer a{color:#ffcc00;text-decoration:none}
+*{box-sizing:border-box}
+body{background:#f1f1f1;font-family:Arial;margin:0;color:#111}
+header{background:#0A7A42;color:#fff;width:100%;position:sticky;top:0;z-index:100}
+.top{max-width:1440px;margin:0 auto;padding:14px 10px;display:flex;justify-content:space-between;align-items:center}
+.top h1{margin:0;font-size:30px}
+.top h1 span{color:#FF8A00}
+.top p{margin:0;font-size:12px;opacity:.9}
+.top a{background:#fff;color:#0A7A42;padding:8px 14px;border-radius:20px;text-decoration:none;font-weight:700;font-size:13px}
+.search{max-width:1440px;margin:0 auto;padding:0 10px 14px 10px;display:flex;gap:8px}
+.search input{flex:1;padding:14px;border-radius:8px;border:0;font-size:16px;outline:none}
+.search button{background:#FF8A00;color:#fff;border:0;padding:14px 18px;border-radius:8px;font-weight:700;cursor:pointer}
+.banner{max-width:1440px;margin:10px auto;padding:0 10px}
+.banner div{background:linear-gradient(90deg,#0A7A42,#FF8A00);color:#fff;border-radius:12px;padding:22px 18px}
+.banner h2{margin:0;font-size:26px}
+.banner p{margin:6px 0 0 0}
+.trust{max-width:1440px;margin:0 auto;padding:0 10px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.trust div{background:#fff;border-radius:10px;padding:12px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.trust b{display:block;font-size:13px;color:#0A7A42}
+.trust span{font-size:11px;color:#666}
+.wrap{max-width:1440px;margin:0 auto;padding:0 10px 20px 10px}
+.sec{padding:22px 0 12px 0;font-size:22px;font-weight:900;color:#0A7A42}
+.sub{font-size:13px;color:#555;font-weight:400;margin-top:4px}
+.mkt{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.mkt button{background:#fff;border:0;border-radius:10px;padding:16px 8px;text-align:center;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.mkt b{display:block;font-size:14px}
+.mkt span{font-size:11px;color:#666}
+.mkt button.active{background:#0A7A42;color:#fff} .mkt button.active span{color:#fff}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.card img{width:100%;height:200px;object-fit:cover}
+.b{padding:14px}
+.b h3{font-size:16px;margin:0}
+.pr{font-weight:900;color:#0A7A42;font-size:20px;margin-top:6px}
+.old{font-size:13px;color:#999;text-decoration:line-through;margin-left:6px;font-weight:400}
+.mk{font-size:12px;color:#666;margin:4px 0}
+.badge{display:inline-block;font-size:11px;padding:4px 8px;border-radius:20px;font-weight:700;margin-top:4px}
+.badge-cheap{background:#FF8A00;color:#fff} .badge-ver{background:#E6F7EE;color:#0A7A42} .badge-soon{background:#eee;color:#666}
+details{margin-top:10px}
+summary{background:#FF8A00;color:#fff;padding:11px;border-radius:8px;text-align:center;font-weight:700;cursor:pointer;list-style:none;font-size:14px}
+.cheapbox{background:#FFF0D9;border:1px dashed #FF8A00;padding:12px;border-radius:8px;margin-top:8px;text-align:center;font-size:14px}
+.cheapbox a{display:block;padding:11px;border-radius:8px;color:#fff;text-decoration:none;font-weight:700;margin-top:8px}
+.wa{background:#25D366} .call{background:#0A7A42}
+.how{background:#fff;border-radius:12px;padding:18px;margin-top:18px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.how h3{margin:0;color:#0A7A42;font-size:20px}
+.how ol{padding-left:18px;line-height:1.7;font-size:14px;color:#333}
+.vendor-cta{background:#0A7A42;color:#fff;border-radius:12px;padding:20px;text-align:center;margin-top:18px}
+.vendor-cta h3{margin:0;font-size:22px} .vendor-cta p{font-size:14px;opacity:.9}
+.vendor-cta a{display:inline-block;background:#FF8A00;color:#fff;padding:12px 22px;border-radius:30px;text-decoration:none;font-weight:700;margin-top:12px}
+#noResult{display:none;text-align:center;background:#fff;padding:24px;border-radius:12px;margin-top:16px}
+footer{text-align:center;padding:22px;color:#888;font-size:13px;background:#fff;margin-top:10px;line-height:1.7}
+footer b{color:#111}
+@media(min-width:700px){.g{grid-template-columns:repeat(4,1fr)}.mkt{grid-template-columns:repeat(6,1fr)}.card img{height:210px}.banner h2{font-size:32px}}
+@media(min-width:1100px){.g{grid-template-columns:repeat(5,1fr)}.card img{height:220px}}
 </style>
 </head>
 <body>
-
 <header>
-<div class="top"><h1>Price<span>Oja</span></h1><a href="https://wa.me/2349063586563?text=Hello%20PriceOja%20I%20want%20to%20become%20a%20vendor">Become Vendor</a></div>
-<div class="search"><input id="q" placeholder="Search iPhone, Rice, Polo, TV..." onkeyup="filterAll()"><button onclick="filterAll()">Search</button></div>
+<div class="top"><div><h1>Price<span>Oja</span> 🛒</h1><p>Nigeria's Real Market Price Platform</p></div><div><a href="https://wa.me/2349063586563?text=Hello%20PriceOja%20I%20want%20to%20become%20a%20vendor">Become Vendor</a></div></div>
+<div class="search"><input id="searchInput" placeholder="Search Polo, Rice, iPhone, Watch... Try 'Polo' or 'Rice'" oninput="doSearch()"><button onclick="doSearch()">Search</button></div>
 </header>
 
-<div class="banner">
-<div><h2>Real Markets. <span>Real Prices.</span> Real Vendors.</h2><p>Know price before you go market. Only vendors with reasonable price dey here.</p></div>
-<img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=400">
+<div class="banner"><div><h2>Know Price Before You Go Market 🔥</h2><p>Real Markets. Real Prices. Real Vendors. — Only vendors with reasonable prices are on PriceOja. If you see it here, na the best affordable price nationwide.</p></div></div>
+
+<div class="trust">
+<div><b>✓ Verified Vendors</b><span>Price checked, shop real</span></div>
+<div><b>✓✓ Cheapest Badge</b><span>Lowest fair price wins</span></div>
+<div><b>0% Extra Charge</b><span>Chat vendor directly</span></div>
 </div>
 
-<div class="filters">
-<b>Shop By Market</b>
-<div class="chips" id="marketChips">
-<button class="chip active" onclick="setMarket('All',this)">All Markets</button>
-<button class="chip" onclick="setMarket('Balogun',this)">Balogun</button>
-<button class="chip" onclick="setMarket('Mile 12',this)">Mile 12</button>
-<button class="chip" onclick="setMarket('Computer Village',this)">Computer Village</button>
-<button class="chip" onclick="setMarket('Yaba',this)">Yaba</button>
-<button class="chip" onclick="setMarket('Alaba',this)">Alaba</button>
-<button class="chip" onclick="setMarket('Oshodi',this)">Oshodi</button>
-<button class="chip" onclick="setMarket('Ladipo',this)">Ladipo</button>
+<div class="wrap">
+<div class="sec">🏪 Shop By Market <div class="sub">Tap a market to filter products • Tap All to show everything</div></div>
+<div class="mkt" id="marketBtns">
+<button class="active" onclick="filterMarket('all',this)"><b>🌍 All Markets</b><span>Show All</span></button>
+<button onclick="filterMarket('balogun',this)"><b>🛍️ Balogun</b><span>Clothes • Jewelry</span></button>
+<button onclick="filterMarket('mile12',this)"><b>🍚 Mile 12</b><span>Food • Rice</span></button>
+<button onclick="filterMarket('idumota',this)"><b>🏠 Idumota</b><span>Decor</span></button>
+<button onclick="filterMarket('tradefair',this)"><b>⌚ Trade Fair</b><span>Watches</span></button>
+<button onclick="filterMarket('computer',this)"><b>📱 Computer Village</b><span>Phones</span></button>
+<button onclick="filterMarket('yaba',this)"><b>👟 Yaba Market</b><span>Clothes • Shoes</span></button>
 </div>
-<b>Shop By Category</b>
-<div class="chips" id="catChips">
-<button class="chip active" onclick="setCat('All',this)">All</button>
-<button class="chip" onclick="setCat('Phones',this)">Phones</button>
-<button class="chip" onclick="setCat('Fashion',this)">Fashion</button>
-<button class="chip" onclick="setCat('Groceries',this)">Groceries</button>
-<button class="chip" onclick="setCat('Electronics',this)">Electronics</button>
-<button class="chip" onclick="setCat('Computing',this)">Computing</button>
+
+<div id="noResult"><h3>No product found 😔</h3><p>Try "Polo", "Rice", "iPhone", "Watch" or tap All Markets</p><button onclick="clearSearch()" style="background:#0A7A42;color:#fff;border:0;padding:10px 18px;border-radius:20px;font-weight:700;margin-top:8px;cursor:pointer">Show All Products</button></div>
+
+<!-- BALOGUN -->
+<div class="market-sec" data-market="balogun">
+<div class="sec" id="balogun">🛍️ Balogun Market — Clothes & Jewelry</div>
+<div class="g">
+<div class="card product" data-name="polo ralph white polo shirt clothes balogun oak"><img src="https://images.unsplash.com/photo-1626497764746-6dc7f2b789fa?w=600"><div class="b"><h3>Polo Ralph White</h3><div class="pr">N18,000 <span class="old">N24,000</span></div><div class="mk">Balogun • Clothes</div><span class="badge badge-cheap">✓✓ CHEAPEST</span><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Oak Clothing ✓ Verified</b><br>Cheapest for this Polo<br>Mention <b>PRICEOJA</b><br><a class="wa" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20Polo%20Ralph%20White%20from%20PriceOja">WhatsApp Oak</a><a class="call" href="tel:+2348104966033">Call Oak</a></div></details></div></div>
+<div class="card product" data-name="polo ralph black polo shirt clothes balogun oak"><img src="https://images.unsplash.com/photo-1626497764746-6dc7f2b789fa?w=600"><div class="b"><h3>Polo Ralph Black</h3><div class="pr">N18,000 <span class="old">N24,000</span></div><div class="mk">Balogun • Clothes</div><span class="badge badge-cheap">✓✓ CHEAPEST</span><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Oak Clothing ✓ Verified</b><br>Cheapest for this Polo<br>Mention <b>PRICEOJA</b><br><a class="wa" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20Polo%20Ralph%20Black%20from%20PriceOja">WhatsApp Oak</a><a class="call" href="tel:+2348104966033">Call Oak</a></div></details></div></div>
+<div class="card product" data-name="jeans straight black jeans trouser balogun oak"><img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=600"><div class="b"><h3>Jeans Straight Black</h3><div class="pr">N15,000 <span class="old">N20,000</span></div><div class="mk">Balogun • Clothes</div><span class="badge badge-cheap">✓✓ CHEAPEST</span><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Oak Clothing ✓ Verified</b><br>Cheapest for this Jeans<br>Mention <b>PRICEOJA</b><br><a class="wa" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20Jeans%20from%20PriceOja">WhatsApp Oak</a><a class="call" href="tel:+2348104966033">Call Oak</a></div></details></div></div>
+<div class="card product" data-name="t-shirt white tshirt clothes balogun oak"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600"><div class="b"><h3>T-Shirt White</h3><div class="pr">N8,500 <span class="old">N12,000</span></div><div class="mk">Balogun • Clothes</div><span class="badge badge-cheap">✓✓ CHEAPEST</span><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Oak Clothing ✓ Verified</b><br>Cheapest for this T-Shirt<br>Mention <b>PRICEOJA</b><br><a class="wa" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20T-Shirt%20from%20PriceOja">WhatsApp Oak</a><a class="call" href="tel:+2348104966033">Call Oak</a></div></details></div></div>
+<div class="card product" data-name="gold necklace jewelry balogun"><img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=600"><div class="b"><h3>Gold Necklace</h3><div class="pr">N45,000</div><div class="mk">Balogun • Jewelry</div><span class="badge badge-ver">✓ PRICE CHECKED</span><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Balogun Market</b><br>Best price for Jewelry<br>Verified vendor onboarding soon — Chat PriceOja to join<br><a class="wa" href="https://wa.me/2349063586563?text=Hello%20PriceOja%20I%20want%20Gold%20Necklace">Ask PriceOja</a></div></details></div></div>
 </div>
 </div>
 
-<div class="sec"><h3>🔥 Cheapest Today — Verified</h3><div class="grid" id="grid"></div></div>
+<!-- MILE 12 -->
+<div class="market-sec" data-market="mile12">
+<div class="sec" id="mile12">🍚 Mile 12 Market — Food</div>
+<div class="g">
+<div class="card product" data-name="rice 50kg food mile 12"><img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=600"><div class="b"><h3>Rice 50kg</h3><div class="pr">N85,000 <span class="old">N105,000</span></div><div class="mk">Mile 12 • Food</div><span class="badge badge-ver">✓ PRICE CHECKED</span><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Mile 12 Market</b><br>Best price for Rice<br>Verified vendor onboarding soon<br><a class="wa" href="https://wa.me/2349063586563?text=Hello%20PriceOja%20I%20want%20Rice%2050kg">Ask PriceOja</a></div></details></div></div>
+<div class="card product" data-name="rice 25kg food mile 12"><img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=600"><div class="b"><h3>Rice 25kg</h3><div class="pr">N44,000</div><div class="mk">Mile 12 • Food</div><span class="badge badge-ver">✓ PRICE CHECKED</span><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Mile 12 Market</b><br>Best price for Rice<br>Verified vendor onboarding soon<br><a class="wa" href="https://wa.me/2349063586563?text=Hello%20PriceOja%20I%20want%20Rice%2025kg">Ask PriceOja</a></div></details></div></div>
+</div>
+</div>
 
-<div class="sec"><h3>🏪 Verified Vendors On PriceOja</h3></div>
-<div class="vendor"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=200"><div><b>Oak Clothing ✓✓</b><p>Balogun / Yaba / Oshodi • Fashion • Cheapest for Polo & Jeans</p></div><a href="https://wa.me/2348101234567">Visit Shop</a></div>
-<div class="vendor"><img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=200"><div><b>TechZone Ikeja ✓</b><p>Computer Village • Phones & Laptops</p></div><a href="https://wa.me/2348034567890">Visit Shop</a></div>
-<div class="vendor"><img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=200"><div><b>Mama Gold Foods ✓</b><p>Mile 12 • Rice & Groceries</p></div><a href="https://wa.me/2348059876543">Visit Shop</a></div>
-<div class="vendor"><img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=200"><div><b>Alaba Electronics ✓</b><p>Alaba • TV & Home Appliances</p></div><a href="https://wa.me/2348091122334">Visit Shop</a></div>
+<!-- IDUMOTA -->
+<div class="market-sec" data-market="idumota">
+<div class="sec" id="idumota">🏠 Idumota Market — Decor</div>
+<div class="g">
+<div class="card product" data-name="wall art frame decor idumota"><img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=600"><div class="b"><h3>Wall Art Frame</h3><div class="pr">N18,000</div><div class="mk">Idumota • Decor</div><span class="badge badge-ver">✓ PRICE CHECKED</span><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Idumota Market</b><br>Best price for Decor<br><a class="wa" href="https://wa.me/2349063586563?text=Hello%20PriceOja%20I%20want%20Wall%20Art">Ask PriceOja</a></div></details></div></div>
+<div class="card product" data-name="led wall light decor idumota"><img src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=600"><div class="b"><h3>LED Wall Light</h3><div class="pr">N25,000</div><div class="mk">Idumota • Decor</div><span class="badge badge-ver">✓ PRICE CHECKED</span><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Idumota Market</b><br>Best price for Decor<br><a class="wa" href="https://wa.me/2349063586563?text=Hello%20PriceOja%20I%20want%20LED%20Light">Ask PriceOja</a></div></details></div></div>
+<div class="card product" data-name="flower vase set decor idumota"><img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=600"><div class="b"><h3>Flower Vase Set</h3><div class="pr">N15,000</div><div class="mk">Idumota • Decor</div><span class="badge badge-ver">✓ PRICE CHECKED</span><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Idumota Market</b><br>Best price for Decor<br><a class="wa" href="https://wa.me/2349063586563?text=Hello%20PriceOja%20I%20want%20Flower%20Vase">Ask PriceOja</a></div></details></div></div>
+</div>
+</div>
+
+<!-- TRADE FAIR -->
+<div class="market-sec" data-market="tradefair">
+<div class="sec" id="tradefair">⌚ Trade Fair Market — Watches</div>
+<div class="g">
+<div class="card product" data-name="rolex style watch trade fair"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600"><div class="b"><h3>Rolex Style Watch</h3><div class="pr">N85,000</div><div class="mk">Trade Fair • Watches</div><span class="badge badge-ver">✓ PRICE CHECKED</span><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Trade Fair Market</b><br>Best price for Watches<br><a class="wa" href="https://wa.me/2349063586563?text=Hello%20PriceOja%20I%20want%20Rolex%20Watch">Ask PriceOja</a></div></details></div></div>
+<div class="card product" data-name="casio watch trade fair"><img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=600"><div class="b"><h3>Casio Watch</h3><div class="pr">N25,000</div><div class="mk">Trade Fair • Watches</div><span class="badge badge-ver">✓ PRICE CHECKED</span><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Trade Fair Market</b><br>Best price for Watches<br><a class="wa" href="https://wa.me/2349063586563?text=Hello%20PriceOja%20I%20want%20Casio%20Watch">Ask PriceOja</a></div></details></div></div>
+<div class="card product" data-name="smart watch trade fair"><img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600"><div class="b"><h3>Smart Watch</h3><div class="pr">N35,000</div><div class="mk">Trade Fair • Watches</div><span class="badge badge-ver">✓ PRICE CHECKED</span><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Trade Fair Market</b><br>Best price for Watches<br><a class="wa" href="https://wa.me/2349063586563?text=Hello%20PriceOja%20I%20want%20Smart%20Watch">Ask PriceOja</a></div></details></div></div>
+</div>
+</div>
+
+<!-- COMPUTER VILLAGE -->
+<div class="market-sec" data-market="computer">
+<div class="sec" id="computer">📱 Computer Village — Phones</div>
+<div class="g">
+<div class="card product" data-name="iphone 13 phone computer village"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600"><div class="b"><h3>iPhone 13</h3><div class="pr">N650,000 <span class="old">N720,000</span></div><div class="mk">Computer Village • Phones</div><span class="badge badge-ver">✓ PRICE CHECKED</span><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Computer Village</b><br>Best price for Phones<br><a class="wa" href="https://wa.me/2349063586563?text=Hello%20PriceOja%20I%20want%20iPhone%2013">Ask PriceOja</a></div></details></div></div>
+<div class="card product" data-name="samsung a54 phone computer village"><img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600"><div class="b"><h3>Samsung A54</h3><div class="pr">N380,000</div><div class="mk">Computer Village • Phones</div><span class="badge badge-ver">✓ PRICE CHECKED</span><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Computer Village</b><br>Best price for Phones<br><a class="wa" href="https://wa.me/2349063586563?text=Hello%20PriceOja%20I%20want%20Samsung%20A54">Ask PriceOja</a></div></details></div></div>
+<div class="card product" data-name="hp laptop computer village"><img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600"><div class="b"><h3>HP Laptop</h3><div class="pr">N450,000</div><div class="mk">Computer Village • Laptops</div><span class="badge badge-ver">✓ PRICE CHECKED</span><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Computer Village</b><br>Best price for Laptops<br><a class="wa" href="https://wa.me/2349063586563?text=Hello%20PriceOja%20I%20want%20HP%20Laptop">Ask PriceOja</a></div></details></div></div>
+</div>
+</div>
+
+<!-- YABA -->
+<div class="market-sec" data-market="yaba">
+<div class="sec" id="yaba">👟 Yaba Market — Clothes & Shoes</div>
+<div class="g">
+<div class="card product" data-name="polo ralph navy polo shirt yaba oak"><img src="https://images.unsplash.com/photo-1626497764746-6dc7f2b789fa?w=600"><div class="b"><h3>Polo Ralph Navy</h3><div class="pr">N18,000</div><div class="mk">Yaba • Clothes</div><span class="badge badge-cheap">✓✓ CHEAPEST</span><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Oak Clothing ✓ Verified</b><br>Cheapest for this Polo<br>Mention <b>PRICEOJA</b><br><a class="wa" href="https://wa.me/2348104966033?text=Hello%20Oak,%20I%20want%20Polo%20Navy%20from%20PriceOja">WhatsApp Oak</a><a class="call" href="tel:+2348104966033">Call Oak</a></div></details></div></div>
+<div class="card product" data-name="sneakers shoes yaba"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600"><div class="b"><h3>Sneakers - Red Nike Style</h3><div class="pr">N32,000</div><div class="mk">Yaba • Shoes</div><span class="badge badge-ver">✓ PRICE CHECKED</span><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>Yaba Market</b><br>Best price for Shoes<br><a class="wa" href="https://wa.me/2349063586563?text=Hello%20PriceOja%20I%20want%20Sneakers">Ask PriceOja</a></div></details></div></div>
+</div>
+</div>
+
+<div class="how">
+<h3>How PriceOja Works — For Buyers & Vendors</h3>
+<ol>
+<li><b>Search:</b> Search any product — Polo, Rice, iPhone, Watch. See real market price instantly.</li>
+<li><b>Compare:</b> See price from different markets side-by-side. No hidden charges.</li>
+<li><b>Connect:</b> Tap <b>Where Cheapest?</b> — Chat the verified cheapest vendor directly on WhatsApp. Mention <b>PRICEOJA</b> to get the PriceOja price.</li>
+</ol>
+<p style="font-size:13px;color:#555;margin-top:10px"><b>Our Rule:</b> Only vendors with reasonable, fair prices stay on PriceOja. If vendor increases price unfairly, they lose their Cheapest badge. • <b>Phase 1:</b> Lagos — 20 Markets • <b>Next:</b> Abuja, PH, Kano, Onitsha, Ibadan • <b>Coming Soon:</b> PriceOja App with Price Alert & Price History.</p>
+</div>
+
+<div class="vendor-cta">
+<h3>Are You A Market Vendor?</h3>
+<p>Get your shop online FREE for first month. Get customers from all over Lagos without leaving your shop. Get Verified Cheapest badge and dominate your category.</p>
+<a href="https://wa.me/2349063586563?text=Hello%20PriceOja%20I%20want%20to%20join%20as%20vendor%20My%20shop%20name%20is...">Join As Vendor — It's Free →</a>
+<p style="font-size:12px;margin-top:10px">What we need: Honest prices, real photos, fast WhatsApp response.</p>
+</div>
+
+</div>
 
 <footer>
-<h3>PriceOja — Best Affordable Price Nationwide</h3>
-<p style="margin-top:8px;font-size:13px">Founder: Fesojaiye A. Tomisin<br>For Vendor Enquiries Only: <a href="https://wa.me/2349063586563">09063586563</a> • <a href="mailto:tomisinrd@gmail.com">tomisinrd@gmail.com</a></p>
-<p style="font-size:11px;opacity:.6;margin-top:10px">Mention Code PRICEOJA to get PriceOja price from vendor.</p>
+<b>PriceOja — Real Markets. Real Prices. Real Vendors.</b><br>
+Founder: Fesojaiye A. Tomisin<br>
+Vendor Enquiries: <a href="https://wa.me/2349063586563" style="color:#0A7A42;font-weight:700">09063586563</a> • Email: tomisinrd@gmail.com<br>
+© 2026 PriceOja Initiative • Lagos, Nigeria • Best Affordable Price Nationwide
 </footer>
 
 <script>
-let market='All', cat='All';
-const products=[
-{id:1,name:"White Polo Shirt - Premium",price:12000,old:18000,market:"Balogun",cat:"Fashion",vendor:"Oak Clothing",badge:"CHEAPEST",img:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600",wa:"2348101234567",phone:"08101234567"},
-{id:2,name:"Men Jeans Trouser - Blue",price:15000,old:21000,market:"Yaba",cat:"Fashion",vendor:"Oak Clothing",badge:"CHEAPEST",img:"https://images.unsplash.com/photo-1542272604-787c3835535d?w=600",wa:"2348101234567",phone:"08101234567"},
-{id:3,name:"iPhone 13 128GB UK Used",price:620000,old:720000,market:"Computer Village",cat:"Phones",vendor:"TechZone Ikeja",badge:"VERIFIED",img:"https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=600",wa:"2348034567890",phone:"08034567890"},
-{id:4,name:"Samsung Galaxy A55 5G",price:485000,old:550000,market:"Computer Village",cat:"Phones",vendor:"TechZone Ikeja",badge:"VERIFIED",img:"https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=600",wa:"2348034567890",phone:"08034567890"},
-{id:5,name:"Rice 50kg - Mama Gold",price:98000,old:115000,market:"Mile 12",cat:"Groceries",vendor:"Mama Gold Foods",badge:"CHEAPEST",img:"https://images.unsplash.com/photo-1586201375761-83865001e31c?w=600",wa:"2348059876543",phone:"08059876543"},
-{id:6,name:"LG 43\" Smart TV",price:285000,old:340000,market:"Alaba",cat:"Electronics",vendor:"Alaba Electronics",badge:"VERIFIED",img:"https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=600",wa:"2348091122334",phone:"08091122334"},
-{id:7,name:"HP Laptop 15\" Core i5",price:485000,old:560000,market:"Computer Village",cat:"Computing",vendor:"TechZone Ikeja",badge:"VERIFIED",img:"https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?w=600",wa:"2348034567890",phone:"08034567890"},
-{id:8,name:"Black T-Shirt - Pack of 3",price:13500,old:18000,market:"Oshodi",cat:"Fashion",vendor:"Oak Clothing",badge:"CHEAPEST",img:"https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600",wa:"2348101234567",phone:"08101234567"},
-{id:9,name:"Standing Fan - Ox 18\"",price:52000,old:65000,market:"Alaba",cat:"Electronics",vendor:"Alaba Electronics",badge:"VERIFIED",img:"https://images.unsplash.com/photo-1565151443833-29bfb3e3e3b5?w=600",wa:"2348091122334",phone:"08091122334"},
-{id:10,name:"Groundnut Oil 5L",price:28000,old:34000,market:"Mile 12",cat:"Groceries",vendor:"Mama Gold Foods",badge:"VERIFIED",img:"https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=600",wa:"2348059876543",phone:"08059876543"},
-];
-function render(){
-let q=document.getElementById('q').value.toLowerCase();
-let html='';
-products.filter(p=>(market==='All'||p.market===market)&&(cat==='All'||p.cat===cat)&&p.name.toLowerCase().includes(q)).forEach(p=>{
-html+=`<div class="card"><img src="${p.img}"><div class="card-body"><b>${p.name}</b><div><span class="price">₦${p.price.toLocaleString()}</span> <span class="old">₦${p.old.toLocaleString()}</span></div><div class="meta">${p.vendor} • ${p.market}</div><span class="badge ${p.badge==='CHEAPEST'?'yellow':'green'}">${p.badge==='CHEAPEST'?'✓✓ CHEAPEST':'✓ VERIFIED'}</span><a class="btn wa" href="https://wa.me/${p.wa}?text=Hello%20${encodeURIComponent(p.vendor)}%20I%20saw%20${encodeURIComponent(p.name)}%20on%20PriceOja%20for%20N${p.price}%20Code:%20PRICEOJA">Chat Vendor on WhatsApp</a><a class="btn call" href="tel:${p.phone}">📞 Call Vendor</a></div></div>`;
-});
-document.getElementById('grid').innerHTML=html||'<p style="padding:10px">No product found for this market/category.</p>';
+let currentMarket='all';
+function doSearch(){
+  let q=document.getElementById('searchInput').value.toLowerCase().trim();
+  let found=0;
+  document.querySelectorAll('.product').forEach(card=>{
+    let name=card.getAttribute('data-name');
+    let marketSection=card.closest('.market-sec');
+    let marketMatch = (currentMarket==='all' || marketSection.getAttribute('data-market')===currentMarket);
+    let textMatch = (!q || name.includes(q));
+    if(marketMatch && textMatch){ card.style.display='block'; found++; } else { card.style.display='none'; }
+  });
+  // hide empty market sections
+  document.querySelectorAll('.market-sec').forEach(sec=>{
+    let visible=[...sec.querySelectorAll('.product')].some(c=>c.style.display!=='none');
+    sec.style.display=visible?'block':'none';
+  });
+  document.getElementById('noResult').style.display = found===0 ? 'block':'none';
 }
-function setMarket(m,el){market=m;document.querySelectorAll('#marketChips .chip').forEach(c=>c.classList.remove('active'));el.classList.add('active');render();}
-function setCat(c,el){cat=c;document.querySelectorAll('#catChips .chip').forEach(ch=>ch.classList.remove('active'));el.classList.add('active');render();}
-function filterAll(){render();}
-render();
+function filterMarket(m,btn){
+  currentMarket=m;
+  document.querySelectorAll('#marketBtns button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  doSearch();
+  if(m!=='all'){
+    let el=document.getElementById(m==='mile12'?'mile12':m==='tradefair'?'tradefair':m==='computer'?'computer':m);
+    if(el) el.scrollIntoView({behavior:'smooth'});
+  }
+}
+function clearSearch(){
+  document.getElementById('searchInput').value='';
+  currentMarket='all';
+  document.querySelectorAll('#marketBtns button').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('#marketBtns button')[0].classList.add('active');
+  doSearch();
+}
 </script>
 </body>
 </html>
