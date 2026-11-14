@@ -260,6 +260,7 @@ if ('serviceWorker' in navigator) {
 </script>
 </body>
 </html>
+  <script>
   document.getElementById('grid').innerHTML=list.map(p=>{
     let idx=products.indexOf(p);
     return `<div class="card ${p.sponsored?'sponsored':''}"><img src="${p.img}" onclick='openBox(${idx})' alt="${p.name}"><div class="b">${p.sponsored?'<span class="spon-badge">⭐ SPONSORED • VERIFIED PAID VENDOR</span><br>':''}<h3>${p.name}</h3><div class="pr">N${p.price.toLocaleString()} <span class="old">N${p.old.toLocaleString()}</span></div><div class="mk">${p.market} • ${p.vendor} - Lagos</div><span class="badge ${p.cheap?'cheap':'ver'}">${p.cheap?'✓✓ CHEAPEST':'✓ PRICE CHECKED'}</span><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>${p.vendor} ✓</b><br>Mention <b>PRICEOJA</b><br><a class="wa" href="${waLink(p)}">WhatsApp ${p.vendor}</a><a class="call" href="tel:${p.vendor==="Oak Clothing"?"+2348104966033":"+2348129747802"}">Call Vendor</a></div></details></div></div>`;
@@ -268,8 +269,6 @@ if ('serviceWorker' in navigator) {
 function setM(m,btn){cur=m;document.querySelectorAll('#marketBtns button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');render();}
 function clearAll(){document.getElementById('searchInput').value='';cur='all';document.querySelectorAll('#marketBtns button').forEach(b=>b.classList.remove('active'));document.querySelectorAll('#marketBtns button')[0].classList.add('active');render();}
 render();
-</script>
-<script>
 let deferredPrompt;
 const installBtn = document.getElementById('installBtn');
 window.addEventListener('beforeinstallprompt', (e) => {
