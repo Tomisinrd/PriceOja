@@ -34,6 +34,8 @@ header{background:#0A7A42;color:#fff;position:sticky;top:0;z-index:99}
 summary{background:#FF8A00;color:#fff;padding:10px;border-radius:8px;text-align:center;font-weight:700;cursor:pointer;list-style:none;font-size:13px;margin-top:8px}
 .cheapbox{background:#FFF0D9;border:1px dashed #FF8A00;padding:10px;border-radius:8px;margin-top:8px;text-align:center;font-size:13px}
 .cheapbox a{display:block;padding:10px;border-radius:8px;color:#fff;text-decoration:none;font-weight:700;margin-top:7px}.wa{background:#25D366}.call{background:#0A7A42}
+.sponsored{border:3px solid #FF8A00 !important;box-shadow:0 4px 14px rgba(255,138,0,.35) !important}
+.spon-badge{background:#FF8A00;color:#fff;font-size:10px;padding:4px 8px;border-radius:20px;font-weight:900;display:inline-block;margin-bottom:5px}
 #lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:999;align-items:center;justify-content:center;flex-direction:column;padding:16px}
 #lightbox img{max-width:95%;max-height:75vh;border-radius:12px;object-fit:contain}
 #lightbox h3{color:#fff;margin:12px 0 4px;text-align:center}
@@ -48,7 +50,7 @@ footer{text-align:center;padding:18px;color:#888;font-size:12px;background:#fff}
 <header><div class="top"><div><h1>Price<span>Oja</span> 🛒</h1><p>All Lagos Markets In One Place — Tap image to zoom</p></div><a href="https://wa.me/2349063586563?text=Hello%20PriceOja%20I%20want%20to%20become%20a%20vendor">Become Vendor</a></div>
 <div class="search"><input id="searchInput" placeholder="Search PS5, Wig, Dress, Bag, Sneakers, Bible..." oninput="render()"><button onclick="render()">Search</button></div></header>
 <div class="banner"><div><h2>Know Price Before You Go Market 🔥</h2><p>PS5 • Phones • Sneakers • Ladies Dress • Wig • Bag • Bible • Baby Essentials • All in one place.</p>
-<button id="installBtn" style="display:none;background:#fff;color:#0A7A42;border:0;padding:12px 18px;border-radius:10px;font-weight:900;width:100%;margin-top:12px;cursor:pointer;">📲 Install PriceOja App</button>
+<button id="installBtn" style="display:block;background:#fff;color:#0A7A42;border:0;padding:12px 18px;border-radius:10px;font-weight:900;width:100%;margin-top:12px;cursor:pointer;">📲 Install PriceOja App</button>
 </div></div>
 <div class="wrap">
 <div class="sec">🏪 Shop By Market</div>
@@ -76,7 +78,7 @@ footer{text-align:center;padding:18px;color:#888;font-size:12px;background:#fff}
 <script>
 let cur='all';
 const products=[
-{name:"Sony PlayStation 5 Slim (PS5 Slim) Console 1TB",market:"Computer Village",vendor:"Computer Village",price:1070000,old:1250000,img:"https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=800",kw:"ps5 playstation sony console slim game",cheap:false},
+{name:"Sony PlayStation 5 Slim (PS5 Slim) Console 1TB",market:"Computer Village",vendor:"Elites Gadget",price:1070000,old:1250000,img:"https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=800",kw:"ps5 playstation sony console slim game elites gadget",cheap:false,sponsored:true},
 {name:"EA Sports PS5 FC27 - PlayStation 5",market:"Computer Village",vendor:"Computer Village",price:79000,old:95000,img:"https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800",kw:"fc27 fifa football ps5 game ea sports",cheap:false},
 {name:"PS5 DualSense Controller - White",market:"Computer Village",vendor:"Computer Village",price:85000,old:105000,img:"https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=800",kw:"ps5 controller dualsense white",cheap:false},
 {name:"PS5 DualSense Controller - Black",market:"Computer Village",vendor:"Computer Village",price:85000,old:105000,img:"https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=800",kw:"ps5 controller dualsense black",cheap:false},
@@ -162,10 +164,16 @@ const products=[
 {name:"Hair Bundle - Brazilian Straight 3 Bundles",market:"Idumota",vendor:"Idumota Market",price:55000,old:75000,img:"https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800",kw:"ladies hair bundle brazilian straight women",cheap:false},
 {name:"Hair Attachment - Expression Braid Black",market:"Idumota",vendor:"Idumota Market",price:4500,old:6500,img:"https://images.unsplash.com/photo-1620331311520-246422fd82f9?w=800",kw:"ladies hair attachment expression braid women",cheap:false},
 {name:"Hair Bonnet - Satin Pink",market:"Idumota",vendor:"Idumota Market",price:3500,old:5500,img:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800",kw:"ladies hair bonnet satin pink women",cheap:false},
+/* === SPONSORED: ELITES GADGET - LAGOS === */
+{name:"HP Laptop - 15.6\" Core i5 / 8GB RAM / 512GB SSD",market:"Computer Village",vendor:"Elites Gadget",price:485000,old:560000,img:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800",kw:"laptop hp elites gadget computer",cheap:false,sponsored:true},
+{name:"iPad 10th Gen 10.9\" WiFi 64GB - Blue",market:"Computer Village",vendor:"Elites Gadget",price:520000,old:610000,img:"https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=800",kw:"ipad apple tablet elites gadget",cheap:false,sponsored:true},
+{name:"Power Bank 20000mAh Fast Charging",market:"Computer Village",vendor:"Elites Gadget",price:25000,old:32000,img:"https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=800",kw:"power bank charger elites gadget",cheap:false,sponsored:true},
+{name:"Wireless Headset - Bluetooth Noise Cancelling Black",market:"Computer Village",vendor:"Elites Gadget",price:35000,old:45000,img:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800",kw:"headset headphone bluetooth wireless elites gadget",cheap:false,sponsored:true},
 ];
 function waLink(p){
-  let wa = p.vendor==="Oak Clothing" ? "2348104966033" : "2349063586563";
-  let txt = p.vendor==="Oak Clothing" ? `Hello Oak, I want ${p.name} from PriceOja` : `Hello PriceOja I want ${p.name} for N${p.price}`;
+  let wa = "2349063586563";
+  if(p.vendor==="Oak Clothing") wa="2348104966033";
+  let txt = p.vendor==="Oak Clothing" ? `Hello Oak, I want ${p.name} from PriceOja` : p.vendor==="Elites Gadget" ? `Hello Elites Gadget, I want ${p.name} from PriceOja - Lagos` : `Hello PriceOja I want ${p.name} for N${p.price}`;
   return `https://wa.me/${wa}?text=${encodeURIComponent(txt)}`;
 }
 function openBox(i){
@@ -183,11 +191,12 @@ function render(){
     let searchOk = !q || (p.name+" "+p.market+" "+p.vendor+" "+p.kw).toLowerCase().includes(q);
     return marketOk && searchOk;
   });
+  list.sort((a,b)=> (b.sponsored?1:0)-(a.sponsored?1:0));
   document.getElementById('secTitle').innerText=`🔥 ${cur==='all'?'All Products':cur==='Ladies'?'Ladies Zone':cur+' Market'} — ${list.length} products`;
   document.getElementById('noResult').style.display=list.length===0?'block':'none';
   document.getElementById('grid').innerHTML=list.map(p=>{
     let idx=products.indexOf(p);
-    return `<div class="card"><img src="${p.img}" onclick='openBox(${idx})' alt="${p.name}"><div class="b"><h3>${p.name}</h3><div class="pr">N${p.price.toLocaleString()} <span class="old">N${p.old.toLocaleString()}</span></div><div class="mk">${p.market} • ${p.vendor}</div><span class="badge ${p.cheap?'cheap':'ver'}">${p.cheap?'✓✓ CHEAPEST':'✓ PRICE CHECKED'}</span><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>${p.vendor} ✓</b><br>Mention <b>PRICEOJA</b><br><a class="wa" href="${waLink(p)}">WhatsApp ${p.vendor==="Oak Clothing"?"Oak":"PriceOja"}</a><a class="call" href="tel:${p.vendor==="Oak Clothing"?"+2348104966033":"+2349063586563"}">Call Vendor</a></div></details></div></div>`;
+    return `<div class="card ${p.sponsored?'sponsored':''}"><img src="${p.img}" onclick='openBox(${idx})' alt="${p.name}"><div class="b">${p.sponsored?'<span class="spon-badge">⭐ SPONSORED • VERIFIED PAID VENDOR</span><br>':''}<h3>${p.name}</h3><div class="pr">N${p.price.toLocaleString()} <span class="old">N${p.old.toLocaleString()}</span></div><div class="mk">${p.market} • ${p.vendor} - Lagos</div><span class="badge ${p.cheap?'cheap':'ver'}">${p.cheap?'✓✓ CHEAPEST':'✓ PRICE CHECKED'}</span><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>${p.vendor} ✓</b><br>Mention <b>PRICEOJA</b><br><a class="wa" href="${waLink(p)}">WhatsApp ${p.vendor}</a><a class="call" href="tel:${p.vendor==="Oak Clothing"?"+2348104966033":"+2349063586563"}">Call Vendor</a></div></details></div></div>`;
   }).join('');
 }
 function setM(m,btn){cur=m;document.querySelectorAll('#marketBtns button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');render();}
@@ -200,19 +209,18 @@ const installBtn = document.getElementById('installBtn');
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredPrompt = e;
-  installBtn.style.display = 'block';
 });
 installBtn.addEventListener('click', async () => {
   if (deferredPrompt) {
     deferredPrompt.prompt();
     const choice = await deferredPrompt.userChoice;
-    if (choice.outcome === 'accepted') installBtn.style.display = 'none';
+    if (choice.outcome === 'accepted') installBtn.innerText = '✅ App Installed!';
     deferredPrompt = null;
   } else {
-    alert('To install: Tap 3 dots on Chrome > Add to Home Screen / Install App');
+    alert('To Install PriceOja:\n\nANDROID: Tap 3 dots > Add to Home Screen / Install App\n\nIPHONE: Tap Share > Add to Home Screen');
   }
 });
-window.addEventListener('appinstalled', () => { installBtn.style.display = 'none'; });
+window.addEventListener('appinstalled', () => { installBtn.innerText = '✅ App Installed!'; });
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js');
 }
