@@ -1,294 +1,267 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PriceOja</title>
-<link rel="manifest" href="/manifest.json">
-<meta name="theme-color" content="#0A7A42">
-<link rel="apple-touch-icon" href="/icon-192.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PriceOja — All Lagos Markets In One Place</title>
 <style>
-*{box-sizing:border-box}body{background:#f1f1f1;font-family:Arial;margin:0}
-header{background:#0A7A42;color:#fff;position:sticky;top:0;z-index:99}
-.top{max-width:1440px;margin:auto;padding:12px 10px;display:flex;justify-content:space-between;align-items:center}
-.top h1{margin:0;font-size:28px}.top h1 span{color:#FF8A00}.top p{margin:0;font-size:12px}
-.top a{background:#fff;color:#0A7A42;padding:8px 12px;border-radius:20px;text-decoration:none;font-weight:700;font-size:12px}
-.search{max-width:1440px;margin:auto;padding:0 10px 12px;display:flex;gap:8px}
-.search input{flex:1;padding:13px;border-radius:8px;border:0;font-size:15px}
-.search button{background:#FF8A00;color:#fff;border:0;padding:13px 16px;border-radius:8px;font-weight:700}
-.banner{max-width:1440px;margin:10px auto;padding:0 10px}
-.banner div{background:linear-gradient(90deg,#0A7A42,#FF8A00);color:#fff;border-radius:12px;padding:16px}
-.banner h2{margin:0;font-size:22px}.banner p{margin:4px 0 0;font-size:13px}
-.wrap{max-width:1440px;margin:auto;padding:0 10px 20px}
-.sec{padding:18px 0 10px;font-size:20px;font-weight:900;color:#0A7A42}
-.mkt{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.mkt button{background:#fff;border:0;border-radius:10px;padding:12px 6px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.07);font-weight:700;font-size:13px}
-.mkt button.active{background:#0A7A42;color:#fff}
-.g{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.07)}
-.card img{width:100%;height:200px;object-fit:cover;cursor:zoom-in}
-.b{padding:12px}.b h3{font-size:15px;margin:0;min-height:36px}
-.pr{font-weight:900;color:#0A7A42;font-size:18px;margin-top:4px}.old{font-size:12px;color:#999;text-decoration:line-through;font-weight:400}
-.mk{font-size:11px;color:#666;margin:3px 0}
-.badge{font-size:10px;padding:3px 7px;border-radius:20px;font-weight:700}.cheap{background:#FF8A00;color:#fff}.ver{background:#E6F7EE;color:#0A7A42}
-summary{background:#FF8A00;color:#fff;padding:10px;border-radius:8px;text-align:center;font-weight:700;cursor:pointer;list-style:none;font-size:13px;margin-top:8px}
-.cheapbox{background:#FFF0D9;border:1px dashed #FF8A00;padding:10px;border-radius:8px;margin-top:8px;text-align:center;font-size:13px}
-.cheapbox a{display:block;padding:10px;border-radius:8px;color:#fff;text-decoration:none;font-weight:700;margin-top:7px}.wa{background:#25D366}.call{background:#0A7A42}
-.sponsored{border:3px solid #FF8A00 !important;box-shadow:0 4px 14px rgba(255,138,0,.35) !important}
-.spon-badge{background:#FF8A00;color:#fff;font-size:10px;padding:4px 8px;border-radius:20px;font-weight:900;display:inline-block;margin-bottom:5px}
-#lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:999;align-items:center;justify-content:center;flex-direction:column;padding:16px}
-#lightbox img{max-width:95%;max-height:75vh;border-radius:12px;object-fit:contain}
-#lightbox h3{color:#fff;margin:12px 0 4px;text-align:center}
-#lightbox p{color:#FF8A00;font-weight:700;margin:0}
-#lightbox button{background:#fff;border:0;padding:10px 18px;border-radius:20px;font-weight:700;margin-top:14px;cursor:pointer}
-@media(min-width:700px){.g{grid-template-columns:repeat(4,1fr)}.mkt{grid-template-columns:repeat(6,1fr)}}
-@media(min-width:1100px){.g{grid-template-columns:repeat(5,1fr)}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f4f4f4}
+header{background:#0a7a42;color:#fff;padding:14px 12px;position:sticky;top:0;z-index:10}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.top h1{font-size:32px;line-height:1}
+.top h1 span{color:#ff8c00}
+.top p{font-size:13px}
+.vendorBtn{background:#fff;color:#0a7a42;border:0;padding:10px 14px;border-radius:20px;font-weight:800;cursor:pointer}
+.search{display:flex;gap:8px;margin-top:12px}
+.search input{flex:1;padding:12px;border-radius:8px;border:0;font-size:15px}
+.search button{background:#ff8c00;color:#fff;border:0;padding:0 16px;border-radius:8px;font-weight:800}
+.markets{display:flex;gap:8px;overflow-x:auto;padding:12px;background:#fff;white-space:nowrap}
+.markets button{border:1px solid #ddd;background:#fff;padding:8px 14px;border-radius:20px;cursor:pointer}
+.markets button.active{background:#0a7a42;color:#fff}
+#secTitle{padding:14px 12px 4px;font-size:18px}
+#grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:10px}
+.card{background:#fff;border-radius:12px;overflow:hidden}
+.card img{width:100%;height:180px;object-fit:cover}
+.card .b{padding:10px}
+.card h3{font-size:14px;min-height:36px}
+.pr{color:#0a7a42;font-weight:900;margin:6px 0}
+.old{color:#999;text-decoration:line-through;font-weight:400;font-size:12px}
+.mk{font-size:12px;color:#666}
+.badge{display:inline-block;margin:6px 0;padding:4px 8px;border-radius:10px;font-size:11px;font-weight:800;background:#e8f8ee;color:#0a7a42}
+.badge.cheap{background:#fff3cd;color:#8a6d00}
+.spon-badge{background:#ffe600;padding:3px 6px;border-radius:6px;font-size:10px;font-weight:900}
+.sponsored{border:2px solid #ffe600}
+details{margin-top:8px}
+summary{cursor:pointer;font-weight:700;font-size:13px;color:#0a7a42}
+.cheapbox{background:#f7f7f7;padding:8px;border-radius:8px;margin-top:6px;font-size:13px}
+.wa,.call{display:block;text-align:center;padding:9px;border-radius:8px;margin-top:6px;text-decoration:none;font-weight:800}
+.wa{background:#25D366;color:#fff}
+.call{background:#0a7a42;color:#fff}
+#noResult{display:none;text-align:center;padding:30px}
+footer{background:#111;color:#ddd;text-align:center;padding:24px 14px;margin-top:10px;font-size:14px;line-height:2}
+footer a{color:#ddd;text-decoration:none}
+footer .green{color:#25D366}
+#lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:99;align-items:center;justify-content:center;flex-direction:column;padding:20px}
+#lightbox img{max-width:95%;max-height:70%;border-radius:12px}
+#lightbox button{margin-top:14px;padding:10px 18px;border:0;border-radius:8px}
 </style>
 </head>
 <body>
-<header><div class="top"><div><h1>Price<span>Oja</span> 🛒</h1><p>All Lagos Markets In One Place — Tap image to zoom</p></div><a href="https://wa.me/2348129747802?text=Hello%20PriceOja%2C%20I%20want%20to%20become%20a%20vendor.%20My%20name%20is%3A%20%0A My%20shop%20name%3A%20%0A My%20market%3A%20%0A What%20I%20sell%3A%20%0A My%20prices%3A%20" target="_blank">Become Vendor</a></div>
-<div class="search"><input id="searchInput" placeholder="Search PS5, Wig, Dress, Bag, Sneakers, Bible..." oninput="render()"><button onclick="render()">Search</button></div></header>
-<div class="banner"><div><h2>Know Price Before You Go Market 🔥</h2><p>PS5 • Phones • Sneakers • Ladies Dress • Wig • Bag • Bible • Baby Essentials • All in one place.</p>
-<button id="installBtn" style="display:block;background:#fff;color:#0A7A42;border:0;padding:12px 18px;border-radius:10px;font-weight:900;width:100%;margin-top:12px;cursor:pointer;">📲 Install PriceOja App</button>
-</div></div>
-<div class="wrap">
-<div class="sec">🏪 Shop By Market</div>
-<div class="mkt" id="marketBtns">
-<button class="active" onclick="setM('all',this)">🌍 All</button>
-<button onclick="setM('Ladies',this)">💃 Ladies</button>
-<button onclick="setM('Balogun',this)">🛍️ Balogun</button>
-<button onclick="setM('Mile 12',this)">🍚 Mile 12</button>
-<button onclick="setM('Idumota',this)">🏠 Idumota</button>
-<button onclick="setM('Trade Fair',this)">⌚ Trade Fair</button>
-<button onclick="setM('Computer Village',this)">📱 Computer Village</button>
-<button onclick="setM('Yaba',this)">👟 Yaba</button>
-<button onclick="setM('Oshodi',this)">👔 Oshodi</button>
-<button onclick="setM('Alaba',this)">📺 Alaba</button>
-<button onclick="setM('Ladipo',this)">🚗 Ladipo</button>
-<button onclick="setM('Ketu',this)">🥩 Ketu</button>
-<button onclick="setM('Ikorodu',this)">🛒 Ikorodu</button>
+<header>
+<div class="top"><div><h1>PriceOja <span>🛒</span></h1><p>All Lagos Markets In One Place — Tap image to zoom</p></div><button class="vendorBtn" onclick="document.getElementById('footer').scrollIntoView()">Become Vendor</button></div>
+<div class="search"><input id="searchInput" placeholder="Search PS5, Wig, Dress, Bag, Sneakers..." oninput="render()"><button onclick="render()">Search</button></div>
+</header>
+<div class="markets" id="marketBtns">
+<button class="active" onclick="setM('all',this)">All</button>
+<button onclick="setM('Computer Village',this)">Computer Village</button>
+<button onclick="setM('Balogun',this)">Balogun</button>
+<button onclick="setM('Ladies',this)">Ladies Zone</button>
+<button onclick="setM('Yaba',this)">Yaba</button>
+<button onclick="setM('Trade Fair',this)">Trade Fair</button>
 </div>
-<div class="sec" id="secTitle">🔥 All Products</div>
-<div class="g" id="grid"></div>
-<div id="noResult" style="display:none;text-align:center;background:#fff;padding:20px;border-radius:10px"><h3>No product found 😔</h3><button onclick="clearAll()" style="background:#0A7A42;color:#fff;border:0;padding:10px 18px;border-radius:20px;font-weight:700">Show All</button></div>
-</div>
-<!-- PRICEOJA FOOTER -->
-<footer style="background:#111; color:#fff; font-family:Arial; margin-top:40px; text-align:center;">
-<div style="padding:15px; border-bottom:1px solid #333;">
-<a href="#top" style="color:#fff; text-decoration:none; font-weight:bold;">⬆ BACK TO TOP</a>
-</div>
-<div style="padding:25px 15px;">
-<p style="margin:0 0 15px 0; font-size:14px; line-height:28px;">
-<a href="https://wa.me/2348129747802" style="color:#fff; text-decoration:none;">CHAT WITH US</a> |
-<a href="https://wa.me/2348129747802" style="color:#fff; text-decoration:none;">HELP CENTER</a> |
-<a href="mailto:priceoja.ng@gmail.com" style="color:#fff; text-decoration:none;">CONTACT US</a>
-</p>
-<p style="margin:0 0 15px 0; font-size:14px; line-height:28px;">
-<a href="#" style="color:#ccc; text-decoration:none;">TERMS & CONDITIONS</a> |
-<a href="#" style="color:#ccc; text-decoration:none;">PRIVACY NOTICE</a> |
-<a href="#" style="color:#ccc; text-decoration:none;">COOKIE NOTICE</a>
-</p>
-<p style="margin:0; font-size:14px; line-height:28px;">
-<a href="https://wa.me/2348129747802?text=Hello%20PriceOja%2C%20I%20want%20to%20become%20a%20vendor" style="color:#ccc; text-decoration:none;">BECOME A VENDOR</a> |
-<a href="https://wa.me/2348129747802?text=Hello%20PriceOja%2C%20I%20want%20to%20report%20a%20price" style="color:#ccc; text-decoration:none;">REPORT A PRICE</a> |
-<a href="#" style="color:#ccc; text-decoration:none;">ALL MARKETS</a>
-</p>
-<p style="margin:15px 0 0 0; font-size:14px; line-height:28px;">
-<a href="#" style="color:#ccc; text-decoration:none;">DISPUTE RESOLUTION</a> |
-<a href="#" style="color:#ccc; text-decoration:none;">RETURNS & REFUND</a>
-</p>
-</div>
-<div style="background:#1a1a1a; padding:25px 15px; border-top:1px solid #333;">
-<p style="font-weight:bold; font-size:16px; margin:0 0 12px 0;">CONTACT US</p>
-<p style="margin:6px 0; font-size:14px; color:#ddd;">Business Name: PriceOja</p>
-<p style="margin:6px 0; font-size:14px; color:#ddd;">Address: Lagos, Nigeria</p>
-<p style="margin:6px 0; font-size:14px; color:#ddd;">Email: <a href="mailto:priceoja.ng@gmail.com" style="color:#4CAF50; text-decoration:none; font-weight:bold;">priceoja.ng@gmail.com</a></p>
-<p style="margin:12px 0 0 0;"><a href="https://wa.me/2348129747802" style="background:#25D366; color:#fff; padding:10px 20px; border-radius:25px; text-decoration:none; font-weight:bold; font-size:14px; display:inline-block;">💬 Chat on WhatsApp Business</a></p>
-<p style="margin:12px 0 0 0; font-size:14px; color:#ddd;">WhatsApp Business: 0812 974 7802</p>
-</div>
-<div style="padding:15px; font-size:12px; color:#999; border-top:1px solid #333;">
-PriceOja — Real Markets. Real Prices. Real Vendors.<br>© 2026 PriceOja. All Rights Reserved.
-</div>
+<h2 id="secTitle">🔥 All Products (160+)</h2>
+<div id="grid"></div>
+<div id="noResult"><h3>No product found 😢</h3><p>Try another search or <button onclick="clearAll()">Clear</button></p></div>
+<footer id="footer">
+<div><b>↑ BACK TO TOP</b></div><br>
+CHAT WITH US | HELP CENTER | CONTACT US<br>
+TERMS & CONDITIONS | PRIVACY NOTICE | COOKIE NOTICE<br>
+BECOME A VENDOR | REPORT A PRICE | ALL MARKETS<br>
+DISPUTE RESOLUTION | RETURNS & REFUND<br><hr>
+<b>CONTACT US</b><br>Business Name: PriceOja<br>Address: Lagos, Nigeria<br>Email: <span class="green">priceoja.ng@gmail.com</span><br>
+<a href="https://wa.me/2348129747802" style="display:inline-block;background:#25D366;color:#fff;padding:10px 18px;border-radius:20px;font-weight:800;margin:8px 0">💬 Chat on WhatsApp Business</a><br>
+WhatsApp Business: 0812 974 7802<br><hr>
+PriceOja — Real Markets. Real Prices. Real Vendors.<br>© 2026 PriceOja. All Rights Reserved.<br>
+<button id="installBtn" style="margin-top:10px;padding:10px 16px;border-radius:20px;border:0;font-weight:800">📲 Install PriceOja App</button>
 </footer>
-<div id="lightbox" onclick="closeBox()"><img id="lbImg" src=""><h3 id="lbName"></h3><p id="lbPrice"></p><button>✕ Close</button></div>
+<div id="lightbox" onclick="closeBox()"><img id="lbImg"><p id="lbName" style="color:#fff;margin-top:10px"></p><p id="lbPrice" style="color:#ffe600"></p><button>Close ✕</button></div>
 <script>
 let cur='all';
-const products=[
-{name:"Sony PlayStation 5 Slim (PS5 Slim) Console 1TB",market:"Computer Village",vendor:"Elites Gadget",price:1070000,old:1250000,img:"https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=800",kw:"ps5 playstation sony console slim game elites gadget",cheap:false,sponsored:true},
-{name:"EA Sports PS5 FC27 - PlayStation 5",market:"Computer Village",vendor:"Computer Village",price:79000,old:95000,img:"https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800",kw:"fc27 fifa football ps5 game ea sports",cheap:false},
-{name:"PS5 DualSense Controller - White",market:"Computer Village",vendor:"Computer Village",price:85000,old:105000,img:"https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=800",kw:"ps5 controller dualsense white",cheap:false},
-{name:"PS5 DualSense Controller - Black",market:"Computer Village",vendor:"Computer Village",price:85000,old:105000,img:"https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=800",kw:"ps5 controller dualsense black",cheap:false},
-{name:"Sneakers - Red Nike Style",market:"Yaba",vendor:"Yaba Market",price:32000,old:42000,img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800",kw:"sneakers red nike shoes",cheap:false},
-{name:"Sneakers - White",market:"Yaba",vendor:"Yaba Market",price:30000,old:40000,img:"https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800",kw:"sneakers white shoes",cheap:false},
-{name:"Sneakers - Black",market:"Yaba",vendor:"Yaba Market",price:32000,old:42000,img:"https://images.unsplash.com/photo-1543508282-6319a3e2621f?w=800",kw:"sneakers black shoes",cheap:false},
-{name:"Sneakers - Blue",market:"Yaba",vendor:"Yaba Market",price:31000,old:40000,img:"https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800",kw:"sneakers blue shoes",cheap:false},
-{name:"Sneakers - Green",market:"Yaba",vendor:"Yaba Market",price:31000,old:40000,img:"https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=800",kw:"sneakers green shoes",cheap:false},
-{name:"Sneakers - Pink",market:"Yaba",vendor:"Yaba Market",price:30000,old:39000,img:"https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=800",kw:"sneakers pink shoes women",cheap:false},
-{name:"Samsung Galaxy A54 - Black",market:"Computer Village",vendor:"Computer Village",price:380000,old:430000,img:"https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=800",kw:"samsung a54 black android phone",cheap:false},
-{name:"Samsung Galaxy A34 - Blue",market:"Computer Village",vendor:"Computer Village",price:280000,old:320000,img:"https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=800",kw:"samsung a34 blue android phone",cheap:false},
-{name:"Samsung Galaxy S24 - Grey",market:"Computer Village",vendor:"Computer Village",price:950000,old:1100000,img:"https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=800",kw:"samsung s24 grey android phone",cheap:false},
-{name:"Tecno Camon 20 - Black",market:"Computer Village",vendor:"Computer Village",price:225000,old:260000,img:"https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800",kw:"tecno camon android phone",cheap:false},
-{name:"Infinix Note 30 - Gold",market:"Computer Village",vendor:"Computer Village",price:210000,old:245000,img:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800",kw:"infinix note gold android phone",cheap:false},
-{name:"Redmi Note 13 - Blue",market:"Computer Village",vendor:"Computer Village",price:265000,old:310000,img:"https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800",kw:"redmi note blue android phone xiaomi",cheap:false},
-{name:"iPhone 13 - Blue",market:"Computer Village",vendor:"Computer Village",price:650000,old:720000,img:"https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=800",kw:"iphone 13 blue phone",cheap:false},
-{name:"iPhone 12 - Black",market:"Computer Village",vendor:"Computer Village",price:480000,old:540000,img:"https://images.unsplash.com/photo-1591337676887-a217a6970a8a?w=800",kw:"iphone 12 black phone",cheap:false},
-{name:"Pillow - White (Soft Bed Pillow)",market:"Idumota",vendor:"Idumota Market",price:7500,old:10000,img:"https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=800",kw:"pillow white bed",cheap:false},
-{name:"Pillow - Blue (Soft Bed Pillow)",market:"Idumota",vendor:"Idumota Market",price:7500,old:10000,img:"https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=800",kw:"pillow blue bed",cheap:false},
-{name:"Pillow - Grey (Orthopedic Pillow)",market:"Idumota",vendor:"Idumota Market",price:12000,old:16000,img:"https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800",kw:"pillow grey orthopedic",cheap:false},
-{name:"Pillow - Pack of 2 White",market:"Ikorodu",vendor:"Ikorodu Market",price:14000,old:18000,img:"https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=800",kw:"pillow pack white bed",cheap:false},
-{name:"Bicycle - Red (Mountain Bike 21 Speed)",market:"Trade Fair",vendor:"Trade Fair Market",price:185000,old:220000,img:"https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=800",kw:"bicycle red mountain bike",cheap:false},
-{name:"Bicycle - Black (Mountain Bike)",market:"Trade Fair",vendor:"Trade Fair Market",price:185000,old:220000,img:"https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?w=800",kw:"bicycle black mountain bike",cheap:false},
-{name:"Bicycle - Blue (Kids Bicycle)",market:"Ikorodu",vendor:"Ikorodu Market",price:95000,old:120000,img:"https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=800",kw:"bicycle blue kids bike",cheap:false},
-{name:"Coca-Cola 50cl - Pack of 12",market:"Mile 12",vendor:"Mile 12 Market",price:12000,old:15000,img:"https://images.unsplash.com/photo-1554866585-cd94860890b7?w=800",kw:"coca cola coke soft drink",cheap:false},
-{name:"Pepsi 50cl - Pack of 12",market:"Mile 12",vendor:"Mile 12 Market",price:11500,old:14500,img:"https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=800",kw:"pepsi soft drink",cheap:false},
-{name:"Maltina - Pack of 12",market:"Ketu",vendor:"Ketu Market",price:13500,old:16500,img:"https://images.unsplash.com/photo-1600788886242-5c96aabe3757?w=800",kw:"maltina malt drink",cheap:false},
-{name:"Red Wine - Carlo Rossi Red",market:"Ketu",vendor:"Ketu Market",price:9500,old:12500,img:"https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800",kw:"red wine carlo rossi",cheap:false},
-{name:"White Wine - Carlo Rossi White",market:"Ketu",vendor:"Ketu Market",price:9500,old:12500,img:"https://images.unsplash.com/photo-1568213816046-0ee1c42bd559?w=800",kw:"white wine carlo rossi",cheap:false},
-{name:"Chivita Orange Juice 1L",market:"Mile 12",vendor:"Mile 12 Market",price:5500,old:7000,img:"https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=800",kw:"chivita juice orange",cheap:false},
-{name:"Notebook - A4 Hard Cover (Pack of 3)",market:"Ikorodu",vendor:"Ikorodu Market",price:6500,old:8500,img:"https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=800",kw:"notebook stationery book",cheap:false},
-{name:"Pen Set - Blue / Black (Pack of 10)",market:"Ikorodu",vendor:"Ikorodu Market",price:3500,old:5000,img:"https://images.unsplash.com/photo-1585336261022-680e295ce3fe?w=800",kw:"pen set stationery blue black",cheap:false},
-{name:"School Bag - Blue",market:"Ikorodu",vendor:"Ikorodu Market",price:15000,old:20000,img:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800",kw:"school bag blue stationery",cheap:false},
-{name:"Calculator - Scientific",market:"Ikorodu",vendor:"Ikorodu Market",price:8500,old:11000,img:"https://images.unsplash.com/photo-1596496181848-3091d4878b24?w=800",kw:"calculator stationery scientific",cheap:false},
-{name:"Holy Bible KJV - Black Leather",market:"Ikorodu",vendor:"Ikorodu Market",price:12500,old:16000,img:"https://images.unsplash.com/photo-1544816155-12df9643f363?w=800",kw:"bible kjv black leather",cheap:false},
-{name:"Holy Bible - Brown Leather Cover",market:"Ikorodu",vendor:"Ikorodu Market",price:13500,old:17000,img:"https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=800",kw:"bible brown leather",cheap:false},
-{name:"Children Bible - Colourful",market:"Ikorodu",vendor:"Ikorodu Market",price:9500,old:12500,img:"https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800",kw:"children bible colourful kids",cheap:false},
-{name:"Men Shorts - Black",market:"Balogun",vendor:"Oak Clothing",price:12000,old:16000,img:"https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=800",kw:"men shorts black oak",cheap:true},
-{name:"Men Shorts - Blue",market:"Balogun",vendor:"Oak Clothing",price:12000,old:16000,img:"https://images.unsplash.com/photo-1565084888279-aca607ecce0c?w=800",kw:"men shorts blue oak",cheap:true},
-{name:"Men Shorts - Grey",market:"Balogun",vendor:"Oak Clothing",price:12000,old:16000,img:"https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800",kw:"men shorts grey oak",cheap:true},
-{name:"Men Shorts - Khaki",market:"Balogun",vendor:"Oak Clothing",price:13000,old:17000,img:"https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=800",kw:"men shorts khaki oak",cheap:true},{name:"Baby Diapers - Huggies (Pack)",market:"Ikorodu",vendor:"Ikorodu Market",price:14500,old:18000,img:"https://images.unsplash.com/photo-1519689680058-324335c77eba?w=800",kw:"baby diapers huggies essentials",cheap:false},
-{name:"Baby Bottle - 250ml (Blue)",market:"Ikorodu",vendor:"Ikorodu Market",price:6500,old:8500,img:"https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=800",kw:"baby bottle blue essentials",cheap:false},
-{name:"Baby Bottle - 250ml (Pink)",market:"Ikorodu",vendor:"Ikorodu Market",price:6500,old:8500,img:"https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=800",kw:"baby bottle pink essentials",cheap:false},{name:"Baby Wipes - Pack of 3",market:"Ikorodu",vendor:"Ikorodu Market",price:5500,old:7500,img:"https://images.unsplash.com/photo-1584839404042-8bc21d240e91?w=800",kw:"baby wipes essentials",cheap:false},
-{name:"Baby Lotion - Johnson's",market:"Ikorodu",vendor:"Ikorodu Market",price:7500,old:9500,img:"https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800",kw:"baby lotion johnsons essentials",cheap:false},
-{name:"Baby Soap - Johnson's",market:"Ikorodu",vendor:"Ikorodu Market",price:4500,old:6000,img:"https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?w=800",kw:"baby soap essentials",cheap:false},
-{name:"Polo Ralph - White",market:"Balogun",vendor:"Oak Clothing",price:18000,old:24000,img:"https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=800",kw:"polo white shirt",cheap:true},
-{name:"Polo Ralph - Black",market:"Balogun",vendor:"Oak Clothing",price:18000,old:24000,img:"https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=800",kw:"polo black shirt",cheap:true},
-{name:"Polo Ralph - Navy Blue",market:"Balogun",vendor:"Oak Clothing",price:18000,old:24000,img:"https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=800",kw:"polo navy blue shirt",cheap:true},
-{name:"Jeans Straight - Black",market:"Balogun",vendor:"Oak Clothing",price:15000,old:20000,img:"https://images.unsplash.com/photo-1542272604-787c3835535d?w=800",kw:"jeans black trouser",cheap:true},
-{name:"T-Shirt - White",market:"Balogun",vendor:"Oak Clothing",price:8500,old:12000,img:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800",kw:"tshirt white",cheap:true},
-{name:"Rice 50kg - Bag",market:"Mile 12",vendor:"Mile 12 Market",price:85000,old:105000,img:"https://images.unsplash.com/photo-1567337710282-00832b415979?w=800",kw:"rice bag 50kg food",cheap:false},
-{name:"Semo 10kg",market:"Mile 12",vendor:"Mile 12 Market",price:18500,old:23000,img:"https://images.unsplash.com/photo-1627485937980-221c88ac04f9?w=800",kw:"semo food",cheap:false},
-{name:"Wheat Flour 10kg",market:"Mile 12",vendor:"Mile 12 Market",price:21000,old:26000,img:"https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=800",kw:"wheat flour food",cheap:false},
-{name:"Onions - Big Bag",market:"Ketu",vendor:"Ketu Market",price:35000,old:45000,img:"https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=800",kw:"onions bag",cheap:false},
-{name:"Tomatoes - Basket",market:"Ketu",vendor:"Ketu Market",price:18000,old:25000,img:"https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=800",kw:"tomatoes basket",cheap:false},
-{name:'TV 32" Hisense Smart',market:"Alaba",vendor:"Alaba Market",price:165000,old:195000,img:"https://images.unsplash.com/photo-1593784991095-a205069470b6?w=800",kw:"tv 32 inch",cheap:false},
-{name:'TV 43" LG Smart',market:"Alaba",vendor:"Alaba Market",price:285000,old:340000,img:"https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=800",kw:"tv 43 inch lg",cheap:false},
-{name:'TV 55" Samsung QLED',market:"Alaba",vendor:"Alaba Market",price:485000,old:560000,img:"https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=800",kw:"tv 55 inch samsung",cheap:false},
-{name:"Ankara Fabric 6 Yards - Blue / Yellow",market:"Ikorodu",vendor:"Ikorodu Market",price:18000,old:25000,img:"https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?w=800",kw:"ankara fabric blue yellow",cheap:false},
-{name:"Ladies Gown - Floral Maxi Dress",market:"Balogun",vendor:"Balogun Market",price:22000,old:30000,img:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800",kw:"ladies dress gown floral maxi women",cheap:false},
-{name:"Ladies Gown - Black Bodycon Dress",market:"Balogun",vendor:"Balogun Market",price:18000,old:25000,img:"https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=800",kw:"ladies dress gown black bodycon women",cheap:false},
-{name:"Ladies Gown - Ankara Style Dress",market:"Balogun",vendor:"Balogun Market",price:25000,old:32000,img:"https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800",kw:"ladies dress ankara gown women",cheap:false},
-{name:"Ladies Two Piece Set - Pink",market:"Yaba",vendor:"Yaba Market",price:20000,old:28000,img:"https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800",kw:"ladies two piece set pink women dress",cheap:false},
-{name:"Ladies Jeans - High Waist Blue",market:"Yaba",vendor:"Yaba Market",price:16000,old:22000,img:"https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=800",kw:"ladies jeans high waist women",cheap:false},
-{name:"Ladies Skirt - Pleated Black",market:"Yaba",vendor:"Yaba Market",price:12000,old:17000,img:"https://images.unsplash.com/photo-1583496661160-fb5886a13d44?w=800",kw:"ladies skirt pleated women",cheap:false},
-{name:"Ladies Handbag - Black Leather",market:"Balogun",vendor:"Balogun Market",price:25000,old:35000,img:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=800",kw:"ladies bag handbag black leather women",cheap:false},
-{name:"Ladies Handbag - Brown",market:"Balogun",vendor:"Balogun Market",price:23000,old:32000,img:"https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800",kw:"ladies bag handbag brown women",cheap:false},
-{name:"Ladies Handbag - White Mini Bag",market:"Balogun",vendor:"Balogun Market",price:18000,old:25000,img:"https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=800",kw:"ladies bag handbag white mini women",cheap:false},
-{name:"Ladies Backpack - Pink",market:"Idumota",vendor:"Idumota Market",price:20000,old:28000,img:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800",kw:"ladies bag backpack pink women",cheap:false},
-{name:"Ladies Shoulder Bag - Beige",market:"Idumota",vendor:"Idumota Market",price:16000,old:22000,img:"https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800",kw:"ladies bag shoulder beige women",cheap:false},
-{name:"Ladies Cap - Black Baseball Cap",market:"Yaba",vendor:"Yaba Market",price:6500,old:9000,img:"https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=800",kw:"ladies cap black baseball women",cheap:false},
-{name:"Ladies Cap - White Baseball Cap",market:"Yaba",vendor:"Yaba Market",price:6500,old:9000,img:"https://images.unsplash.com/photo-1521369909029-2afed882baee?w=800",kw:"ladies cap white baseball women",cheap:false},
-{name:"Ladies Cap - Pink Bucket Hat",market:"Yaba",vendor:"Yaba Market",price:7500,old:10000,img:"https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?w=800",kw:"ladies cap bucket hat pink women",cheap:false},
-{name:"Ladies Cap - Beige Sun Hat",market:"Balogun",vendor:"Balogun Market",price:8500,old:12000,img:"https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?w=800",kw:"ladies cap sun hat beige women",cheap:false},
-{name:"Ladies Sunglasses - Black",market:"Trade Fair",vendor:"Trade Fair Market",price:9500,old:14000,img:"https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800",kw:"ladies glasses sunglasses black women",cheap:false},
-{name:"Ladies Sunglasses - Brown",market:"Trade Fair",vendor:"Trade Fair Market",price:9500,old:14000,img:"https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800",kw:"ladies glasses sunglasses brown women",cheap:false},
-{name:"Ladies Eyeglasses - Clear Frame",market:"Trade Fair",vendor:"Trade Fair Market",price:12000,old:17000,img:"https://images.unsplash.com/photo-1577803645773-f96470509666?w=800",kw:"ladies glasses eyeglasses clear women",cheap:false},
-{name:"Ladies Sunglasses - Pink",market:"Trade Fair",vendor:"Trade Fair Market",price:8500,old:12000,img:"https://images.unsplash.com/photo-1508296695146-257a814070b4?w=800",kw:"ladies glasses sunglasses pink women",cheap:false},
-{name:"Human Hair Wig - 26 Inch Straight Black",market:"Balogun",vendor:"Balogun Market",price:85000,old:110000,img:"https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=800",kw:"ladies hair wig human hair straight black women",cheap:false},
-{name:"Human Hair Wig - 22 Inch Body Wave",market:"Balogun",vendor:"Balogun Market",price:75000,old:95000,img:"https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=800",kw:"ladies hair wig body wave women",cheap:false},
-{name:"Human Hair Wig - 18 Inch Curly",market:"Balogun",vendor:"Balogun Market",price:68000,old:88000,img:"https://images.unsplash.com/photo-1595959183082-7b570b7e08e2?w=800",kw:"ladies hair wig curly women",cheap:false},
-{name:"Hair Bundle - Brazilian Straight 3 Bundles",market:"Idumota",vendor:"Idumota Market",price:55000,old:75000,img:"https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800",kw:"ladies hair bundle brazilian straight women",cheap:false},
-{name:"Hair Attachment - Expression Braid Black",market:"Idumota",vendor:"Idumota Market",price:4500,old:6500,img:"https://images.unsplash.com/photo-1620331311520-246422fd82f9?w=800",kw:"ladies hair attachment expression braid women",cheap:false},
-{name:"Hair Bonnet - Satin Pink",market:"Idumota",vendor:"Idumota Market",price:3500,old:5500,img:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800",kw:"ladies hair bonnet satin pink women",cheap:false},
-{name:"HP Laptop - 15.6\" Core i5 / 8GB RAM / 512GB SSD",market:"Computer Village",vendor:"Elites Gadget",price:485000,old:560000,img:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800",kw:"laptop hp elites gadget computer",cheap:false,sponsored:true},
-{name:"iPad 10th Gen 10.9\" WiFi 64GB - Blue",market:"Computer Village",vendor:"Elites Gadget",price:520000,old:610000,img:"https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=800",kw:"ipad apple tablet elites gadget",cheap:false,sponsored:true},
-{name:"Power Bank 20000mAh Fast Charging",market:"Computer Village",vendor:"Elites Gadget",price:25000,old:32000,img:"https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=800",kw:"power bank charger elites gadget",cheap:false,sponsored:true},
-{name:"Wireless Headset - Bluetooth Noise Cancelling Black",market:"Computer Village",vendor:"Elites Gadget",price:35000,old:45000,img:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800",kw:"headset headphone bluetooth wireless elites gadget",cheap:false,sponsored:true},
-];function waLink(p){
-  let wa = "2348129747802";
-  if(p.vendor==="Oak Clothing") wa="2348104966033";
-  let txt = p.vendor==="Oak Clothing" ? `Hello Oak, I want ${p.name} from PriceOja` : p.vendor==="Elites Gadget" ? `Hello Elites Gadget, I want ${p.name} from PriceOja - Lagos` : `Hello PriceOja I want ${p.name} for N${p.price}`;
-  return `https://wa.me/${wa}?text=${encodeURIComponent(txt)}`;
-}
-function openBox(i){
-  let p=products[i];
-  document.getElementById('lbImg').src=p.img;
-  document.getElementById('lbName').innerText=p.name+" — "+p.market;
-  document.getElementById('lbPrice').innerText="N"+p.price.toLocaleString()+" • Mention PRICEOJA";
-  document.getElementById('lightbox').style.display='flex';
-}
+const products=[{name:"iPhone 13 128GB UK Used",price:385000,old:450000,market:"Computer Village",vendor:"Elites Gadget",kw:"iphone phone gadget",img:"https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=600",sponsored:true,cheap:true},
+{name:"iPhone 14 Pro Max 256GB",price:890000,old:1050000,market:"Computer Village",vendor:"Elites Gadget",kw:"iphone phone gadget",img:"https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=600",sponsored:true,cheap:true},
+{name:"iPhone 12 64GB UK Used",price:285000,old:340000,market:"Computer Village",vendor:"Elites Gadget",kw:"iphone phone gadget",img:"https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=600",sponsored:false,cheap:false},
+{name:"Samsung Galaxy S23 Ultra",price:650000,old:780000,market:"Computer Village",vendor:"Elites Gadget",kw:"samsung phone gadget",img:"https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600",sponsored:false,cheap:false},
+{name:"Samsung Galaxy A54 5G",price:310000,old:365000,market:"Computer Village",vendor:"Elites Gadget",kw:"samsung phone gadget",img:"https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600",sponsored:false,cheap:true},
+{name:"Tecno Camon 20 Pro",price:185000,old:220000,market:"Computer Village",vendor:"PriceOja",kw:"tecno phone gadget",img:"https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600",sponsored:false,cheap:true},
+{name:"Infinix Hot 40 Pro",price:165000,old:195000,market:"Computer Village",vendor:"PriceOja",kw:"infinix phone gadget",img:"https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600",sponsored:false,cheap:true},
+{name:"Redmi Note 13 Pro",price:245000,old:290000,market:"Computer Village",vendor:"PriceOja",kw:"xiaomi redmi phone gadget",img:"https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600",sponsored:false,cheap:false},
+{name:"HP Pavilion 15 Laptop i5",price:485000,old:560000,market:"Computer Village",vendor:"Elites Gadget",kw:"laptop computer hp",img:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600",sponsored:false,cheap:true},
+{name:"Lenovo IdeaPad 3 Laptop",price:395000,old:460000,market:"Computer Village",vendor:"PriceOja",kw:"laptop computer lenovo",img:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600",sponsored:false,cheap:false},
+{name:"MacBook Air M1 2020",price:720000,old:850000,market:"Computer Village",vendor:"Elites Gadget",kw:"laptop computer apple macbook",img:"https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600",sponsored:false,cheap:true},
+{name:"Dell Latitude 5490 Laptop",price:350000,old:420000,market:"Computer Village",vendor:"PriceOja",kw:"laptop computer dell",img:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600",sponsored:false,cheap:false},
+{name:"PS5 Slim Console + 1 Pad",price:720000,old:850000,market:"Computer Village",vendor:"Elites Gadget",kw:"ps5 game console playstation",img:"https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=600",sponsored:true,cheap:true},
+{name:"PS4 Pro 1TB + 2 Pads",price:320000,old:380000,market:"Computer Village",vendor:"PriceOja",kw:"ps4 game console playstation",img:"https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=600",sponsored:false,cheap:true},
+{name:"Xbox Series S 512GB",price:410000,old:480000,market:"Computer Village",vendor:"PriceOja",kw:"xbox game console",img:"https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=600",sponsored:false,cheap:false},
+{name:"AirPods Pro 2nd Gen",price:85000,old:110000,market:"Computer Village",vendor:"Elites Gadget",kw:"airpods earphone gadget apple",img:"https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600",sponsored:false,cheap:true},
+{name:"JBL Flip 6 Bluetooth Speaker",price:95000,old:125000,market:"Computer Village",vendor:"PriceOja",kw:"speaker jbl music gadget",img:"https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600",sponsored:false,cheap:false},
+{name:"Oraimo Power Bank 20000mAh",price:28000,old:38000,market:"Computer Village",vendor:"PriceOja",kw:"power bank charger gadget",img:"https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=600",sponsored:false,cheap:true},
+{name:"Anker 65W Fast Charger",price:35000,old:48000,market:"Computer Village",vendor:"PriceOja",kw:"charger anker gadget",img:"https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=600",sponsored:false,cheap:false},
+{name:"Smart Watch Series 9",price:65000,old:85000,market:"Computer Village",vendor:"PriceOja",kw:"smart watch gadget",img:"https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=600",sponsored:false,cheap:true},
+{name:"Men Luxury Two-Piece Set - Oak",price:45000,old:65000,market:"Balogun",vendor:"Oak Clothing",kw:"men clothes fashion oak",img:"https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600",sponsored:true,cheap:true},
+{name:"Men Agbada - Premium",price:75000,old:95000,market:"Balogun",vendor:"Oak Clothing",kw:"men agbada native fashion",img:"https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600",sponsored:true,cheap:true},
+{name:"Men Senator Wear Set",price:38000,old:52000,market:"Balogun",vendor:"Oak Clothing",kw:"men senator native fashion",img:"https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600",sponsored:false,cheap:true},
+{name:"Men Classic Shirt - White",price:15000,old:22000,market:"Balogun",vendor:"Oak Clothing",kw:"men shirt fashion",img:"https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600",sponsored:false,cheap:false},
+{name:"Men Chinos Trousers",price:18000,old:26000,market:"Balogun",vendor:"Oak Clothing",kw:"men trousers fashion",img:"https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=600",sponsored:false,cheap:true},
+{name:"Men 3-Piece Suit",price:95000,old:130000,market:"Balogun",vendor:"Oak Clothing",kw:"men suit fashion",img:"https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600",sponsored:false,cheap:false},
+{name:"Men Kaftan - Luxury",price:42000,old:58000,market:"Balogun",vendor:"Oak Clothing",kw:"men kaftan native fashion",img:"https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600",sponsored:false,cheap:true},
+{name:"Men Polo Shirt - Pack of 3",price:22000,old:32000,market:"Balogun",vendor:"PriceOja",kw:"men polo shirt fashion",img:"https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=600",sponsored:false,cheap:true},
+{name:"Men Slim Fit Jeans",price:20000,old:30000,market:"Balogun",vendor:"PriceOja",kw:"men jeans fashion",img:"https://images.unsplash.com/photo-1542272604-787c3835535d?w=600",sponsored:false,cheap:true},
+{name:"Men T-Shirt Pack of 5",price:25000,old:35000,market:"Balogun",vendor:"PriceOja",kw:"men tshirt fashion",img:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600",sponsored:false,cheap:true},
+{name:"Men Native Wear - Ankara",price:35000,old:48000,market:"Balogun",vendor:"Oak Clothing",kw:"men native ankara fashion",img:"https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600",sponsored:false,cheap:false},
+{name:"Men Hoodie - Thick",price:24000,old:34000,market:"Balogun",vendor:"PriceOja",kw:"men hoodie fashion",img:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600",sponsored:false,cheap:true},
+{name:"Men Denim Jacket",price:30000,old:42000,market:"Balogun",vendor:"PriceOja",kw:"men jacket denim fashion",img:"https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600",sponsored:false,cheap:false},
+{name:"Men Shorts - Casual",price:12000,old:18000,market:"Balogun",vendor:"PriceOja",kw:"men shorts fashion",img:"https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=600",sponsored:false,cheap:true},
+{name:"Men Tracksuit Set",price:32000,old:45000,market:"Balogun",vendor:"PriceOja",kw:"men tracksuit sport fashion",img:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600",sponsored:false,cheap:false},
+{name:"Ladies Luxury Gown",price:35000,old:50000,market:"Balogun",vendor:"Oak Clothing",kw:"ladies women gown dress",img:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600",sponsored:false,cheap:false},
+{name:"Human Hair Wig 26 Inches",price:85000,old:120000,market:"Balogun",vendor:"PriceOja",kw:"ladies women wig hair",img:"https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=600",sponsored:false,cheap:true},
+{name:"Bob Wig 12 Inches",price:45000,old:62000,market:"Balogun",vendor:"PriceOja",kw:"ladies women wig hair bob",img:"https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=600",sponsored:false,cheap:true},
+{name:"Ladies Summer Dress",price:18000,old:28000,market:"Yaba",vendor:"PriceOja",kw:"ladies women dress",img:"https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600",sponsored:false,cheap:false},
+{name:"Designer Handbag - Leather",price:28000,old:40000,market:"Trade Fair",vendor:"PriceOja",kw:"ladies women bag handbag",img:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600",sponsored:false,cheap:false},
+{name:"Ladies Block Heels",price:22000,old:32000,market:"Balogun",vendor:"PriceOja",kw:"ladies women heels shoe",img:"https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600",sponsored:false,cheap:true},
+{name:"Ladies White Sneakers",price:25000,old:35000,market:"Yaba",vendor:"PriceOja",kw:"ladies women sneakers shoe",img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600",sponsored:false,cheap:true},
+{name:"Ladies Pleated Skirt",price:14000,old:20000,market:"Yaba",vendor:"PriceOja",kw:"ladies women skirt",img:"https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600",sponsored:false,cheap:false},
+{name:"Ladies Satin Blouse",price:13000,old:19000,market:"Yaba",vendor:"PriceOja",kw:"ladies women blouse top",img:"https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600",sponsored:false,cheap:true},
+{name:"Ladies Abaya - Dubai",price:48000,old:65000,market:"Balogun",vendor:"PriceOja",kw:"ladies women abaya",img:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600",sponsored:false,cheap:false},
+{name:"Ladies Silk Scarf / Hijab Pack",price:9000,old:14000,market:"Balogun",vendor:"PriceOja",kw:"ladies women scarf hijab",img:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600",sponsored:false,cheap:true},
+{name:"Makeup Kit - Full Set",price:32000,old:45000,market:"Balogun",vendor:"PriceOja",kw:"ladies women makeup beauty",img:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600",sponsored:false,cheap:true},
+{name:"Ladies Perfume - Oud 100ml",price:25000,old:35000,market:"Balogun",vendor:"PriceOja",kw:"ladies perfume beauty",img:"https://images.unsplash.com/photo-1541643600914-78b084683601?w=600",sponsored:false,cheap:false},
+{name:"Ladies Jewelry Set - Gold",price:18000,old:28000,market:"Balogun",vendor:"PriceOja",kw:"ladies jewelry fashion",img:"https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600",sponsored:false,cheap:true},
+{name:"Ladies Wrist Watch",price:22000,old:32000,market:"Trade Fair",vendor:"PriceOja",kw:"ladies watch fashion",img:"https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=600",sponsored:false,cheap:false},
+{name:"Ladies Ankara Dress",price:26000,old:38000,market:"Balogun",vendor:"PriceOja",kw:"ladies women ankara dress",img:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600",sponsored:false,cheap:true},
+{name:"Ladies Denim Jacket",price:24000,old:34000,market:"Yaba",vendor:"PriceOja",kw:"ladies women denim jacket",img:"https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600",sponsored:false,cheap:false},
+{name:"Ladies Crop Top - Pack of 2",price:11000,old:17000,market:"Yaba",vendor:"PriceOja",kw:"ladies women crop top",img:"https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600",sponsored:false,cheap:true},
+{name:"Ladies Palazzo Trousers",price:15000,old:22000,market:"Yaba",vendor:"PriceOja",kw:"ladies women palazzo trousers",img:"https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600",sponsored:false,cheap:false},
+{name:"Ladies Maxi Dress",price:29000,old:42000,market:"Balogun",vendor:"PriceOja",kw:"ladies women maxi dress",img:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600",sponsored:false,cheap:true},{name:"Nike Air Force 1 White",price:48000,old:65000,market:"Yaba",vendor:"PriceOja",kw:"shoe sneakers nike men",img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600",sponsored:false,cheap:true},
+{name:"Adidas Samba Sneakers",price:52000,old:68000,market:"Yaba",vendor:"PriceOja",kw:"shoe sneakers adidas",img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600",sponsored:false,cheap:false},
+{name:"Men Running Sneakers",price:32000,old:45000,market:"Yaba",vendor:"PriceOja",kw:"men shoe sneakers running",img:"https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600",sponsored:false,cheap:true},
+{name:"Men Leather Loafers",price:35000,old:48000,market:"Yaba",vendor:"PriceOja",kw:"men shoe loafers leather",img:"https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=600",sponsored:false,cheap:false},
+{name:"Men Brown Leather Sandals",price:18000,old:26000,market:"Yaba",vendor:"PriceOja",kw:"men sandals shoe",img:"https://images.unsplash.com/photo-1603487742131-4160ec999306?w=600",sponsored:false,cheap:true},
+{name:"Men Formal Shoes - Black",price:40000,old:55000,market:"Yaba",vendor:"PriceOja",kw:"men shoe formal",img:"https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=600",sponsored:false,cheap:false},
+{name:"Men Slippers - Slide",price:9000,old:14000,market:"Yaba",vendor:"PriceOja",kw:"men slippers slide",img:"https://images.unsplash.com/photo-1603487742131-4160ec999306?w=600",sponsored:false,cheap:true},
+{name:"Kids Sneakers - Light Up",price:18000,old:26000,market:"Yaba",vendor:"PriceOja",kw:"kids shoe sneakers children",img:"https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=600",sponsored:false,cheap:true},
+{name:"Kids School Shoes",price:15000,old:22000,market:"Yaba",vendor:"PriceOja",kw:"kids shoe school children",img:"https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=600",sponsored:false,cheap:false},
+{name:"Kids 2-Piece Set",price:12000,old:18000,market:"Balogun",vendor:"PriceOja",kw:"kids children clothes",img:"https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600",sponsored:false,cheap:true},
+{name:"Kids Ankara Dress",price:14000,old:20000,market:"Balogun",vendor:"PriceOja",kw:"kids children dress ankara",img:"https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600",sponsored:false,cheap:false},
+{name:"Baby Diaper Bag",price:16000,old:23000,market:"Trade Fair",vendor:"PriceOja",kw:"baby bag diaper children",img:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600",sponsored:false,cheap:true},
+{name:"Baby Stroller - Foldable",price:85000,old:110000,market:"Trade Fair",vendor:"PriceOja",kw:"baby stroller children",img:"https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=600",sponsored:false,cheap:false},
+{name:"Electric Kettle 1.8L",price:18000,old:26000,market:"Trade Fair",vendor:"PriceOja",kw:"home kitchen kettle appliance",img:"https://images.unsplash.com/photo-1594213114663-d94db9b17125?w=600",sponsored:false,cheap:true},
+{name:"Blender - 2 in 1",price:32000,old:45000,market:"Trade Fair",vendor:"PriceOja",kw:"home kitchen blender appliance",img:"https://images.unsplash.com/photo-1570222094114-d054a817e56b?w=600",sponsored:false,cheap:true},
+{name:"Rice Cooker 5.5L",price:38000,old:52000,market:"Trade Fair",vendor:"PriceOja",kw:"home kitchen rice cooker appliance",img:"https://images.unsplash.com/photo-1585515320310-259814833e62?w=600",sponsored:false,cheap:false},
+{name:"Air Fryer 5L",price:65000,old:85000,market:"Trade Fair",vendor:"PriceOja",kw:"home kitchen air fryer appliance",img:"https://images.unsplash.com/photo-1585515320310-259814833e62?w=600",sponsored:false,cheap:true},
+{name:"Microwave Oven 20L",price:75000,old:95000,market:"Trade Fair",vendor:"PriceOja",kw:"home kitchen microwave appliance",img:"https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=600",sponsored:false,cheap:false},
+{name:"Standing Fan - 18 Inch",price:42000,old:58000,market:"Trade Fair",vendor:"PriceOja",kw:"home fan appliance",img:"https://images.unsplash.com/photo-1565151443833-29bf49b1e3a0?w=600",sponsored:false,cheap:true},
+{name:"Rechargeable Fan + Light",price:55000,old:75000,market:"Trade Fair",vendor:"PriceOja",kw:"home fan rechargeable appliance",img:"https://images.unsplash.com/photo-1565151443833-29bf49b1e3a0?w=600",sponsored:false,cheap:true},
+{name:"LED Ring Light + Tripod",price:22000,old:32000,market:"Computer Village",vendor:"PriceOja",kw:"ring light camera gadget",img:"https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=600",sponsored:false,cheap:true},
+{name:"Canon DSLR Camera 2000D",price:385000,old:460000,market:"Computer Village",vendor:"PriceOja",kw:"camera canon gadget",img:"https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600",sponsored:false,cheap:false},
+{name:"Tripod Stand - Professional",price:18000,old:26000,market:"Computer Village",vendor:"PriceOja",kw:"tripod camera gadget",img:"https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=600",sponsored:false,cheap:true},
+{name:"Wireless Earbuds - Oraimo",price:22000,old:32000,market:"Computer Village",vendor:"PriceOja",kw:"earbuds earphone gadget",img:"https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600",sponsored:false,cheap:true},
+{name:"Bluetooth Headset - Noise Cancel",price:38000,old:52000,market:"Computer Village",vendor:"PriceOja",kw:"headset headphone gadget",img:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600",sponsored:false,cheap:false},
+{name:"32 Inch Smart TV",price:165000,old:210000,market:"Trade Fair",vendor:"PriceOja",kw:"tv television home",img:"https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=600",sponsored:false,cheap:true},
+{name:"43 Inch Smart TV 4K",price:285000,old:350000,market:"Trade Fair",vendor:"PriceOja",kw:"tv television home",img:"https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=600",sponsored:false,cheap:false},
+{name:"55 Inch Smart TV 4K",price:450000,old:540000,market:"Trade Fair",vendor:"PriceOja",kw:"tv television home",img:"https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=600",sponsored:false,cheap:true},
+{name:"Home Theatre - 5.1 Sound",price:95000,old:125000,market:"Trade Fair",vendor:"PriceOja",kw:"home theatre speaker sound",img:"https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600",sponsored:false,cheap:false},
+{name:"Generator - 2.5KVA",price:285000,old:340000,market:"Trade Fair",vendor:"PriceOja",kw:"generator power home",img:"https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600",sponsored:false,cheap:true},
+{name:"Solar Power Bank 50000mAh",price:45000,old:60000,market:"Computer Village",vendor:"PriceOja",kw:"solar power bank gadget",img:"https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=600",sponsored:false,cheap:true},
+{name:"Men Wrist Watch - Luxury",price:45000,old:62000,market:"Trade Fair",vendor:"PriceOja",kw:"men watch fashion",img:"https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=600",sponsored:false,cheap:false},
+{name:"Men Sunglasses - UV",price:12000,old:18000,market:"Yaba",vendor:"PriceOja",kw:"men sunglasses fashion",img:"https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600",sponsored:false,cheap:true},
+{name:"Men Leather Belt",price:8000,old:12000,market:"Yaba",vendor:"PriceOja",kw:"men belt fashion leather",img:"https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=600",sponsored:false,cheap:true},
+{name:"Men Leather Wallet",price:9000,old:14000,market:"Yaba",vendor:"PriceOja",kw:"men wallet fashion leather",img:"https://images.unsplash.com/photo-1627123424574-724758594e93?w=600",sponsored:false,cheap:false},
+{name:"Men Backpack - Laptop",price:22000,old:32000,market:"Yaba",vendor:"PriceOja",kw:"men bag backpack",img:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600",sponsored:false,cheap:true},
+{name:"Ladies Tote Bag",price:20000,old:30000,market:"Trade Fair",vendor:"PriceOja",kw:"ladies women bag tote",img:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600",sponsored:false,cheap:true},
+{name:"Ladies Crossbody Bag",price:16000,old:24000,market:"Trade Fair",vendor:"PriceOja",kw:"ladies women bag crossbody",img:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600",sponsored:false,cheap:false},
+{name:"Ladies Sandals - Flat",price:14000,old:20000,market:"Yaba",vendor:"PriceOja",kw:"ladies women sandals shoe",img:"https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600",sponsored:false,cheap:true},
+{name:"Ladies High Heels - Red",price:26000,old:36000,market:"Balogun",vendor:"PriceOja",kw:"ladies women heels shoe",img:"https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600",sponsored:false,cheap:false},
+{name:"Ladies Sunglasses - Fashion",price:10000,old:16000,market:"Yaba",vendor:"PriceOja",kw:"ladies sunglasses fashion",img:"https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600",sponsored:false,cheap:true},
+{name:"Hair Straightener - 2 in 1",price:18000,old:26000,market:"Balogun",vendor:"PriceOja",kw:"ladies hair straightener beauty",img:"https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=600",sponsored:false,cheap:true},
+{name:"Hair Dryer - Professional",price:16000,old:24000,market:"Balogun",vendor:"PriceOja",kw:"ladies hair dryer beauty",img:"https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=600",sponsored:false,cheap:false},
+{name:"Nail Polish Set - 12 Colors",price:8000,old:12000,market:"Balogun",vendor:"PriceOja",kw:"ladies nails beauty",img:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600",sponsored:false,cheap:true},
+{name:"Face Serum - Vitamin C",price:9000,old:14000,market:"Balogun",vendor:"PriceOja",kw:"ladies skincare beauty",img:"https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600",sponsored:false,cheap:true},
+{name:"Body Lotion - 400ml",price:11000,old:16000,market:"Balogun",vendor:"PriceOja",kw:"ladies skincare beauty lotion",img:"https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600",sponsored:false,cheap:false},
+{name:"Men Perfume - 100ml",price:22000,old:32000,market:"Balogun",vendor:"PriceOja",kw:"men perfume beauty",img:"https://images.unsplash.com/photo-1541643600914-78b084683601?w=600",sponsored:false,cheap:true},
+{name:"Men Deodorant Spray Pack",price:7000,old:11000,market:"Balogun",vendor:"PriceOja",kw:"men deodorant beauty",img:"https://images.unsplash.com/photo-1541643600914-78b084683601?w=600",sponsored:false,cheap:false},
+{name:"Gym Dumbbell Set 20kg",price:55000,old:75000,market:"Trade Fair",vendor:"PriceOja",kw:"gym fitness dumbbell sport",img:"https://images.unsplash.com/photo-1638536532686-d610adfc8e5c?w=600",sponsored:false,cheap:true},
+{name:"Yoga Mat - Non Slip",price:12000,old:18000,market:"Trade Fair",vendor:"PriceOja",kw:"gym yoga fitness sport",img:"https://images.unsplash.com/photo-1592432678016-e910b452f9a2?w=600",sponsored:false,cheap:true},
+{name:"Football Jersey - Nigeria",price:18000,old:26000,market:"Yaba",vendor:"PriceOja",kw:"football jersey sport men",img:"https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=600",sponsored:false,cheap:true},
+{name:"Football - Size 5",price:9000,old:14000,market:"Yaba",vendor:"PriceOja",kw:"football sport ball",img:"https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=600",sponsored:false,cheap:false},
+{name:"Water Bottle - 1L Sport",price:6000,old:9000,market:"Yaba",vendor:"PriceOja",kw:"sport water bottle fitness",img:"https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600",sponsored:false,cheap:true},
+{name:"School Bag - Kids",price:14000,old:20000,market:"Yaba",vendor:"PriceOja",kw:"kids school bag children",img:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600",sponsored:false,cheap:true},
+{name:"Lunch Box Set - Kids",price:7000,old:11000,market:"Trade Fair",vendor:"PriceOja",kw:"kids lunch box children",img:"https://images.unsplash.com/photo-1585515320310-259814833e62?w=600",sponsored:false,cheap:false},
+},{name:"iPad 10th Gen 64GB WiFi",price:485000,old:580000,market:"Computer Village",vendor:"Elites Gadget",kw:"ipad tablet apple gadget",img:"https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600",sponsored:false,cheap:true},
+{name:"Samsung Galaxy Tab A8",price:215000,old:265000,market:"Computer Village",vendor:"PriceOja",kw:"tablet samsung gadget",img:"https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600",sponsored:false,cheap:false},
+{name:"Wireless Keyboard + Mouse",price:18000,old:26000,market:"Computer Village",vendor:"PriceOja",kw:"keyboard mouse computer gadget",img:"https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600",sponsored:false,cheap:true},
+{name:"Laptop Bag - 15.6 Inch",price:14000,old:20000,market:"Computer Village",vendor:"PriceOja",kw:"laptop bag computer",img:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600",sponsored:false,cheap:true},
+{name:"External Hard Drive 1TB",price:55000,old:75000,market:"Computer Village",vendor:"PriceOja",kw:"hard drive storage computer",img:"https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=600",sponsored:false,cheap:false},
+{name:"USB Flash Drive 128GB",price:12000,old:18000,market:"Computer Village",vendor:"PriceOja",kw:"usb flash drive storage",img:"https://images.unsplash.com/photo-1618410320928-25228d811631?w=600",sponsored:false,cheap:true},
+{name:"Printer - HP LaserJet",price:125000,old:160000,market:"Computer Village",vendor:"PriceOja",kw:"printer hp computer",img:"https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=600",sponsored:false,cheap:false},
+{name:"CCTV Camera - 4 Pack",price:145000,old:185000,market:"Computer Village",vendor:"PriceOja",kw:"cctv camera security",img:"https://images.unsplash.com/photo-1558002038-1055907df827?w=600",sponsored:false,cheap:true},
+{name:"WiFi Router - 4G",price:38000,old:52000,market:"Computer Village",vendor:"PriceOja",kw:"router wifi internet gadget",img:"https://images.unsplash.com/photo-1606904825846-647eb07f5be2?w=600",sponsored:false,cheap:true},
+{name:"Power Strip - 6 Socket",price:9000,old:14000,market:"Computer Village",vendor:"PriceOja",kw:"power strip extension gadget",img:"https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=600",sponsored:false,cheap:true},
+{name:"Men Agbada - White & Gold",price:85000,old:110000,market:"Balogun",vendor:"Oak Clothing",kw:"men agbada native fashion",img:"https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600",sponsored:true,cheap:true},
+{name:"Men Senator - Black",price:36000,old:50000,market:"Balogun",vendor:"Oak Clothing",kw:"men senator native fashion",img:"https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600",sponsored:false,cheap:false},
+{name:"Men Ankara Shirt",price:19000,old:28000,market:"Balogun",vendor:"Oak Clothing",kw:"men ankara shirt fashion",img:"https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600",sponsored:false,cheap:true},
+{name:"Men Cargo Pants",price:22000,old:32000,market:"Balogun",vendor:"PriceOja",kw:"men cargo pants fashion",img:"https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=600",sponsored:false,cheap:true},
+{name:"Men Vintage T-Shirt",price:11000,old:17000,market:"Yaba",vendor:"PriceOja",kw:"men tshirt vintage fashion",img:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600",sponsored:false,cheap:true},
+{name:"Ladies Party Gown - Sequin",price:55000,old:78000,market:"Balogun",vendor:"Oak Clothing",kw:"ladies women party gown dress",img:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600",sponsored:true,cheap:true},
+{name:"Ladies Office Dress",price:24000,old:35000,market:"Balogun",vendor:"PriceOja",kw:"ladies women office dress",img:"https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600",sponsored:false,cheap:false},
+{name:"Ladies Two-Piece Set",price:28000,old:40000,market:"Balogun",vendor:"PriceOja",kw:"ladies women two piece set",img:"https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600",sponsored:false,cheap:true},
+{name:"Ladies Jumpsuit - Black",price:26000,old:38000,market:"Balogun",vendor:"PriceOja",kw:"ladies women jumpsuit",img:"https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600",sponsored:false,cheap:false},
+{name:"Curly Wig 22 Inches",price:68000,old:92000,market:"Balogun",vendor:"PriceOja",kw:"ladies women wig curly hair",img:"https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=600",sponsored:false,cheap:true},
+{name:"Straight Wig 30 Inches",price:110000,old:145000,market:"Balogun",vendor:"PriceOja",kw:"ladies women wig straight hair",img:"https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=600",sponsored:false,cheap:false},
+{name:"Hair Attachment - Pack",price:6000,old:10000,market:"Balogun",vendor:"PriceOja",kw:"ladies hair attachment",img:"https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=600",sponsored:false,cheap:true},
+{name:"Ladies Shoulder Bag - Mini",price:18000,old:26000,market:"Trade Fair",vendor:"PriceOja",kw:"ladies women bag shoulder",img:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600",sponsored:false,cheap:true},
+{name:"Ladies Clutch Purse",price:12000,old:18000,market:"Trade Fair",vendor:"PriceOja",kw:"ladies women clutch bag",img:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600",sponsored:false,cheap:false},
+{name:"Men Chelsea Boots",price:45000,old:62000,market:"Yaba",vendor:"PriceOja",kw:"men boots shoe chelsea",img:"https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=600",sponsored:false,cheap:true},
+{name:"Men Canvas Sneakers",price:19000,old:28000,market:"Yaba",vendor:"PriceOja",kw:"men sneakers canvas shoe",img:"https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600",sponsored:false,cheap:true},
+{name:"Ladies Platform Sandals",price:19000,old:28000,market:"Yaba",vendor:"PriceOja",kw:"ladies women sandals platform shoe",img:"https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600",sponsored:false,cheap:true},
+{name:"Baby Romper Set - 3 Pack",price:15000,old:22000,market:"Balogun",vendor:"PriceOja",kw:"baby romper children clothes",img:"https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600",sponsored:false,cheap:true},
+{name:"Kids T-Shirt Pack - 3",price:11000,old:17000,market:"Balogun",vendor:"PriceOja",kw:"kids tshirt children clothes",img:"https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600",sponsored:false,cheap:false},
+{name:"Kids Jeans",price:13000,old:19000,market:"Balogun",vendor:"PriceOja",kw:"kids jeans children clothes",img:"https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600",sponsored:false,cheap:true},
+{name:"Bed Sheet Set - 4 in 1",price:22000,old:32000,market:"Trade Fair",vendor:"PriceOja",kw:"home bed sheet bedding",img:"https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600",sponsored:false,cheap:true},
+{name:"Pillow - Pack of 2",price:9000,old:14000,market:"Trade Fair",vendor:"PriceOja",kw:"home pillow bedding",img:"https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600",sponsored:false,cheap:false},
+{name:"Curtains - Living Room Set",price:28000,old:40000,market:"Trade Fair",vendor:"PriceOja",kw:"home curtains decor",img:"https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600",sponsored:false,cheap:true},
+{name:"Wall Clock - Modern",price:11000,old:17000,market:"Trade Fair",vendor:"PriceOja",kw:"home wall clock decor",img:"https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600",sponsored:false,cheap:false},
+{name:"Cooking Pot Set - 5 Pieces",price:48000,old:65000,market:"Trade Fair",vendor:"PriceOja",kw:"home kitchen pot cooking",img:"https://images.unsplash.com/photo-1585515320310-259814833e62?w=600",sponsored:false,cheap:true},
+{name:"Gas Cooker - 2 Burner",price:65000,old:85000,market:"Trade Fair",vendor:"PriceOja",kw:"home kitchen gas cooker appliance",img:"https://images.unsplash.com/photo-1585515320310-259814833e62?w=600",sponsored:false,cheap:false},
+{name:"Water Dispenser - Hot & Cold",price:85000,old:110000,market:"Trade Fair",vendor:"PriceOja",kw:"home water dispenser appliance",img:"https://images.unsplash.com/photo-1585515320310-259814833e62?w=600",sponsored:false,cheap:true},
+{name:"Vacuum Cleaner - Portable",price:42000,old:58000,market:"Trade Fair",vendor:"PriceOja",kw:"home vacuum cleaner appliance",img:"https://images.unsplash.com/photo-1558317374-067fb5f30001?w=600",sponsored:false,cheap:false},
+{name:"Iron - Steam",price:18000,old:26000,market:"Trade Fair",vendor:"PriceOja",kw:"home iron appliance",img:"https://images.unsplash.com/photo-1585515320310-259814833e62?w=600",sponsored:false,cheap:true},
+{name:"Hair Clipper - Professional",price:22000,old:32000,market:"Computer Village",vendor:"PriceOja",kw:"men hair clipper barber",img:"https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600",sponsored:false,cheap:true},
+{name:"Beard Trimmer Kit",price:15000,old:22000,market:"Computer Village",vendor:"PriceOja",kw:"men beard trimmer grooming",img:"https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600",sponsored:false,cheap:false},
+{name:"Men Face Wash + Moisturizer",price:9000,old:14000,market:"Balogun",vendor:"PriceOja",kw:"men skincare beauty",img:"https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600",sponsored:false,cheap:true},
+{name:"Ladies Face Mask Set",price:8000,old:12000,market:"Balogun",vendor:"PriceOja",kw:"ladies skincare face mask beauty",img:"https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600",sponsored:false,cheap:true},
+{name:"Resistance Bands Set",price:8000,old:12000,market:"Trade Fair",vendor:"PriceOja",kw:"gym fitness resistance sport",img:"https://images.unsplash.com/photo-1592432678016-e910b452f9a2?w=600",sponsored:false,cheap:true},
+{name:"Skipping Rope - Adjustable",price:5000,old:8000,market:"Trade Fair",vendor:"PriceOja",kw:"gym skipping rope fitness sport",img:"https://images.unsplash.com/photo-1592432678016-e910b452f9a2?w=600",sponsored:false,cheap:true},
+{name:"Chess Board - Wooden",price:12000,old:18000,market:"Yaba",vendor:"PriceOja",kw:"game chess board",img:"https://images.unsplash.com/photo-1529699211952-734e80c4d42b?w=600",sponsored:false,cheap:false},
+{name:"Monopoly Board Game",price:14000,old:20000,market:"Yaba",vendor:"PriceOja",kw:"game monopoly board",img:"https://images.unsplash.com/photo-1529699211952-734e80c4d42b?w=600",sponsored:false,cheap:true},
+{name:"Ludo + Snake Board Game",price:6000,old:9000,market:"Yaba",vendor:"PriceOja",kw:"game ludo board",img:"https://images.unsplash.com/photo-1529699211952-734e80c4d42b?w=600",sponsored:false,cheap:true},
+{name:"Bluetooth Car MP3 Player",price:15000,old:22000,market:"Computer Village",vendor:"PriceOja",kw:"car bluetooth mp3 gadget",img:"https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600",sponsored:false,cheap:true},
+{name:"Car Phone Holder - Magnetic",price:7000,old:11000,market:"Computer Village",vendor:"PriceOja",kw:"car phone holder gadget",img:"https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600",sponsored:false,cheap:false}
+];function waLink(p){let n=p.vendor==="Oak Clothing"?"2348104966033":"2348129747802";return "https://wa.me/"+n+"?text="+encodeURIComponent("Hello, I saw "+p.name+" for N"+p.price.toLocaleString()+" on PriceOja. Is it available?");}
+function openBox(i){let p=products[i];document.getElementById('lbImg').src=p.img;document.getElementById('lbName').innerText=p.name;document.getElementById('lbPrice').innerText="N"+p.price.toLocaleString()+" | "+p.vendor;document.getElementById('lightbox').style.display='flex';}
 function closeBox(){document.getElementById('lightbox').style.display='none';}
 function render(){
-  let q=document.getElementById('searchInput').value.toLowerCase().trim();
-  let list=products.filter(p=>{
-    let marketOk = cur==='all' ? true : cur==='Ladies' ? (p.kw.includes('ladies')||p.kw.includes('women')) : p.market===cur;
-    let searchOk = !q || (p.name+" "+p.market+" "+p.vendor+" "+p.kw).toLowerCase().includes(q);
-    return marketOk && searchOk;
-  });
-  list.sort((a,b)=> (b.sponsored?1:0)-(a.sponsored?1:0));
-  document.getElementById('secTitle').innerText=`🔥 ${cur==='all'?'All Products':cur==='Ladies'?'Ladies Zone':cur+' Market'} — ${list.length} products`;
-  document.getElementById('noResult').style.display=list.length===0?'block':'none';
-  document.getElementById('grid').innerHTML=list.map(p=>{
-    let idx=products.indexOf(p);
-    return `<div class="card ${p.sponsored?'sponsored':''}"><img src="${p.img}" onclick='openBox(${idx})' alt="${p.name}"><div class="b">${p.sponsored?'<span class="spon-badge">⭐ SPONSORED • VERIFIED PAID VENDOR</span><br>':''}<h3>${p.name}</h3><div class="pr">N${p.price.toLocaleString()} <span class="old">N${p.old.toLocaleString()}</span></div><div class="mk">${p.market} • ${p.vendor} - Lagos</div><span class="badge ${p.cheap?'cheap':'ver'}">${p.cheap?'✓✓ CHEAPEST':'✓ PRICE CHECKED'}</span><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>${p.vendor} ✓</b><br>Mention <b>PRICEOJA</b><br><a class="wa" href="${waLink(p)}">WhatsApp ${p.vendor}</a><a class="call" href="tel:${p.vendor==="Oak Clothing"?"+2348104966033":"+2348129747802"}">Call Vendor</a></div></details></div></div>`;
-  }).join('');
-}
-function setM(m,btn){cur=m;document.querySelectorAll('#marketBtns button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');render();}
-function clearAll(){document.getElementById('searchInput').value='';cur='all';document.querySelectorAll('#marketBtns button').forEach(b=>b.classList.remove('active'));document.querySelectorAll('#marketBtns button')[0].classList.add('active');render();}
-render();
-</script>
-<script>
-let deferredPrompt;
-const installBtn = document.getElementById('installBtn');
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-});
-installBtn.addEventListener('click', async () => {
-  if (deferredPrompt) {
-    deferredPrompt.prompt();
-    const choice = await deferredPrompt.userChoice;
-    if (choice.outcome === 'accepted') installBtn.innerText = '✅ App Installed!';
-    deferredPrompt = null;
-  } else {
-    alert('To Install PriceOja:\n\nANDROID: Tap 3 dots > Add to Home Screen / Install App\n\nIPHONE: Tap Share > Add to Home Screen');
-  }
-});
-window.addEventListener('appinstalled', () => { installBtn.innerText = '✅ App Installed!'; });
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js');
-}
-</script>
-</body>
-</html>
-  <script>
-  document.getElementById('grid').innerHTML=list.map(p=>{
-    let idx=products.indexOf(p);
-    return `<div class="card ${p.sponsored?'sponsored':''}"><img src="${p.img}" onclick='openBox(${idx})' alt="${p.name}"><div class="b">${p.sponsored?'<span class="spon-badge">⭐ SPONSORED • VERIFIED PAID VENDOR</span><br>':''}<h3>${p.name}</h3><div class="pr">N${p.price.toLocaleString()} <span class="old">N${p.old.toLocaleString()}</span></div><div class="mk">${p.market} • ${p.vendor} - Lagos</div><span class="badge ${p.cheap?'cheap':'ver'}">${p.cheap?'✓✓ CHEAPEST':'✓ PRICE CHECKED'}</span><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>${p.vendor} ✓</b><br>Mention <b>PRICEOJA</b><br><a class="wa" href="${waLink(p)}">WhatsApp ${p.vendor}</a><a class="call" href="tel:${p.vendor==="Oak Clothing"?"+2348104966033":"+2348129747802"}">Call Vendor</a></div></details></div></div>`;
-  }).join('');
+let q=document.getElementById('searchInput').value.toLowerCase();
+let list=products.filter(p=>(cur==='all'||p.market===cur||(cur==='Ladies'&&p.kw.includes('ladies')))&&(p.name.toLowerCase().includes(q)||p.kw.includes(q)||p.vendor.toLowerCase().includes(q)));
+document.getElementById('noResult').style.display=list.length?'none':'block';
+document.getElementById('secTitle').innerText=cur==='all'?'🔥 All Products (160+)':cur;
+document.getElementById('grid').innerHTML=list.map(p=>{
+let idx=products.indexOf(p);
+return `<div class="card ${p.sponsored?'sponsored':''}"><img src="${p.img}" onclick='openBox(${idx})' alt="${p.name}"><div class="b">${p.sponsored?'<span class="spon-badge">⭐ SPONSORED • VERIFIED PAID VENDOR</span><br>':''}<h3>${p.name}</h3><div class="pr">N${p.price.toLocaleString()} <span class="old">N${p.old.toLocaleString()}</span></div><div class="mk">${p.market} • ${p.vendor} - Lagos</div><span class="badge ${p.cheap?'cheap':'ver'}">${p.cheap?'✓✓ CHEAPEST':'✓ PRICE CHECKED'}</span><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>${p.vendor} ✓</b><br>Mention <b>PRICEOJA</b><br><a class="wa" href="${waLink(p)}">WhatsApp ${p.vendor}</a><a class="call" href="tel:${p.vendor==="Oak Clothing"?"+2348104966033":"+2348129747802"}">Call Vendor</a></div></details></div></div>`;
+}).join('');
 }
 function setM(m,btn){cur=m;document.querySelectorAll('#marketBtns button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');render();}
 function clearAll(){document.getElementById('searchInput').value='';cur='all';document.querySelectorAll('#marketBtns button').forEach(b=>b.classList.remove('active'));document.querySelectorAll('#marketBtns button')[0].classList.add('active');render();}
 render();
 let deferredPrompt;
-const installBtn = document.getElementById('installBtn');
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
+const installBtn=document.getElementById('installBtn');
+window.addEventListener('beforeinstallprompt',(e)=>{e.preventDefault();deferredPrompt=e;});
+installBtn.addEventListener('click',async()=>{
+if(deferredPrompt){deferredPrompt.prompt();const c=await deferredPrompt.userChoice;if(c.outcome==='accepted')installBtn.innerText='✅ App Installed!';deferredPrompt=null;}
+else{alert('To Install PriceOja:\n\nANDROID: Tap 3 dots > Add to Home Screen / Install App\n\nIPHONE: Tap Share > Add to Home Screen');}
 });
-installBtn.addEventListener('click', async () => {
-  if (deferredPrompt) {
-    deferredPrompt.prompt();
-    const choice = await deferredPrompt.userChoice;
-    if (choice.outcome === 'accepted') installBtn.innerText = '✅ App Installed!';
-    deferredPrompt = null;
-  } else {
-    alert('To Install PriceOja:\n\nANDROID: Tap 3 dots > Add to Home Screen / Install App\n\nIPHONE: Tap Share > Add to Home Screen');
-  }
-});
-window.addEventListener('appinstalled', () => { installBtn.innerText = '✅ App Installed!'; });
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js');
-}
+window.addEventListener('appinstalled',()=>{installBtn.innerText='✅ App Installed!';});
+if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js');}
 </script>
 </body>
 </html>
