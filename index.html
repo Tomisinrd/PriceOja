@@ -31,7 +31,6 @@ header{background:#0A7A42;color:#fff;position:sticky;top:0;z-index:99}
 summary{background:#FF8A00;color:#fff;padding:10px;border-radius:8px;text-align:center;font-weight:700;cursor:pointer;list-style:none;font-size:13px;margin-top:8px}
 .cheapbox{background:#FFF0D9;border:1px dashed #FF8A00;padding:10px;border-radius:8px;margin-top:8px;text-align:center;font-size:13px}
 .cheapbox a{display:block;padding:10px;border-radius:8px;color:#fff;text-decoration:none;font-weight:700;margin-top:7px}.wa{background:#25D366}.call{background:#0A7A42}
-/* LIGHTBOX - Click image to see bold */
 #lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:999;align-items:center;justify-content:center;flex-direction:column;padding:16px}
 #lightbox img{max-width:95%;max-height:75vh;border-radius:12px;object-fit:contain}
 #lightbox h3{color:#fff;margin:12px 0 4px;text-align:center}
@@ -44,8 +43,8 @@ footer{text-align:center;padding:18px;color:#888;font-size:12px;background:#fff}
 </head>
 <body>
 <header><div class="top"><div><h1>Price<span>Oja</span> 🛒</h1><p>All Lagos Markets In One Place — Tap image to zoom</p></div><a href="https://wa.me/2349063586563?text=Hello%20PriceOja%20I%20want%20to%20become%20a%20vendor">Become Vendor</a></div>
-<div class="search"><input id="searchInput" placeholder="Search Polo, Rice, iPhone, TV, Onions..." oninput="render()"><button onclick="render()">Search</button></div></header>
-<div class="banner"><div><h2>Know Price Before You Go Market 🔥</h2><p>Tap any product image to see am big & clear. Colour for photo = Colour for name.</p></div></div>
+<div class="search"><input id="searchInput" placeholder="Search PS5, FC27, Sneakers, Bible, Bicycle..." oninput="render()"><button onclick="render()">Search</button></div></header>
+<div class="banner"><div><h2>Know Price Before You Go Market 🔥</h2><p>PS5 • Phones • Sneakers • Bible • Baby Essentials • Drinks • All in one place. Tap image to see big.</p></div></div>
 <div class="wrap">
 <div class="sec">🏪 Shop By Market</div>
 <div class="mkt" id="marketBtns">
@@ -67,106 +66,101 @@ footer{text-align:center;padding:18px;color:#888;font-size:12px;background:#fff}
 <div id="noResult" style="display:none;text-align:center;background:#fff;padding:20px;border-radius:10px"><h3>No product found 😔</h3><button onclick="clearAll()" style="background:#0A7A42;color:#fff;border:0;padding:10px 18px;border-radius:20px;font-weight:700">Show All</button></div>
 </div>
 <footer><b>PriceOja — Real Markets. Real Prices. Real Vendors.</b><br>Founder: Fesojaiye A. Tomisin • 09063586563 • tomisinrd@gmail.com</footer>
-
-<!-- LIGHTBOX -->
 <div id="lightbox" onclick="closeBox()"><img id="lbImg" src=""><h3 id="lbName"></h3><p id="lbPrice"></p><button>✕ Close</button></div>
-
 <script>
 let cur='all';
 const products=[
-/* === BALOGUN - POLO COLOUR = PHOTO COLOUR === */
+/* === NEW: PS5 + GAMES === */
+{name:"Sony PlayStation 5 Slim (PS5 Slim) Console 1TB",market:"Computer Village",vendor:"Computer Village",price:1070000,old:1250000,img:"https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=800",kw:"ps5 playstation sony console slim game",cheap:false},
+{name:"EA Sports PS5 FC27 - PlayStation 5",market:"Computer Village",vendor:"Computer Village",price:79000,old:95000,img:"https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800",kw:"fc27 fifa football ps5 game ea sports",cheap:false},
+{name:"PS5 DualSense Controller - White",market:"Computer Village",vendor:"Computer Village",price:85000,old:105000,img:"https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=800",kw:"ps5 controller dualsense white",cheap:false},
+{name:"PS5 DualSense Controller - Black",market:"Computer Village",vendor:"Computer Village",price:85000,old:105000,img:"https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=800",kw:"ps5 controller dualsense black",cheap:false},
+
+/* === NEW: SNEAKERS DIFFERENT COLOURS === */
+{name:"Sneakers - Red Nike Style",market:"Yaba",vendor:"Yaba Market",price:32000,old:42000,img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800",kw:"sneakers red nike shoes",cheap:false},
+{name:"Sneakers - White",market:"Yaba",vendor:"Yaba Market",price:30000,old:40000,img:"https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800",kw:"sneakers white shoes",cheap:false},
+{name:"Sneakers - Black",market:"Yaba",vendor:"Yaba Market",price:32000,old:42000,img:"https://images.unsplash.com/photo-1543508282-6319a3e2621f?w=800",kw:"sneakers black shoes",cheap:false},
+{name:"Sneakers - Blue",market:"Yaba",vendor:"Yaba Market",price:31000,old:40000,img:"https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800",kw:"sneakers blue shoes",cheap:false},
+{name:"Sneakers - Green",market:"Yaba",vendor:"Yaba Market",price:31000,old:40000,img:"https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=800",kw:"sneakers green shoes",cheap:false},
+{name:"Sneakers - Pink",market:"Yaba",vendor:"Yaba Market",price:30000,old:39000,img:"https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=800",kw:"sneakers pink shoes women",cheap:false},
+
+/* === NEW: ANDROID & SAMSUNG PHONES === */
+{name:"Samsung Galaxy A54 - Black",market:"Computer Village",vendor:"Computer Village",price:380000,old:430000,img:"https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=800",kw:"samsung a54 black android phone",cheap:false},
+{name:"Samsung Galaxy A34 - Blue",market:"Computer Village",vendor:"Computer Village",price:280000,old:320000,img:"https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=800",kw:"samsung a34 blue android phone",cheap:false},
+{name:"Samsung Galaxy S24 - Grey",market:"Computer Village",vendor:"Computer Village",price:950000,old:1100000,img:"https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=800",kw:"samsung s24 grey android phone",cheap:false},
+{name:"Tecno Camon 20 - Black",market:"Computer Village",vendor:"Computer Village",price:225000,old:260000,img:"https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800",kw:"tecno camon android phone",cheap:false},
+{name:"Infinix Note 30 - Gold",market:"Computer Village",vendor:"Computer Village",price:210000,old:245000,img:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800",kw:"infinix note gold android phone",cheap:false},
+{name:"Redmi Note 13 - Blue",market:"Computer Village",vendor:"Computer Village",price:265000,old:310000,img:"https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800",kw:"redmi note blue android phone xiaomi",cheap:false},
+{name:"iPhone 13 - Blue",market:"Computer Village",vendor:"Computer Village",price:650000,old:720000,img:"https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=800",kw:"iphone 13 blue phone",cheap:false},
+{name:"iPhone 12 - Black",market:"Computer Village",vendor:"Computer Village",price:480000,old:540000,img:"https://images.unsplash.com/photo-1591337676887-a217a6970a8a?w=800",kw:"iphone 12 black phone",cheap:false},
+
+/* === NEW: PILLOWS === */
+{name:"Pillow - White (Soft Bed Pillow)",market:"Idumota",vendor:"Idumota Market",price:7500,old:10000,img:"https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=800",kw:"pillow white bed",cheap:false},
+{name:"Pillow - Blue (Soft Bed Pillow)",market:"Idumota",vendor:"Idumota Market",price:7500,old:10000,img:"https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=800",kw:"pillow blue bed",cheap:false},
+{name:"Pillow - Grey (Orthopedic Pillow)",market:"Idumota",vendor:"Idumota Market",price:12000,old:16000,img:"https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800",kw:"pillow grey orthopedic",cheap:false},
+{name:"Pillow - Pack of 2 White",market:"Ikorodu",vendor:"Ikorodu Market",price:14000,old:18000,img:"https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=800",kw:"pillow pack white bed",cheap:false},
+
+/* === NEW: BICYCLE === */
+{name:"Bicycle - Red (Mountain Bike 21 Speed)",market:"Trade Fair",vendor:"Trade Fair Market",price:185000,old:220000,img:"https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=800",kw:"bicycle red mountain bike",cheap:false},
+{name:"Bicycle - Black (Mountain Bike)",market:"Trade Fair",vendor:"Trade Fair Market",price:185000,old:220000,img:"https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?w=800",kw:"bicycle black mountain bike",cheap:false},
+{name:"Bicycle - Blue (Kids Bicycle)",market:"Ikorodu",vendor:"Ikorodu Market",price:95000,old:120000,img:"https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=800",kw:"bicycle blue kids bike",cheap:false},
+
+/* === NEW: SOFT DRINK & WINE === */
+{name:"Coca-Cola 50cl - Pack of 12",market:"Mile 12",vendor:"Mile 12 Market",price:12000,old:15000,img:"https://images.unsplash.com/photo-1554866585-cd94860890b7?w=800",kw:"coca cola coke soft drink",cheap:false},
+{name:"Pepsi 50cl - Pack of 12",market:"Mile 12",vendor:"Mile 12 Market",price:11500,old:14500,img:"https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=800",kw:"pepsi soft drink",cheap:false},
+{name:"Maltina - Pack of 12",market:"Ketu",vendor:"Ketu Market",price:13500,old:16500,img:"https://images.unsplash.com/photo-1600788886242-5c96aabe3757?w=800",kw:"maltina malt drink",cheap:false},
+{name:"Red Wine - Carlo Rossi Red",market:"Ketu",vendor:"Ketu Market",price:9500,old:12500,img:"https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800",kw:"red wine carlo rossi",cheap:false},
+{name:"White Wine - Carlo Rossi White",market:"Ketu",vendor:"Ketu Market",price:9500,old:12500,img:"https://images.unsplash.com/photo-1568213816046-0ee1c42bd559?w=800",kw:"white wine carlo rossi",cheap:false},
+{name:"Chivita Orange Juice 1L",market:"Mile 12",vendor:"Mile 12 Market",price:5500,old:7000,img:"https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=800",kw:"chivita juice orange",cheap:false},
+
+/* === NEW: STATIONERY === */
+{name:"Notebook - A4 Hard Cover (Pack of 3)",market:"Ikorodu",vendor:"Ikorodu Market",price:6500,old:8500,img:"https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=800",kw:"notebook stationery book",cheap:false},
+{name:"Pen Set - Blue / Black (Pack of 10)",market:"Ikorodu",vendor:"Ikorodu Market",price:3500,old:5000,img:"https://images.unsplash.com/photo-1585336261022-680e295ce3fe?w=800",kw:"pen set stationery blue black",cheap:false},
+{name:"School Bag - Blue",market:"Ikorodu",vendor:"Ikorodu Market",price:15000,old:20000,img:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800",kw:"school bag blue stationery",cheap:false},
+{name:"Calculator - Scientific",market:"Ikorodu",vendor:"Ikorodu Market",price:8500,old:11000,img:"https://images.unsplash.com/photo-1596496181848-3091d4878b24?w=800",kw:"calculator stationery scientific",cheap:false},
+
+/* === NEW: BIBLE === */
+{name:"Holy Bible KJV - Black Leather",market:"Ikorodu",vendor:"Ikorodu Market",price:12500,old:16000,img:"https://images.unsplash.com/photo-1544816155-12df9643f363?w=800",kw:"bible kjv black leather",cheap:false},
+{name:"Holy Bible - Brown Leather Cover",market:"Ikorodu",vendor:"Ikorodu Market",price:13500,old:17000,img:"https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=800",kw:"bible brown leather",cheap:false},
+{name:"Children Bible - Colourful",market:"Ikorodu",vendor:"Ikorodu Market",price:9500,old:12500,img:"https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800",kw:"children bible colourful kids",cheap:false},
+
+/* === NEW: MEN SHORTS (OAK) === */
+{name:"Men Shorts - Black",market:"Balogun",vendor:"Oak Clothing",price:12000,old:16000,img:"https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=800",kw:"men shorts black oak",cheap:true},
+{name:"Men Shorts - Blue",market:"Balogun",vendor:"Oak Clothing",price:12000,old:16000,img:"https://images.unsplash.com/photo-1565084888279-aca607ecce0c?w=800",kw:"men shorts blue oak",cheap:true},
+{name:"Men Shorts - Grey",market:"Balogun",vendor:"Oak Clothing",price:12000,old:16000,img:"https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800",kw:"men shorts grey oak",cheap:true},
+{name:"Men Shorts - Khaki",market:"Balogun",vendor:"Oak Clothing",price:13000,old:17000,img:"https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=800",kw:"men shorts khaki oak",cheap:true},
+
+/* === NEW: BABY ESSENTIALS === */
+{name:"Baby Diapers - Huggies (Pack)",market:"Ikorodu",vendor:"Ikorodu Market",price:14500,old:18000,img:"https://images.unsplash.com/photo-1519689680058-324335c77eba?w=800",kw:"baby diapers huggies essentials",cheap:false},
+{name:"Baby Bottle - 250ml (Blue)",market:"Ikorodu",vendor:"Ikorodu Market",price:6500,old:8500,img:"https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=800",kw:"baby bottle blue essentials",cheap:false},
+{name:"Baby Bottle - 250ml (Pink)",market:"Ikorodu",vendor:"Ikorodu Market",price:6500,old:8500,img:"https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=800",kw:"baby bottle pink essentials",cheap:false},
+{name:"Baby Wipes - Pack of 3",market:"Ikorodu",vendor:"Ikorodu Market",price:5500,old:7500,img:"https://images.unsplash.com/photo-1584839404042-8bc21d240e91?w=800",kw:"baby wipes essentials",cheap:false},
+{name:"Baby Lotion - Johnson's",market:"Ikorodu",vendor:"Ikorodu Market",price:7500,old:9500,img:"https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800",kw:"baby lotion johnsons essentials",cheap:false},
+{name:"Baby Soap - Johnson's",market:"Ikorodu",vendor:"Ikorodu Market",price:4500,old:6000,img:"https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?w=800",kw:"baby soap essentials",cheap:false},
+
+/* === OLD PRODUCTS - KEPT === */
 {name:"Polo Ralph - White",market:"Balogun",vendor:"Oak Clothing",price:18000,old:24000,img:"https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=800",kw:"polo white shirt",cheap:true},
 {name:"Polo Ralph - Black",market:"Balogun",vendor:"Oak Clothing",price:18000,old:24000,img:"https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=800",kw:"polo black shirt",cheap:true},
 {name:"Polo Ralph - Navy Blue",market:"Balogun",vendor:"Oak Clothing",price:18000,old:24000,img:"https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=800",kw:"polo navy blue shirt",cheap:true},
-{name:"Polo Ralph - Red",market:"Balogun",vendor:"Oak Clothing",price:18000,old:24000,img:"https://images.unsplash.com/photo-1621072156002-e2fccdc0b176?w=800",kw:"polo red shirt",cheap:true},
 {name:"Jeans Straight - Black",market:"Balogun",vendor:"Oak Clothing",price:15000,old:20000,img:"https://images.unsplash.com/photo-1542272604-787c3835535d?w=800",kw:"jeans black trouser",cheap:true},
-{name:"Jeans Straight - Blue",market:"Balogun",vendor:"Oak Clothing",price:15000,old:20000,img:"https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=800",kw:"jeans blue trouser",cheap:true},
 {name:"T-Shirt - White",market:"Balogun",vendor:"Oak Clothing",price:8500,old:12000,img:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800",kw:"tshirt white",cheap:true},
-{name:"T-Shirt - Black",market:"Balogun",vendor:"Oak Clothing",price:8500,old:12000,img:"https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800",kw:"tshirt black",cheap:true},
-{name:"Hoodie - Grey",market:"Balogun",vendor:"Oak Clothing",price:20000,old:28000,img:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800",kw:"hoodie grey",cheap:true},
-{name:"Gold Necklace",market:"Balogun",vendor:"Balogun Market",price:45000,old:60000,img:"https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800",kw:"gold necklace jewelry",cheap:false},
-{name:"Gold Earrings",market:"Balogun",vendor:"Balogun Market",price:28000,old:35000,img:"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800",kw:"gold earrings jewelry",cheap:false},
-{name:"Perfume 100ml",market:"Balogun",vendor:"Balogun Market",price:15000,old:22000,img:"https://images.unsplash.com/photo-1541643600914-78b084683601?w=800",kw:"perfume",cheap:false},
-
-/* === MILE 12 - REAL FOOD, NO REPEAT === */
 {name:"Rice 50kg - Bag",market:"Mile 12",vendor:"Mile 12 Market",price:85000,old:105000,img:"https://images.unsplash.com/photo-1567337710282-00832b415979?w=800",kw:"rice bag 50kg food",cheap:false},
-{name:"Rice 25kg - Bag",market:"Mile 12",vendor:"Mile 12 Market",price:44000,old:52000,img:"https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800",kw:"rice 25kg food",cheap:false},
-{name:"Beans 50kg - Bag",market:"Mile 12",vendor:"Mile 12 Market",price:95000,old:110000,img:"https://images.unsplash.com/photo-1585996483592-0b6e7d6e2b3f?w=800",kw:"beans food",cheap:false},
-{name:"Garri 50kg - Bag (Yellow Garri)",market:"Mile 12",vendor:"Mile 12 Market",price:58000,old:70000,img:"https://images.unsplash.com/photo-1626074353765-517a681e40be?w=800",kw:"garri yellow food",cheap:false},
-{name:"Semo 10kg - Dangote Semo",market:"Mile 12",vendor:"Mile 12 Market",price:18500,old:23000,img:"https://images.unsplash.com/photo-1627485937980-221c88ac04f9?w=800",kw:"semo semolina food",cheap:false},
+{name:"Semo 10kg",market:"Mile 12",vendor:"Mile 12 Market",price:18500,old:23000,img:"https://images.unsplash.com/photo-1627485937980-221c88ac04f9?w=800",kw:"semo food",cheap:false},
 {name:"Wheat Flour 10kg",market:"Mile 12",vendor:"Mile 12 Market",price:21000,old:26000,img:"https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=800",kw:"wheat flour food",cheap:false},
-{name:"Groundnut Oil 5L",market:"Mile 12",vendor:"Mile 12 Market",price:28000,old:34000,img:"https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=800",kw:"groundnut oil food",cheap:false},
-{name:"Palm Oil 5L",market:"Mile 12",vendor:"Mile 12 Market",price:24000,old:30000,img:"https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=800",kw:"palm oil red food",cheap:false},
-{name:"Yam Tuber - Big",market:"Mile 12",vendor:"Mile 12 Market",price:7500,old:10000,img:"https://images.unsplash.com/photo-1596097635121-14b63b7a0c19?w=800",kw:"yam tuber food",cheap:false},
-{name:"Stockfish - Dry Fish",market:"Mile 12",vendor:"Mile 12 Market",price:32000,old:40000,img:"https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?w=800",kw:"stockfish dry fish food",cheap:false},
-
-/* === IDUMOTA === */
-{name:"Wall Art Frame",market:"Idumota",vendor:"Idumota Market",price:18000,old:25000,img:"https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=800",kw:"wall art frame decor",cheap:false},
-{name:"LED Wall Light",market:"Idumota",vendor:"Idumota Market",price:25000,old:32000,img:"https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=800",kw:"led wall light decor",cheap:false},
-{name:"Flower Vase Set",market:"Idumota",vendor:"Idumota Market",price:15000,old:20000,img:"https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=800",kw:"flower vase decor",cheap:false},
-{name:"Curtain Set - Brown",market:"Idumota",vendor:"Idumota Market",price:32000,old:42000,img:"https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800",kw:"curtain brown decor",cheap:false},
-
-/* === TRADE FAIR === */
-{name:"Rolex Style Watch - Gold",market:"Trade Fair",vendor:"Trade Fair Market",price:85000,old:110000,img:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800",kw:"rolex gold watch",cheap:false},
-{name:"Casio Watch - Black",market:"Trade Fair",vendor:"Trade Fair Market",price:25000,old:32000,img:"https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=800",kw:"casio black watch",cheap:false},
-{name:"Smart Watch - Black",market:"Trade Fair",vendor:"Trade Fair Market",price:35000,old:45000,img:"https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=800",kw:"smart watch black",cheap:false},
-{name:"AirPods Pro - White",market:"Trade Fair",vendor:"Trade Fair Market",price:28000,old:38000,img:"https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800",kw:"airpod white earpiece",cheap:false},
-
-/* === COMPUTER VILLAGE === */
-{name:"iPhone 13 - Blue",market:"Computer Village",vendor:"Computer Village",price:650000,old:720000,img:"https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=800",kw:"iphone 13 blue phone",cheap:false},
-{name:"iPhone 12 - Black",market:"Computer Village",vendor:"Computer Village",price:480000,old:540000,img:"https://images.unsplash.com/photo-1591337676887-a217a6970a8a?w=800",kw:"iphone 12 black phone",cheap:false},
-{name:"Samsung A54 - Black",market:"Computer Village",vendor:"Computer Village",price:380000,old:430000,img:"https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=800",kw:"samsung a54 black phone",cheap:false},
-{name:"HP Laptop 15 - Silver",market:"Computer Village",vendor:"Computer Village",price:450000,old:520000,img:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800",kw:"hp laptop silver",cheap:false},
-{name:"Power Bank 20000mAh - Black",market:"Computer Village",vendor:"Computer Village",price:22000,old:30000,img:"https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=800",kw:"power bank black charger",cheap:false},
-
-/* === YABA === */
-{name:"Sneakers - Red Nike Style",market:"Yaba",vendor:"Yaba Market",price:32000,old:42000,img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800",kw:"sneakers red shoes",cheap:false},
-{name:"Sneakers - White",market:"Yaba",vendor:"Yaba Market",price:30000,old:40000,img:"https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800",kw:"sneakers white shoes",cheap:false},
-{name:"Women Handbag - Brown",market:"Yaba",vendor:"Yaba Market",price:25000,old:32000,img:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=800",kw:"handbag brown women bag",cheap:false},
-{name:"Backpack - Black",market:"Yaba",vendor:"Yaba Market",price:18000,old:25000,img:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800",kw:"backpack black bag",cheap:false},
-
-/* === OSHODI === */
-{name:"Senator Wear - White & Gold",market:"Oshodi",vendor:"Oak Clothing",price:30000,old:40000,img:"https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=800",kw:"senator white native",cheap:true},
-{name:"Men Loafers - Brown",market:"Oshodi",vendor:"Oshodi Market",price:28000,old:35000,img:"https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=800",kw:"loafers brown shoes men",cheap:false},
-{name:"Leather Belt - Black",market:"Oshodi",vendor:"Oshodi Market",price:8000,old:12000,img:"https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=800",kw:"belt black leather",cheap:false},
-
-/* === ALABA - DIFFERENT TV SIZES, DIFFERENT PRODUCTS === */
-{name:'TV 32" - Hisense Smart TV',market:"Alaba",vendor:"Alaba Market",price:165000,old:195000,img:"https://images.unsplash.com/photo-1593784991095-a205069470b6?w=800",kw:"tv 32 inch hisense",cheap:false},
-{name:'TV 43" - LG Smart TV',market:"Alaba",vendor:"Alaba Market",price:285000,old:340000,img:"https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=800",kw:"tv 43 inch lg",cheap:false},
-{name:'TV 55" - Samsung QLED TV',market:"Alaba",vendor:"Alaba Market",price:485000,old:560000,img:"https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=800",kw:"tv 55 inch samsung",cheap:false},
-{name:'TV 65" - LG 4K TV',market:"Alaba",vendor:"Alaba Market",price:720000,old:850000,img:"https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=800",kw:"tv 65 inch lg 4k",cheap:false},
-{name:"Standing Fan 18\" - Ox",market:"Alaba",vendor:"Alaba Market",price:52000,old:65000,img:"https://images.unsplash.com/photo-1565151443833-29bfb3e3e3b5?w=800",kw:"standing fan ox",cheap:false},
-{name:"Blender 2-in-1 - Silver",market:"Alaba",vendor:"Alaba Market",price:38000,old:48000,img:"https://images.unsplash.com/photo-1570222094114-d054a817e56b?w=800",kw:"blender silver kitchen",cheap:false},
-{name:"Double Door Fridge - Silver",market:"Alaba",vendor:"Alaba Market",price:420000,old:500000,img:"https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=800",kw:"fridge silver double door",cheap:false},
-{name:"Washing Machine - Front Load",market:"Alaba",vendor:"Alaba Market",price:310000,old:380000,img:"https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=800",kw:"washing machine",cheap:false},
-
-/* === LADIPO === */
-{name:"Car Battery 12V",market:"Ladipo",vendor:"Ladipo Market",price:95000,old:120000,img:"https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800",kw:"car battery",cheap:false},
-{name:"Brake Pad Set",market:"Ladipo",vendor:"Ladipo Market",price:25000,old:35000,img:"https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800",kw:"brake pad car",cheap:false},
-{name:"Headlamp - Toyota Corolla",market:"Ladipo",vendor:"Ladipo Market",price:45000,old:60000,img:"https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=800",kw:"headlamp toyota car",cheap:false},
-{name:"Engine Oil 4L - Mobil",market:"Ladipo",vendor:"Ladipo Market",price:28000,old:36000,img:"https://images.unsplash.com/photo-1632731355218-3a1e2d5e5b1a?w=800",kw:"engine oil mobil car",cheap:false},
-
-/* === KETU - REAL ONIONS, NO REPEAT, VARIETY === */
-{name:"Onions - Big Bag (Real Onions)",market:"Ketu",vendor:"Ketu Market",price:35000,old:45000,img:"https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=800",kw:"onions bag real onions",cheap:false},
-{name:"Tomatoes - Basket (Fresh Red Tomatoes)",market:"Ketu",vendor:"Ketu Market",price:18000,old:25000,img:"https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=800",kw:"tomatoes basket red",cheap:false},
-{name:"Pepper - Basket (Red Chilli Pepper)",market:"Ketu",vendor:"Ketu Market",price:12000,old:18000,img:"https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=800",kw:"pepper chilli red",cheap:false},
-{name:"Frozen Chicken 10kg",market:"Ketu",vendor:"Ketu Market",price:42000,old:52000,img:"https://images.unsplash.com/photo-1587593810167-a48ea63d5c3c?w=800",kw:"chicken frozen food",cheap:false},
-{name:"Fresh Fish - Croaker 5kg",market:"Ketu",vendor:"Ketu Market",price:28000,old:35000,img:"https://images.unsplash.com/photo-1510130387422-82bedc4348a4?w=800",kw:"fish croaker fresh",cheap:false},
-{name:"Plantain Bunch",market:"Ketu",vendor:"Ketu Market",price:9000,old:12000,img:"https://images.unsplash.com/photo-1601379760883-1bb497c558f0?w=800",kw:"plantain bunch food",cheap:false},
-
-/* === IKORODU - REAL ANKARA FABRIC === */
-{name:"Ankara Fabric 6 Yards - Blue / Yellow Pattern",market:"Ikorodu",vendor:"Ikorodu Market",price:18000,old:25000,img:"https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?w=800",kw:"ankara fabric blue yellow",cheap:false},
-{name:"Ankara Fabric 6 Yards - Red / Black Pattern",market:"Ikorodu",vendor:"Ikorodu Market",price:18000,old:25000,img:"https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800",kw:"ankara fabric red black",cheap:false},
-{name:"Ankara Fabric 6 Yards - Green Pattern",market:"Ikorodu",vendor:"Ikorodu Market",price:17000,old:23000,img:"https://images.unsplash.com/photo-1590736969955-71cc94901144?w=800",kw:"ankara fabric green",cheap:false},
-{name:"Plastic Chairs Set - 4 Chairs",market:"Ikorodu",vendor:"Ikorodu Market",price:45000,old:60000,img:"https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=800",kw:"plastic chairs set",cheap:false},
-{name:"Cooking Pot Set - Aluminium",market:"Ikorodu",vendor:"Ikorodu Market",price:35000,old:45000,img:"https://images.unsplash.com/photo-1584990347449-a2d4c2c2e1a5?w=800",kw:"cooking pot aluminium",cheap:false},
+{name:"Onions - Big Bag",market:"Ketu",vendor:"Ketu Market",price:35000,old:45000,img:"https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=800",kw:"onions bag",cheap:false},
+{name:"Tomatoes - Basket",market:"Ketu",vendor:"Ketu Market",price:18000,old:25000,img:"https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=800",kw:"tomatoes basket",cheap:false},
+{name:'TV 32" Hisense Smart',market:"Alaba",vendor:"Alaba Market",price:165000,old:195000,img:"https://images.unsplash.com/photo-1593784991095-a205069470b6?w=800",kw:"tv 32 inch",cheap:false},
+{name:'TV 43" LG Smart',market:"Alaba",vendor:"Alaba Market",price:285000,old:340000,img:"https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=800",kw:"tv 43 inch lg",cheap:false},
+{name:'TV 55" Samsung QLED',market:"Alaba",vendor:"Alaba Market",price:485000,old:560000,img:"https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=800",kw:"tv 55 inch samsung",cheap:false},
+{name:"Ankara Fabric 6 Yards - Blue / Yellow",market:"Ikorodu",vendor:"Ikorodu Market",price:18000,old:25000,img:"https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?w=800",kw:"ankara fabric blue yellow",cheap:false},
 ];
 function waLink(p){
   let wa = p.vendor==="Oak Clothing" ? "2348104966033" : "2349063586563";
   let txt = p.vendor==="Oak Clothing" ? `Hello Oak, I want ${p.name} from PriceOja` : `Hello PriceOja I want ${p.name} for N${p.price}`;
   return `https://wa.me/${wa}?text=${encodeURIComponent(txt)}`;
 }
-function openBox(p){
+function openBox(i){
+  let p=products[i];
   document.getElementById('lbImg').src=p.img;
   document.getElementById('lbName').innerText=p.name+" — "+p.market;
   document.getElementById('lbPrice').innerText="N"+p.price.toLocaleString()+" • Mention PRICEOJA";
@@ -178,8 +172,10 @@ function render(){
   let list=products.filter(p=>(cur==='all'||p.market===cur)&&(!q||(p.name+" "+p.market+" "+p.vendor+" "+p.kw).toLowerCase().includes(q)));
   document.getElementById('secTitle').innerText=`🔥 ${cur==='all'?'All Products':cur+' Market'} — ${list.length} products`;
   document.getElementById('noResult').style.display=list.length===0?'block':'none';
-  document.getElementById('grid').innerHTML=list.map((p,i)=>`
-  <div class="card"><img src="${p.img}" onclick='openBox(products[${products.indexOf(p)}])' alt="${p.name}"><div class="b"><h3>${p.name}</h3><div class="pr">N${p.price.toLocaleString()} <span class="old">N${p.old.toLocaleString()}</span></div><div class="mk">${p.market} • ${p.vendor}</div><span class="badge ${p.cheap?'cheap':'ver'}">${p.cheap?'✓✓ CHEAPEST':'✓ PRICE CHECKED'}</span><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>${p.vendor} ✓</b><br>Mention <b>PRICEOJA</b><br><a class="wa" href="${waLink(p)}">WhatsApp ${p.vendor==="Oak Clothing"?"Oak":"PriceOja"}</a><a class="call" href="tel:${p.vendor==="Oak Clothing"?"+2348104966033":"+2349063586563"}">Call Vendor</a></div></details></div></div>`).join('');
+  document.getElementById('grid').innerHTML=list.map(p=>{
+    let idx=products.indexOf(p);
+    return `<div class="card"><img src="${p.img}" onclick='openBox(${idx})' alt="${p.name}"><div class="b"><h3>${p.name}</h3><div class="pr">N${p.price.toLocaleString()} <span class="old">N${p.old.toLocaleString()}</span></div><div class="mk">${p.market} • ${p.vendor}</div><span class="badge ${p.cheap?'cheap':'ver'}">${p.cheap?'✓✓ CHEAPEST':'✓ PRICE CHECKED'}</span><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>${p.vendor} ✓</b><br>Mention <b>PRICEOJA</b><br><a class="wa" href="${waLink(p)}">WhatsApp ${p.vendor==="Oak Clothing"?"Oak":"PriceOja"}</a><a class="call" href="tel:${p.vendor==="Oak Clothing"?"+2348104966033":"+2349063586563"}">Call Vendor</a></div></details></div></div>`;
+  }).join('');
 }
 function setM(m,btn){cur=m;document.querySelectorAll('#marketBtns button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');render();}
 function clearAll(){document.getElementById('searchInput').value='';cur='all';document.querySelectorAll('#marketBtns button').forEach(b=>b.classList.remove('active'));document.querySelectorAll('#marketBtns button')[0].classList.add('active');render();}
