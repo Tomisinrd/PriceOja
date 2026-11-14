@@ -41,7 +41,6 @@ summary{background:#FF8A00;color:#fff;padding:10px;border-radius:8px;text-align:
 #lightbox h3{color:#fff;margin:12px 0 4px;text-align:center}
 #lightbox p{color:#FF8A00;font-weight:700;margin:0}
 #lightbox button{background:#fff;border:0;padding:10px 18px;border-radius:20px;font-weight:700;margin-top:14px;cursor:pointer}
-footer{text-align:center;padding:18px;color:#888;font-size:12px;background:#fff}
 @media(min-width:700px){.g{grid-template-columns:repeat(4,1fr)}.mkt{grid-template-columns:repeat(6,1fr)}}
 @media(min-width:1100px){.g{grid-template-columns:repeat(5,1fr)}}
 </style>
@@ -73,7 +72,44 @@ footer{text-align:center;padding:18px;color:#888;font-size:12px;background:#fff}
 <div class="g" id="grid"></div>
 <div id="noResult" style="display:none;text-align:center;background:#fff;padding:20px;border-radius:10px"><h3>No product found 😔</h3><button onclick="clearAll()" style="background:#0A7A42;color:#fff;border:0;padding:10px 18px;border-radius:20px;font-weight:700">Show All</button></div>
 </div>
-<footer><b>PriceOja — Real Markets. Real Prices. Real Vendors.</b><br>Founder: Fesojaiye A. Tomisin • 09063586563 • tomisinrd@gmail.com</footer>
+<!-- PRICEOJA FOOTER -->
+<footer style="background:#111; color:#fff; font-family:Arial; margin-top:40px; text-align:center;">
+<div style="padding:15px; border-bottom:1px solid #333;">
+<a href="#top" style="color:#fff; text-decoration:none; font-weight:bold;">⬆ BACK TO TOP</a>
+</div>
+<div style="padding:25px 15px;">
+<p style="margin:0 0 15px 0; font-size:14px; line-height:28px;">
+<a href="https://wa.me/2348129747802" style="color:#fff; text-decoration:none;">CHAT WITH US</a> |
+<a href="https://wa.me/2348129747802" style="color:#fff; text-decoration:none;">HELP CENTER</a> |
+<a href="mailto:priceoja.ng@gmail.com" style="color:#fff; text-decoration:none;">CONTACT US</a>
+</p>
+<p style="margin:0 0 15px 0; font-size:14px; line-height:28px;">
+<a href="#" style="color:#ccc; text-decoration:none;">TERMS & CONDITIONS</a> |
+<a href="#" style="color:#ccc; text-decoration:none;">PRIVACY NOTICE</a> |
+<a href="#" style="color:#ccc; text-decoration:none;">COOKIE NOTICE</a>
+</p>
+<p style="margin:0; font-size:14px; line-height:28px;">
+<a href="https://wa.me/2348129747802?text=Hello%20PriceOja%2C%20I%20want%20to%20become%20a%20vendor" style="color:#ccc; text-decoration:none;">BECOME A VENDOR</a> |
+<a href="https://wa.me/2348129747802?text=Hello%20PriceOja%2C%20I%20want%20to%20report%20a%20price" style="color:#ccc; text-decoration:none;">REPORT A PRICE</a> |
+<a href="#" style="color:#ccc; text-decoration:none;">ALL MARKETS</a>
+</p>
+<p style="margin:15px 0 0 0; font-size:14px; line-height:28px;">
+<a href="#" style="color:#ccc; text-decoration:none;">DISPUTE RESOLUTION</a> |
+<a href="#" style="color:#ccc; text-decoration:none;">RETURNS & REFUND</a>
+</p>
+</div>
+<div style="background:#1a1a1a; padding:25px 15px; border-top:1px solid #333;">
+<p style="font-weight:bold; font-size:16px; margin:0 0 12px 0;">CONTACT US</p>
+<p style="margin:6px 0; font-size:14px; color:#ddd;">Business Name: PriceOja</p>
+<p style="margin:6px 0; font-size:14px; color:#ddd;">Address: Lagos, Nigeria</p>
+<p style="margin:6px 0; font-size:14px; color:#ddd;">Email: <a href="mailto:priceoja.ng@gmail.com" style="color:#4CAF50; text-decoration:none; font-weight:bold;">priceoja.ng@gmail.com</a></p>
+<p style="margin:12px 0 0 0;"><a href="https://wa.me/2348129747802" style="background:#25D366; color:#fff; padding:10px 20px; border-radius:25px; text-decoration:none; font-weight:bold; font-size:14px; display:inline-block;">💬 Chat on WhatsApp Business</a></p>
+<p style="margin:12px 0 0 0; font-size:14px; color:#ddd;">WhatsApp Business: 0812 974 7802</p>
+</div>
+<div style="padding:15px; font-size:12px; color:#999; border-top:1px solid #333;">
+PriceOja — Real Markets. Real Prices. Real Vendors.<br>© 2026 PriceOja. All Rights Reserved.
+</div>
+</footer>
 <div id="lightbox" onclick="closeBox()"><img id="lbImg" src=""><h3 id="lbName"></h3><p id="lbPrice"></p><button>✕ Close</button></div>
 <script>
 let cur='all';
@@ -119,8 +155,7 @@ const products=[
 {name:"Men Shorts - Black",market:"Balogun",vendor:"Oak Clothing",price:12000,old:16000,img:"https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=800",kw:"men shorts black oak",cheap:true},
 {name:"Men Shorts - Blue",market:"Balogun",vendor:"Oak Clothing",price:12000,old:16000,img:"https://images.unsplash.com/photo-1565084888279-aca607ecce0c?w=800",kw:"men shorts blue oak",cheap:true},
 {name:"Men Shorts - Grey",market:"Balogun",vendor:"Oak Clothing",price:12000,old:16000,img:"https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800",kw:"men shorts grey oak",cheap:true},
-{name:"Men Shorts - Khaki",market:"Balogun",vendor:"Oak Clothing",price:13000,old:17000,img:"https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=800",kw:"men shorts khaki oak",cheap:true},
-{name:"Baby Diapers - Huggies (Pack)",market:"Ikorodu",vendor:"Ikorodu Market",price:14500,old:18000,img:"https://images.unsplash.com/photo-1519689680058-324335c77eba?w=800",kw:"baby diapers huggies essentials",cheap:false},
+{name:"Men Shorts - Khaki",market:"Balogun",vendor:"Oak Clothing",price:13000,old:17000,img:"https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=800",kw:"men shorts khaki oak",cheap:true},{name:"Baby Diapers - Huggies (Pack)",market:"Ikorodu",vendor:"Ikorodu Market",price:14500,old:18000,img:"https://images.unsplash.com/photo-1519689680058-324335c77eba?w=800",kw:"baby diapers huggies essentials",cheap:false},
 {name:"Baby Bottle - 250ml (Blue)",market:"Ikorodu",vendor:"Ikorodu Market",price:6500,old:8500,img:"https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=800",kw:"baby bottle blue essentials",cheap:false},
 {name:"Baby Bottle - 250ml (Pink)",market:"Ikorodu",vendor:"Ikorodu Market",price:6500,old:8500,img:"https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=800",kw:"baby bottle pink essentials",cheap:false},{name:"Baby Wipes - Pack of 3",market:"Ikorodu",vendor:"Ikorodu Market",price:5500,old:7500,img:"https://images.unsplash.com/photo-1584839404042-8bc21d240e91?w=800",kw:"baby wipes essentials",cheap:false},
 {name:"Baby Lotion - Johnson's",market:"Ikorodu",vendor:"Ikorodu Market",price:7500,old:9500,img:"https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800",kw:"baby lotion johnsons essentials",cheap:false},
@@ -168,9 +203,8 @@ const products=[
 {name:"iPad 10th Gen 10.9\" WiFi 64GB - Blue",market:"Computer Village",vendor:"Elites Gadget",price:520000,old:610000,img:"https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=800",kw:"ipad apple tablet elites gadget",cheap:false,sponsored:true},
 {name:"Power Bank 20000mAh Fast Charging",market:"Computer Village",vendor:"Elites Gadget",price:25000,old:32000,img:"https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=800",kw:"power bank charger elites gadget",cheap:false,sponsored:true},
 {name:"Wireless Headset - Bluetooth Noise Cancelling Black",market:"Computer Village",vendor:"Elites Gadget",price:35000,old:45000,img:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800",kw:"headset headphone bluetooth wireless elites gadget",cheap:false,sponsored:true},
-];
-function waLink(p){
-  let wa = "2349063586563";
+];function waLink(p){
+  let wa = "2348129747802";
   if(p.vendor==="Oak Clothing") wa="2348104966033";
   let txt = p.vendor==="Oak Clothing" ? `Hello Oak, I want ${p.name} from PriceOja` : p.vendor==="Elites Gadget" ? `Hello Elites Gadget, I want ${p.name} from PriceOja - Lagos` : `Hello PriceOja I want ${p.name} for N${p.price}`;
   return `https://wa.me/${wa}?text=${encodeURIComponent(txt)}`;
@@ -195,7 +229,7 @@ function render(){
   document.getElementById('noResult').style.display=list.length===0?'block':'none';
   document.getElementById('grid').innerHTML=list.map(p=>{
     let idx=products.indexOf(p);
-    return `<div class="card ${p.sponsored?'sponsored':''}"><img src="${p.img}" onclick='openBox(${idx})' alt="${p.name}"><div class="b">${p.sponsored?'<span class="spon-badge">⭐ SPONSORED • VERIFIED PAID VENDOR</span><br>':''}<h3>${p.name}</h3><div class="pr">N${p.price.toLocaleString()} <span class="old">N${p.old.toLocaleString()}</span></div><div class="mk">${p.market} • ${p.vendor} - Lagos</div><span class="badge ${p.cheap?'cheap':'ver'}">${p.cheap?'✓✓ CHEAPEST':'✓ PRICE CHECKED'}</span><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>${p.vendor} ✓</b><br>Mention <b>PRICEOJA</b><br><a class="wa" href="${waLink(p)}">WhatsApp ${p.vendor}</a><a class="call" href="tel:${p.vendor==="Oak Clothing"?"+2348104966033":"+2349063586563"}">Call Vendor</a></div></details></div></div>`;
+    return `<div class="card ${p.sponsored?'sponsored':''}"><img src="${p.img}" onclick='openBox(${idx})' alt="${p.name}"><div class="b">${p.sponsored?'<span class="spon-badge">⭐ SPONSORED • VERIFIED PAID VENDOR</span><br>':''}<h3>${p.name}</h3><div class="pr">N${p.price.toLocaleString()} <span class="old">N${p.old.toLocaleString()}</span></div><div class="mk">${p.market} • ${p.vendor} - Lagos</div><span class="badge ${p.cheap?'cheap':'ver'}">${p.cheap?'✓✓ CHEAPEST':'✓ PRICE CHECKED'}</span><details><summary>Where Cheapest? 👇</summary><div class="cheapbox"><b>${p.vendor} ✓</b><br>Mention <b>PRICEOJA</b><br><a class="wa" href="${waLink(p)}">WhatsApp ${p.vendor}</a><a class="call" href="tel:${p.vendor==="Oak Clothing"?"+2348104966033":"+2348129747802"}">Call Vendor</a></div></details></div></div>`;
   }).join('');
 }
 function setM(m,btn){cur=m;document.querySelectorAll('#marketBtns button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');render();}
